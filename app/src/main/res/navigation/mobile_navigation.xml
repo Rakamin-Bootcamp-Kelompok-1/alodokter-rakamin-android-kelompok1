@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.alodokter_rakamin_android_kelompok1.view.home.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/home_fragment" />
+
+    <fragment
+        android:id="@+id/navigation_consult"
+        android:name="com.example.alodokter_rakamin_android_kelompok1.view.booking.BookingFragment"
+        android:label="@string/consult"
+        tools:layout="@layout/booking_fragment" />
+
+    <fragment
+        android:id="@+id/navigation_history"
+        android:name="com.example.alodokter_rakamin_android_kelompok1.view.history.HistoryBookingFragment"
+        android:label="@string/history"
+        tools:layout="@layout/history_booking_fragment" />
+</navigation>

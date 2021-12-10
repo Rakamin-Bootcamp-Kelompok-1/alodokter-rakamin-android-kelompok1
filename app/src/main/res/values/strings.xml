@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">alodokter-rakamin-android-kelompok1</string>
+    <string name="home">Home</string>
+    <string name="consult">Konsultasi</string>
+    <string name="history">History Booking</string>
+    <string name="title_activity_reset_password">ResetPasswordActivity</string>
+    <string name="back">Back</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="example">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam orci ipsum, porttitor in euismod nec.</string>
+    <string name="email">Email</string>
+    <string name="submit">Submit</string>
+    <string name="resend_email">Resend Email</string>
+    <string name="resend_email_timer">Resend Verification Email - %d sec</string>
+    <string name="sign_up"><u>Sign Up</u></string>
+    <string name="not_email_address">This is\'nt email address</string>
 </resources>
