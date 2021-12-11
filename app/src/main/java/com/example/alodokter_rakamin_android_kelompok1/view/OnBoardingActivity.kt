@@ -11,9 +11,9 @@ import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.example.alodokter_rakamin_android_kelompok1.R
 import com.example.alodokter_rakamin_android_kelompok1.config.SharedPreferences
-import com.example.alodokter_rakamin_android_kelompok1.config.hide
 import com.example.alodokter_rakamin_android_kelompok1.config.show
 import com.example.alodokter_rakamin_android_kelompok1.adapter.ViewPagerAdapter
+import com.example.alodokter_rakamin_android_kelompok1.view.login.LoginActivity
 
 class OnBoardingActivity : AppCompatActivity() {
 

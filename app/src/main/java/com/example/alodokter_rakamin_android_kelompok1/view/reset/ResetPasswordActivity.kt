@@ -11,7 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
 import com.example.alodokter_rakamin_android_kelompok1.R
-import com.example.alodokter_rakamin_android_kelompok1.view.LoginActivity
+import com.example.alodokter_rakamin_android_kelompok1.view.login.LoginActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 

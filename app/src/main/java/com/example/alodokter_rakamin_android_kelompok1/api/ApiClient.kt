@@ -1,16 +1,14 @@
 package com.example.alodokter_rakamin_android_kelompok1.api
 
-import com.example.alodokter_rakamin_android_kelompok1.config.Config
-import okhttp3.OkHttpClient
+import com.example.alodokter_rakamin_android_kelompok1.BuildConfig
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class ApiClient {
 
-
-    private fun getApi(): ApiService {
+    fun getApi(): ApiService {
         val retrofit = Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         return retrofit.create(ApiService::class.java)
