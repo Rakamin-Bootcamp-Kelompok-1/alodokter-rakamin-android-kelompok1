@@ -10,10 +10,6 @@ import com.example.alodokter_rakamin_android_kelompok1.R
 
 class HistoryBookingFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = HistoryBookingFragment()
-    }
-
     private lateinit var viewModel: HistoryBookingViewModel
 
     override fun onCreateView(
@@ -25,7 +21,7 @@ class HistoryBookingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(HistoryBookingViewModel::class.java)
+        viewModel = ViewModelProvider(this)[HistoryBookingViewModel::class.java]
 
     }
 

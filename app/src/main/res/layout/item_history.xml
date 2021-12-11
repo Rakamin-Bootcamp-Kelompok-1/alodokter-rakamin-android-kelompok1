@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/task_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="@dimen/spacing_8"
+    android:layout_margin="@dimen/spacing_16">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/spacing_8">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            android:background="@drawable/ic_img_rounded"
+            android:src="@drawable/ic_logo"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/name_doctor"
+                android:layout_width="wrap_content"
+                android:lines="1"
+                android:ellipsize="end"
+                android:layout_height="wrap_content"
+                android:text="Dr. Shaun Murphy"
+                android:textColor="@color/black"
+                android:fontFamily="@font/nunito_bold"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/spacing_5"
+                android:layout_marginStart="@dimen/spacing_8"
+                android:layout_marginEnd="@dimen/spacing_8"
+                android:layout_marginBottom="1dp"
+                android:textSize="@dimen/font_20"/>
+            <TextView
+                android:id="@+id/job_location"
+                android:layout_width="wrap_content"
+                android:lines="1"
+                android:ellipsize="end"
+                android:layout_height="wrap_content"
+                android:text="Surgeon Doctor - San Jose Bt "
+                android:fontFamily="@font/nunito_bold"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/spacing_8"
+                android:textSize="@dimen/font_12"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_8"
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="@dimen/spacing_15"
+                    android:layout_height="@dimen/spacing_15"
+                    android:src="@drawable/ic_action_star"/>
+                <TextView
+                    android:id="@+id/rating_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/font_12"
+                    android:fontFamily="@font/nunito_bold"
+                    android:textStyle="bold"
+                    android:layout_marginStart="2dp"
+                    android:text="4.0"/>
+                <TextView
+                    android:id="@+id/date_patient"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/font_12"
+                    android:fontFamily="@font/nunito_bold"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/spacing_5"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:text="5 Desember 2021 | Russi Hehehehehehehehee"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
