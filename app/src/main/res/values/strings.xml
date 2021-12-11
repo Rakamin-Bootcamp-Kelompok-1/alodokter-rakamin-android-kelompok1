@@ -12,5 +12,5 @@
     <string name="resend_email">Resend Email</string>
     <string name="resend_email_timer">Resend Verification Email - %d sec</string>
     <string name="sign_up"><u>Sign Up</u></string>
-    <string name="not_email_address">This is\'nt email address</string>
+    <string name="not_email_address">This isn\'t email address</string>
 </resources>
