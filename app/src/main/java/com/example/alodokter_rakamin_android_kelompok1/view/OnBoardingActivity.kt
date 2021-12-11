@@ -13,7 +13,6 @@ import com.example.alodokter_rakamin_android_kelompok1.R
 import com.example.alodokter_rakamin_android_kelompok1.config.SharedPreferences
 import com.example.alodokter_rakamin_android_kelompok1.config.show
 import com.example.alodokter_rakamin_android_kelompok1.adapter.ViewPagerAdapter
-import com.example.alodokter_rakamin_android_kelompok1.view.login.LoginActivity
 
 class OnBoardingActivity : AppCompatActivity() {
 
@@ -103,8 +102,8 @@ class OnBoardingActivity : AppCompatActivity() {
     }
 
     private fun navigateToLogin() {
-        SharedPreferences(this).setFirstTimeLaunch(false)
-        startActivity(Intent(this, LoginActivity::class.java))
+        SharedPreferences(this).setFirstTimeLaunch(true)
+        startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
 

@@ -10,10 +10,6 @@ import com.example.alodokter_rakamin_android_kelompok1.R
 
 class HistoryBookingFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = HistoryBookingFragment()
-    }
-
     private lateinit var viewModel: HistoryBookingViewModel
 
     override fun onCreateView(
