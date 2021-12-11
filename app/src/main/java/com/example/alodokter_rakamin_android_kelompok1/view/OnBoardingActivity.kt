@@ -19,9 +19,9 @@ class OnBoardingActivity : AppCompatActivity() {
 
     private lateinit var viewPagerAdapter: PagerAdapter
     private var dots: Array<TextView?>? = null
-    private val dotsLayout: LinearLayout = findViewById(R.id.dotsLayout)
-    val nextBtn: Button = findViewById(R.id.btnOnBoarding)
-    private val onBoardSlider: ViewPager = findViewById(R.id.onBoardSlider)
+    private lateinit var dotsLayout: LinearLayout
+    private lateinit var nextBtn: Button
+    private lateinit var onBoardSlider: ViewPager
     private lateinit var listArray: Array<Int>
     private val sliderChangeListener = object : ViewPager.OnPageChangeListener {
 
@@ -29,7 +29,7 @@ class OnBoardingActivity : AppCompatActivity() {
             addBottomDots(position)
 
             if (position == listArray.size.minus(1)) {
-                nextBtn.hide()
+                nextBtn.show()
             } else {
                 nextBtn.show()
             }
@@ -47,6 +47,9 @@ class OnBoardingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_onboard)
+        dotsLayout = findViewById(R.id.dotsLayout)
+        nextBtn = findViewById(R.id.btnOnBoarding)
+        onBoardSlider = findViewById(R.id.onBoardSlider)
 
         init()
         dataSet()
