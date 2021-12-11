@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="label_edit_profile">16dp</dimen>
+    <dimen name="spacing_17">17dp</dimen>
+    <dimen name="spacing_35">35dp</dimen>
+    <dimen name="spacing_45">45dp</dimen>
+    <dimen name="spacing_89">89dp</dimen>
+    <dimen name="spacing_145">145dp</dimen>
+    <dimen name="spacing_325">325dp</dimen>
+</resources>

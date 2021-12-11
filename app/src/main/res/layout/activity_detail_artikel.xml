@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/artikel_medikuy"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/Toolbar"/>
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/ibBack"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="24dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_pointleft"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.Toolbar>
+        <TextView
+            android:id="@+id/tvJudulArtikel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/judul_artikel1"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textAlignment="center"
+            android:paddingHorizontal="18dp"
+            android:paddingTop="28dp"
+            android:paddingBottom="14dp"
+            app:layout_constraintTop_toBottomOf="@id/Toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        <ImageView
+            android:id="@+id/ivArtikel"
+            android:layout_width="wrap_content"
+            android:layout_height="210dp"
+            android:src="@drawable/ic_gambar_artikel1"
+            android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvJudulArtikel"
+            android:paddingHorizontal="18dp"/>
+        <TextView
+            android:id="@+id/tvIsiArtikel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivArtikel"
+            android:text="@string/isi_artikel1"
+            android:paddingHorizontal="18dp"/>
+
+        <ImageButton
+            android:id="@+id/ibFacebookIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_facebook_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvIsiArtikel"
+            android:background="@color/white"
+            android:paddingStart="18dp"/>
+        <ImageButton
+            android:id="@+id/ibTwitterIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_twitter_icon"
+            app:layout_constraintStart_toEndOf="@id/ibFacebookIcon"
+            app:layout_constraintTop_toBottomOf="@id/tvIsiArtikel"
+            android:background="@color/white"
+            android:paddingStart="18dp"/>
+        <ImageButton
+            android:id="@+id/ibLinkedInIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_linkedin_icon"
+            app:layout_constraintStart_toEndOf="@id/ibTwitterIcon"
+            app:layout_constraintTop_toBottomOf="@id/tvIsiArtikel"
+            android:background="@color/white"
+            android:paddingStart="18dp"/>
+        <ImageButton
+            android:id="@+id/ibLinkIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_link_icon"
+            app:layout_constraintStart_toEndOf="@id/ibLinkedInIcon"
+            app:layout_constraintTop_toBottomOf="@id/tvIsiArtikel"
+            android:background="@color/white"
+            android:paddingStart="18dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
