@@ -18,7 +18,7 @@ import retrofit2.Response
 import java.io.IOException
 import javax.net.ssl.SSLEngineResult
 
-class UserRepository {
+class AuthRepository {
 
     fun getRegister(registerEntity: RegisterEntity): MutableLiveData<RegisterEntity> {
         val json = JSONObject()

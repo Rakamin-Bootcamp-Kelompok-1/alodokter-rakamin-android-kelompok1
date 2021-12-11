@@ -16,10 +16,10 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
-        android:id="@+id/btnOnBoarding"
+        android:id="@+id/btnGetStarted"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Next"
+        android:text="Get Strated"
         android:background="@drawable/ic_btn_rounded"
         android:layout_marginStart="@dimen/spacing_30"
         android:layout_marginEnd="@dimen/spacing_30"
@@ -27,6 +27,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guideline"/>
 
+
+    <Button
+        android:id="@+id/btnOnBoarding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:background="@drawable/ic_btn_rounded"
+        android:layout_marginStart="@dimen/spacing_30"
+        android:layout_marginTop="@dimen/spacing_20"
+        android:layout_marginEnd="@dimen/spacing_30"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnGetStarted"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

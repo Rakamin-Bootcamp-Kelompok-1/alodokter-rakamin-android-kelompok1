@@ -12,6 +12,8 @@
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/ic_logo.xml" value="0.22552083333333334" />
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/ic_rounded_form.xml" value="0.22552083333333334" />
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/ic_show_password.xml" value="0.22552083333333334" />
+        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_authentication.xml" value="0.209375" />
+        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_login.xml" value="0.209375" />
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_main.xml" value="0.209375" />
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_onboard.xml" value="0.209375" />
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_register.xml" value="0.2" />
@@ -24,6 +26,7 @@
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/item_first_onboard.xml" value="0.2" />
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/item_second_onboard.xml" value="0.209375" />
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/item_third_onboard.xml" value="0.2" />
+        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.22552083333333334" />
       </map>
     </option>
   </component>
