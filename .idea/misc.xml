@@ -5,32 +5,17 @@
       <map>
         <entry key="..\:/Portofolio/ANDROID/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/background_bottom_nav.xml" value="0.3675" />
         <entry key="..\:/Portofolio/ANDROID/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Portofolio/ANDROID/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/ic_line_bottom_nav.xml" value="0.1475" />
         <entry key="..\:/Portofolio/ANDROID/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/line.xml" value="0.3675" />
         <entry key="..\:/Portofolio/ANDROID/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/select_bottom_nav.xml" value="0.3675" />
         <entry key="..\:/Portofolio/ANDROID/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/select_bottom_val.xml" value="0.3675" />
         <entry key="..\:/Portofolio/ANDROID/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Portofolio/ANDROID/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_reset_password.xml" value="0.18" />
+        <entry key="..\:/Portofolio/ANDROID/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_splash.xml" value="0.14" />
         <entry key="..\:/Portofolio/ANDROID/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/booking_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/Portofolio/ANDROID/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/history_booking_fragment.xml" value="0.10277777777777777" />
         <entry key="..\:/Portofolio/ANDROID/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/home_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/Portofolio/ANDROID/alodokter-rakamin-android-kelompok1/app/src/main/res/menu/bottom_nav_menu.xml" value="0.16" />
-        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/button_hover_background.xml" value="0.22552083333333334" />
-        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/ic_bottom_arrow.xml" value="0.22552083333333334" />
-        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/ic_btn_rounded.xml" value="0.22552083333333334" />
-        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/ic_btn_rounded_hover.xml" value="0.22552083333333334" />
-        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/ic_calendar.xml" value="0.22552083333333334" />
-        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/ic_hide_password.xml" value="0.22552083333333334" />
-        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/ic_logo.xml" value="0.22552083333333334" />
-        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/ic_rounded_form.xml" value="0.22552083333333334" />
-        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/ic_show_password.xml" value="0.22552083333333334" />
-        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_main.xml" value="0.209375" />
-        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_onboard.xml" value="0.209375" />
-        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_splash.xml" value="0.209375" />
-        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/fragment_login.xml" value="0.22" />
-        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/fragment_register.xml" value="0.22" />
-        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/item_first_onboard.xml" value="0.2" />
-        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/item_second_onboard.xml" value="0.209375" />
-        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/item_third_onboard.xml" value="0.2" />
       </map>
     </option>
   </component>

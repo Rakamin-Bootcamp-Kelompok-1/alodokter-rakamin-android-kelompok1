@@ -1,5 +1,6 @@
 package com.example.alodokter_rakamin_android_kelompok1.view.reset
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
 import com.example.alodokter_rakamin_android_kelompok1.R
+import com.example.alodokter_rakamin_android_kelompok1.view.LoginActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 
@@ -25,7 +27,6 @@ class ResetPasswordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reset_password)
-//        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         toolbar = findViewById(R.id.toolbar)
         back = findViewById(R.id.back)
         btnSubmit = findViewById(R.id.btn_submit)
@@ -69,8 +70,8 @@ class ResetPasswordActivity : AppCompatActivity() {
         }
         val btnSignUp = findViewById<MaterialButton>(R.id.btn_sign_up)
         btnSignUp.setOnClickListener {
-//            val intent = Intent(applicationContext,::class.java)
-//            startActivity(intent)
+            val intent = Intent(applicationContext, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 
