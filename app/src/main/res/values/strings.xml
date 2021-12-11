@@ -26,6 +26,21 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="already_have_an_account">Already Have an Account?</string>
 
+    <!-- main activity text -->
+    <string name="home">Home</string>
+    <string name="consult">Konsultasi</string>
+    <string name="history">History Booking</string>
+    <string name="title_activity_reset_password">ResetPasswordActivity</string>
+
+    <!-- reset password text -->
+    <string name="back">Back</string>
+    <string name="example">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam orci ipsum, porttitor in euismod nec.</string>
+    <string name="email">Email</string>
+    <string name="submit">Submit</string>
+    <string name="resend_email">Resend Email</string>
+    <string name="resend_email_timer">Resend Verification Email - %d sec</string>
+    <string name="sign_up_underline"><u>Sign Up</u></string>
+    <string name="not_email_address">This isn\'t email address</string>
 
     <string-array name="gender">
         <item>Male</item>

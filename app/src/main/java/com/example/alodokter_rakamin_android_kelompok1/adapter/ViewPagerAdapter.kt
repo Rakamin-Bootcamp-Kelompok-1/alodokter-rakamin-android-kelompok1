@@ -1,4 +1,4 @@
-package id.herdroid.medico.adapter
+package com.example.alodokter_rakamin_android_kelompok1.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

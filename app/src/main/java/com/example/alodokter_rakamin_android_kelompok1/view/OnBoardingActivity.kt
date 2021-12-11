@@ -13,14 +13,14 @@ import com.example.alodokter_rakamin_android_kelompok1.R
 import com.example.alodokter_rakamin_android_kelompok1.config.SharedPreferences
 import com.example.alodokter_rakamin_android_kelompok1.config.hide
 import com.example.alodokter_rakamin_android_kelompok1.config.show
-import id.herdroid.medico.adapter.ViewPagerAdapter
+import com.example.alodokter_rakamin_android_kelompok1.adapter.ViewPagerAdapter
 
 class OnBoardingActivity : AppCompatActivity() {
 
     private lateinit var viewPagerAdapter: PagerAdapter
     private var dots: Array<TextView?>? = null
     private lateinit var dotsLayout: LinearLayout
-    private lateinit var nextBtn: Button
+    lateinit var nextBtn: Button
     private lateinit var onBoardSlider: ViewPager
     private lateinit var listArray: Array<Int>
     private val sliderChangeListener = object : ViewPager.OnPageChangeListener {
@@ -50,6 +50,8 @@ class OnBoardingActivity : AppCompatActivity() {
         dotsLayout = findViewById(R.id.dotsLayout)
         nextBtn = findViewById(R.id.btnOnBoarding)
         onBoardSlider = findViewById(R.id.onBoardSlider)
+
+
 
         init()
         dataSet()
