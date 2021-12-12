@@ -42,6 +42,12 @@
     <string name="resend_email_timer">Resend Verification Email - %d sec</string>
     <string name="sign_up_underline"><u>Sign Up</u></string>
     <string name="not_email_address">This isn\'t email address</string>
+    <string name="title_onboardfirst_1">Fresh</string>
+    <string name="title_onboardfirst_2">Article</string>
+    <string name="title_onboardsecond_1">Special</string>
+    <string name="title_onboardsecond_2">Article</string>
+    <string name="title_onboardthird_1">Make an</string>
+    <string name="title_onboardthird_2">Appointment</string>
 
     <string-array name="gender">
         <item>Male</item>
