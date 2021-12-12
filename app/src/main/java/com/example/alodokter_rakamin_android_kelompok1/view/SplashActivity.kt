@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.example.alodokter_rakamin_android_kelompok1.R
+import com.example.alodokter_rakamin_android_kelompok1.view.onboard.OnBoardingActivity
 
 class SplashActivity : AppCompatActivity() {
     private val splashTime: Long = 2000
