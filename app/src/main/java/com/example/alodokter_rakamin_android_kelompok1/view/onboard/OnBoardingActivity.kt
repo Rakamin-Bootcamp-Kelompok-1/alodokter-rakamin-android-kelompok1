@@ -1,19 +1,8 @@
 package com.example.alodokter_rakamin_android_kelompok1.view.onboard
 
-import android.content.Intent
 import android.os.Bundle
-import android.text.Html
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager.widget.PagerAdapter
-import androidx.viewpager.widget.ViewPager
 import com.example.alodokter_rakamin_android_kelompok1.R
-import com.example.alodokter_rakamin_android_kelompok1.config.SharedPreferences
-import com.example.alodokter_rakamin_android_kelompok1.config.show
-import com.example.alodokter_rakamin_android_kelompok1.adapter.ViewPagerAdapter
-import com.example.alodokter_rakamin_android_kelompok1.view.MainActivity
 import kotlinx.android.synthetic.main.activity_onboard.*
 
 class OnBoardingActivity : AppCompatActivity(), OnBoardPager.OnBoardListener {
