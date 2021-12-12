@@ -9,14 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Alodokterrakaminandroidkelompok1">
-        <activity android:name=".view.OnBoardingActivity"/>
-        <activity android:name=".view.MainActivity"
-            android:exported="true"/>
+        <activity
+            android:name=".view.booking.SuccessBookingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.booking.confirm.ConfirmBookingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.booking.details.DetailsDoctorActivity"
+            android:exported="true" />
+        <activity android:name=".view.OnBoardingActivity" />
+        <activity
+            android:name=".view.MainActivity"
+            android:exported="true" />
         <activity
             android:name=".view.reset.ResetPasswordActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true"
-            android:label="@string/title_activity_reset_password"/>
+            android:label="@string/title_activity_reset_password" />
         <activity
             android:name=".view.SplashActivity"
             android:exported="true">
@@ -26,8 +36,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.LoginActivity"
-            />
+        <activity android:name=".view.LoginActivity" />
     </application>
 
 </manifest>

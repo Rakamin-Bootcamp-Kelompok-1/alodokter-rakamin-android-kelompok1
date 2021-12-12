@@ -42,6 +42,35 @@
     <string name="sign_up_underline"><u>Sign Up</u></string>
     <string name="not_email_address">This isn\'t email address</string>
 
+    <!--  artikel  -->
+    <string name="artikel_title">Artikel Medikuy</string>
+    <string name="search_article">Search Article</string>
+
+
+    <!--  Booking  -->
+    <string name="top_doctor">Top Doctor</string>
+    <string name="detail_dokter">Detail Dokter</string>
+    <string name="specialist">Specialist</string>
+    <string name="biography">Biography</string>
+    <string name="book_an_appointment">Book An Appointment</string>
+    <string name="konfirmasi_booking">Konfirmasi Booking</string>
+    <string name="booking_untuk">Booking untuk</string>
+    <string name="ganti_pasien">Ganti Pasien</string>
+    <string name="jenis_kelamin">Jenis Kelamin</string>
+    <string name="nama">Nama</string>
+    <string name="golongan_darah">Golongan Darah</string>
+    <string name="tanggal_lahir">Tanggal Lahir</string>
+    <string name="umur">Umur</string>
+    <string name="status">Status</string>
+    <string name="atur_waktu">Atur Waktu</string>
+    <string name="pesan_pribadi">Pesan Pribadi</string>
+    <string name="metode_pembayaran">Metode Pembayaran</string>
+    <string name="content_booking">Silahkan datang pada jadwal yang telah anda pilih</string>
+    <string name="kode_booking_anda">Kode booking anda</string>
+    <string name="lihat_riwayat">Lihat Riwayat</string>
+    <string name="tidak_kembali_ke_home">Tidak, Kembali ke Home</string>
+    <string name="location">Location</string>
+
     <string-array name="gender">
         <item>Male</item>
         <item>Female</item>

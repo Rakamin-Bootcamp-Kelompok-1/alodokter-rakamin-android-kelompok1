@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/spacing_10"
+    android:layout_margin="@dimen/spacing_10"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <ImageView
+            android:id="@+id/ivDoctor"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/shawn_doctor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="@dimen/spacing_20"/>
+
+        <TextView
+            android:id="@+id/tvDoctorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/ivDoctor"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Dr. Shawn Murphy"
+            android:fontFamily="@font/nunito_bold"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/spacing_20"/>
+
+
+        <TextView
+            android:id="@+id/tvSpecialist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/ivDoctor"
+            app:layout_constraintTop_toBottomOf="@+id/tvDoctorName"
+            android:layout_marginTop="@dimen/spacing_10"
+            android:layout_marginStart="@dimen/spacing_20"
+            android:text="@string/specialist"
+            android:textStyle="bold"
+            android:fontFamily="@font/nunito_regular"
+            />
+
+        <TextView
+            android:id="@+id/strip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:layout_marginTop="@dimen/spacing_10"
+            android:layout_marginStart="@dimen/spacing_10"
+            app:layout_constraintStart_toEndOf="@+id/tvSpecialist"
+            app:layout_constraintTop_toBottomOf="@+id/tvDoctorName"
+            />
+
+        <TextView
+            android:id="@+id/tvLoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/strip"
+            app:layout_constraintTop_toBottomOf="@+id/tvDoctorName"
+            android:layout_marginTop="@dimen/spacing_10"
+            android:fontFamily="@font/nunito_regular"
+            android:textStyle="bold"
+            android:text="@string/location"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:layout_marginEnd="@dimen/spacing_20"
+
+            />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvRupiah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/ivDoctor"
+            app:layout_constraintTop_toBottomOf="@+id/tvSpecialist"
+            app:cardCornerRadius="@dimen/spacing_5"
+            android:layout_marginStart="@dimen/spacing_20"
+            android:layout_marginTop="@dimen/spacing_10"
+            >
+
+            <ImageView
+                android:id="@+id/ivRupiah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_rupiah"
+                android:padding="@dimen/padding_5"
+                app:layout_constraintTop_toBottomOf="@+id/tvSpecialist"
+                app:layout_constraintStart_toEndOf="@id/ivDoctor"
+                />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvRupiah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/cvRupiah"
+            app:layout_constraintTop_toBottomOf="@id/tvSpecialist"
+            android:layout_marginTop="@dimen/spacing_10"
+            android:layout_marginStart="@dimen/spacing_5"
+            android:text="4"
+            android:fontFamily="@font/nunito_medium"
+            android:textColor="@color/black"
+
+            />
+
+        <TextView
+            android:id="@+id/tvJadwalDoktor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10:00 - 14:00"
+            android:fontFamily="@font/nunito_bold"
+            app:layout_constraintStart_toEndOf="@+id/tvRupiah"
+            app:layout_constraintTop_toBottomOf="@+id/strip"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="@dimen/spacing_10"
+
+            />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+</androidx.cardview.widget.CardView>
+
