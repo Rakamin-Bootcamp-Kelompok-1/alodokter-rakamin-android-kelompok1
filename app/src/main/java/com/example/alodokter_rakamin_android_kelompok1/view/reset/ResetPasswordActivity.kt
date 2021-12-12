@@ -11,7 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
 import com.example.alodokter_rakamin_android_kelompok1.R
-import com.example.alodokter_rakamin_android_kelompok1.view.LoginActivity
+import com.example.alodokter_rakamin_android_kelompok1.view.MainActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 
@@ -35,7 +35,7 @@ class ResetPasswordActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[ResetPasswordViewModel::class.java]
         setToolbar()
         textInput.doAfterTextChanged {
-            viewModel.afterChangePassword(it,resources.getString(R.string.not_email_address))
+            viewModel.afterTextChange(it,resources.getString(R.string.not_email_address))
         }
         viewModel.isButtonEnabled.observe(this) {
             btnSubmit.isEnabled = it
@@ -70,7 +70,7 @@ class ResetPasswordActivity : AppCompatActivity() {
         }
         val btnSignUp = findViewById<MaterialButton>(R.id.btn_sign_up)
         btnSignUp.setOnClickListener {
-            val intent = Intent(applicationContext, LoginActivity::class.java)
+            val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
         }
     }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.alodokter_rakamin_android_kelompok1">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -9,11 +10,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Alodokterrakaminandroidkelompok1">
+        <activity android:name=".view.onboard.OnBoardingActivity"/>
+        <activity android:name=".view.MainActivity"
+            android:exported="true"/>
         <activity
-            android:name=".view.booking.SuccessBookingActivity"
-            android:exported="true" />
+            android:name=".view.reset.ResetPasswordActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="true"
+            android:label="@string/title_activity_reset_password"/>
         <activity
-            android:name=".view.booking.confirm.ConfirmBookingActivity"
+            android:name=".view.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,22 +27,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".view.booking.details.DetailsDoctorActivity"
-            android:exported="true" />
-        <activity android:name=".view.OnBoardingActivity" />
-        <activity
-            android:name=".view.MainActivity"
-            android:exported="true" />
-        <activity
-            android:name=".view.reset.ResetPasswordActivity"
-            android:configChanges="orientation|screenSize"
-            android:exported="true"
-            android:label="@string/title_activity_reset_password" />
-        <activity
-            android:name=".view.SplashActivity"
-            android:exported="true"/>
-        <activity android:name=".view.LoginActivity" />
     </application>
 
 </manifest>

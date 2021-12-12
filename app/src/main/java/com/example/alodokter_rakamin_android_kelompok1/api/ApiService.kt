@@ -1,5 +1,6 @@
 package com.example.alodokter_rakamin_android_kelompok1.api
 
+import com.example.alodokter_rakamin_android_kelompok1.data.response.UserResponse
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -9,15 +10,15 @@ import retrofit2.http.POST
 
 interface ApiService {
 
-    @POST("register")
+    @POST("user/add")
     fun register(
         @Body requestBody: RequestBody
-    ): Call<ResponseBody>
+    ): Call<UserResponse>
 
-    @POST("login-user")
+    @POST("login")
     fun login(
         @Body requestBody: RequestBody
-    ): Call<ResponseBody>
+    ): Call<UserResponse>
 
     @Headers(
         "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.oT7kSePnYs7eVIsRIzIi0UEC7XBclsrO3qrnXwic8Zg",

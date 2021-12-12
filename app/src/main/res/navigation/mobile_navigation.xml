@@ -23,4 +23,16 @@
         android:name="com.example.alodokter_rakamin_android_kelompok1.view.history.HistoryBookingFragment"
         android:label="@string/history"
         tools:layout="@layout/history_booking_fragment" />
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.alodokter_rakamin_android_kelompok1.view.authentication.LoginFragment"
+        android:label="Login_Fragment"
+        tools:layout="@layout/fragment_login"/>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.alodokter_rakamin_android_kelompok1.view.authentication.RegisterFragment"
+        android:label="Register_Fragment"
+        tools:layout="@layout/fragment_register"/>
 </navigation>
