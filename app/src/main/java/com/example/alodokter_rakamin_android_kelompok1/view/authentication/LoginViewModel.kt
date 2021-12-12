@@ -1,23 +1,15 @@
 package com.example.alodokter_rakamin_android_kelompok1.view.authentication
 
-import android.content.Context
 import android.text.Editable
-import android.util.Log
 import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.alodokter_rakamin_android_kelompok1.config.Resource
-import com.example.alodokter_rakamin_android_kelompok1.config.SharedPreferences
 import com.example.alodokter_rakamin_android_kelompok1.data.AuthRepository
 import com.example.alodokter_rakamin_android_kelompok1.data.entity.LoginEntity
-import com.example.alodokter_rakamin_android_kelompok1.data.entity.RegisterEntity
-import com.example.alodokter_rakamin_android_kelompok1.data.response.UserResponse
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
-class AuthViewModel : ViewModel() {
+
+class LoginViewModel : ViewModel() {
 
     private val _isButtonEnabled : MutableLiveData<Boolean> = MutableLiveData(false)
     val isButtonEnabled : LiveData<Boolean> = _isButtonEnabled
@@ -34,28 +26,13 @@ class AuthViewModel : ViewModel() {
     private val _textErrorPassword: MutableLiveData<String?> = MutableLiveData()
     val textErrorPassword: LiveData<String?> = _textErrorPassword
 
-    private val _isError : MutableLiveData<String?> = MutableLiveData()
-    val isError : LiveData<String?> = _isError
-
     private var isEmail = false
     private var isPassword = false
     private lateinit var repository: AuthRepository
     private var email = ""
     private var password = ""
 
-    fun getLogin(context: Context) {
-        val user = repository.getLogin(LoginEntity(email,password)).value
-        val token = user?.token
-        _isError.value = user?.error
-        user?.token?.let { Log.d("TEST", it) }
-        Log.d("TEST",_isError.value.toString())
-        if(user?.error == null) user?.let { SharedPreferences(context).setUser(it,true) }
-        viewModelScope.launch(Dispatchers.IO) {
-            if (token != null) {
-                SharedPreferences(context).saveAuthToken(token)
-            }
-        }
-    }
+    fun getLogin() = repository.getLogin(LoginEntity(email,password))
 
     fun setRepository(authRepository: AuthRepository){
         repository = authRepository

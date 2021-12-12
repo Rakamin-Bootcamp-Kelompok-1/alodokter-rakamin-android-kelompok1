@@ -10,10 +10,10 @@ import retrofit2.http.POST
 
 interface ApiService {
 
-    @POST("register")
+    @POST("user/add")
     fun register(
         @Body requestBody: RequestBody
-    ): Call<ResponseBody>
+    ): Call<UserResponse>
 
     @POST("login")
     fun login(

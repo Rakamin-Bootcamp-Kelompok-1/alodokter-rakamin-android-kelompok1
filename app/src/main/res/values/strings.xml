@@ -19,13 +19,20 @@
 
     <!-- register text -->
     <string name="title_register">Create \nAccount</string>
-    <string name="fullname">FullName</string>
+    <string name="fullname">Full Name</string>
     <string name="date_of_birth">Date Of Birth</string>
     <string name="phone">Phone Number</string>
     <string name="gender">Gender</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="already_have_an_account">Already Have an Account?</string>
+    <string name="different_confirm_password">Different Password</string>
+    <string name="phone_mode">+%d</string>
+    <string name="min_full_name">Name can\'t empty</string>
+    <string name="min_gender">Gender can\'t empty</string>
+    <string name="min_date">Date can\'t empty</string>
+    <string name="min_phone_number">Phone number can\'t empty</string>
+    <string name="date_format">%02d/%02d/%d</string>
 
     <!-- main activity text -->
     <string name="home">Home</string>

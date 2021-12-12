@@ -6,20 +6,26 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.alodokter_rakamin_android_kelompok1.R
+import com.example.alodokter_rakamin_android_kelompok1.config.SharedPreferences
 import com.example.alodokter_rakamin_android_kelompok1.data.AuthRepository
 import com.example.alodokter_rakamin_android_kelompok1.databinding.FragmentLoginBinding
 import com.example.alodokter_rakamin_android_kelompok1.view.reset.ResetPasswordActivity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class LoginFragment: Fragment() {
 
-    private lateinit var viewModel: AuthViewModel
+    private lateinit var viewModel: LoginViewModel
     private lateinit var binding: FragmentLoginBinding
-    var errorText : String? = ""
+    private var isErrorText = ""
+    private var isError = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +37,7 @@ class LoginFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this)[AuthViewModel::class.java]
+        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         viewModel.setRepository(AuthRepository())
         val navController = findNavController()
 
@@ -59,14 +65,25 @@ class LoginFragment: Fragment() {
         viewModel.textErrorPassword.observe(viewLifecycleOwner){
             binding.txtInputPassword.error = it
         }
-        viewModel.isError.observe(viewLifecycleOwner){
-            Log.d("TEST",it.toString())
-            if(it == null) {
-                navController.popBackStack()
-            }
-        }
         binding.btnLogin.setOnClickListener {
-            viewModel.getLogin(requireContext())
+            viewModel.getLogin().observe(viewLifecycleOwner){ user ->
+                Log.d("TESTA",user.toString())
+                val token = user.token
+                lifecycleScope.launch(Dispatchers.IO) {
+                    if (token != null) {
+                        SharedPreferences(requireContext()).saveAuthToken(token)
+                    }
+                }
+                isErrorText = user.error.toString()
+                user?.token?.let { Log.d("TEST", it) }
+                if (token != null) {
+                    user.let { SharedPreferences(requireContext()).setUser(it, true) }
+                    navController.popBackStack()
+                } else if (user?.error != null) {
+                    Toast.makeText(requireContext(),isErrorText,Toast.LENGTH_LONG).show()
+                }
+
+            }
 
             Log.d("TEST","TEST")
         }

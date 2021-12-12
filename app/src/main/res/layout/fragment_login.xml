@@ -27,6 +27,7 @@
         android:hint="@string/email_hint"
         app:hintTextAppearance="@style/TextAppearance.AppCompat"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+        app:boxBackgroundColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_login">
@@ -50,6 +51,9 @@
         android:layout_marginEnd="@dimen/spacing_40"
         android:hint="@string/password"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+        app:boxBackgroundColor="@color/white"
+        app:endIconDrawable="@drawable/ic_hide_password"
+        app:endIconMode="custom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtInputEmail">
@@ -60,8 +64,7 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/padding_10"
             android:paddingEnd="@dimen/padding_10"
-            android:drawableEnd="@drawable/ic_hide_password"
-            android:inputType="textEmailAddress" />
+            android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

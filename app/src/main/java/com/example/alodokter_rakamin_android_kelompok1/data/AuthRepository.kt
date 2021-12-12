@@ -8,47 +8,40 @@ import com.example.alodokter_rakamin_android_kelompok1.data.entity.RegisterEntit
 import com.example.alodokter_rakamin_android_kelompok1.data.response.UserResponse
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
-import okhttp3.ResponseBody
-import org.json.JSONException
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.IOException
 
 class AuthRepository {
 
-    fun getRegister(registerEntity: RegisterEntity): MutableLiveData<RegisterEntity> {
+    fun getRegister(registerEntity: RegisterEntity): MutableLiveData<UserResponse> {
         val json = JSONObject()
-        val mutableLiveData = MutableLiveData<RegisterEntity>()
+        val mutableLiveData = MutableLiveData<UserResponse>()
+        json.put("full_name", registerEntity.full_name)
+        json.put("password", registerEntity.password_digest)
+        json.put("age", registerEntity.age)
+        json.put("email", registerEntity.email)
+        json.put("gender", registerEntity.gender)
+        json.put("birth_date", registerEntity.birth_date)
+        json.put("phone_number", registerEntity.phone_number)
+        json.put("image_path", registerEntity.image_path)
+        json.put("is_admin", registerEntity.is_admin)
+        json.put("is_active", registerEntity.is_active)
         val requestBody = json.toString().toRequestBody("application/json".toMediaTypeOrNull())
+        Log.d("TEST1",json.toString())
         val responseBodyCallApi = ApiClient().getApi().register(requestBody)
-        responseBodyCallApi.enqueue(object  : Callback<ResponseBody>{
-            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                if (response.body() != null) {
-                    try {
-                        val responseBody = response.body().toString()
-                        val jsonObject = JSONObject(responseBody)
-                        if (json.getString("status") == "Sukses"){
-                            mutableLiveData.value = RegisterEntity(
-                                full_name = jsonObject.getString("full_name"),
-                                email = jsonObject.getString("email"),
-                                birth_date = jsonObject.getString("birth_date"),
-                                phone_number = jsonObject.getString("phone_number"),
-                                password_digest = jsonObject.getString("password_digest"),
-                                gender = jsonObject.getString("gender")
-                            )
-                        }
-                    } catch (e: IOException) {
-                        e.printStackTrace()
-                    } catch (e: JSONException) {
-                        e.printStackTrace()
-                    }
+        responseBodyCallApi.enqueue(object  : Callback<UserResponse>{
+            override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
+                if(response.isSuccessful){
+                    val data = response.body()
+                    if(data != null) mutableLiveData.value = data as UserResponse
+                    else mutableLiveData.value = UserResponse(error = "Null data")
                 }
             }
 
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                mutableLiveData.postValue(error(t.message.toString()))
+            override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+                mutableLiveData.value = UserResponse(error = t.toString())
             }
 
         })
@@ -67,30 +60,8 @@ class AuthRepository {
         responseBodyCallApi.enqueue(object  : Callback<UserResponse>{
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                 Log.d("TEST",response.body().toString())
-                if (response.body() != null) {
-                    try {
-                        mutableLiveData.value = response.body()
-
-//                        val jsonObject = JSONObject(responseBody)
-//                        if (json.getString("status") == "Sukses"){
-//                            mutableLiveData.value = UserResponse(
-//                                user = UserEntity(
-//                                    id = jsonObject.getInt("id"),
-//
-//                                ),
-//                            )
-//                            mutableLiveData.value = LoginEntity(
-//                                email = jsonObject.getString("email"),
-//                                password_digest = jsonObject.getString("password_digest"),
-//                                token = jsonObject.getString("token")
-//                            )
-//                        }
-                    } catch (e: IOException) {
-                        e.printStackTrace()
-                    } catch (e: JSONException) {
-                        e.printStackTrace()
-                    }
-                }
+                val data = response.body()
+                mutableLiveData.value = data!!
             }
 
             override fun onFailure(call: Call<UserResponse>, t: Throwable) {
