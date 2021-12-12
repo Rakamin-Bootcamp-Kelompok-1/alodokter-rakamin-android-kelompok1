@@ -145,7 +145,6 @@
             android:id="@+id/ivStar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src=""
             android:padding="@dimen/padding_5"
             />
     </androidx.cardview.widget.CardView>
