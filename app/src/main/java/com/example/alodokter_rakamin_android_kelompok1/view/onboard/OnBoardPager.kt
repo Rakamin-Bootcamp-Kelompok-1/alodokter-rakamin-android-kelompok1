@@ -4,12 +4,14 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.view.animation.AnimationUtils
+import android.widget.Button
 import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.alodokter_rakamin_android_kelompok1.R
 import com.example.alodokter_rakamin_android_kelompok1.adapter.ViewPagerAdapter
+import com.example.alodokter_rakamin_android_kelompok1.databinding.OnboardPageBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.onboard_page.view.*
 
@@ -25,6 +27,7 @@ class OnBoardPager(context: Context, attributeSet: AttributeSet? = null, defStyl
     private val zoomInAnim = AnimationUtils.loadAnimation(context, R.anim.animate)
     private val onBoardPages = mutableListOf<OnBoardData>()
     private var onBoardListener: OnBoardListener? = null
+    private lateinit var view: View
 
     init {
         inflateView()
@@ -32,10 +35,13 @@ class OnBoardPager(context: Context, attributeSet: AttributeSet? = null, defStyl
     }
 
     private fun inflateView() {
-        View.inflate(context, R.layout.onboard_page, this)
+        view = View.inflate(context, R.layout.onboard_page, this)
     }
 
     private fun setUpListeners() {
+        val btnGetStarted = view.findViewById<Button>(R.id.btnGetStarted)
+        val nextBtnOnBoard = view.findViewById<Button>(R.id.nextBtnOnBoard)
+
         btnGetStarted.setOnClickListener {
             onBoardListener?.onBoardFinished(false)
         }
