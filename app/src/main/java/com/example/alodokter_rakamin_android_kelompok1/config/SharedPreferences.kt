@@ -14,9 +14,9 @@ class SharedPreferences(context: Context)  {
 
     private var prefs: SharedPreferences = context.getSharedPreferences(PREF_NAME, 0)
     private var prefsEditor: SharedPreferences.Editor = prefs.edit()
-    private val dataStore: DataStore<Preferences> = context.createDataStore(
-        name = "my_data_store"
-    )
+//    private val dataStore: DataStore<Preferences> = context.createDataStore(
+//        name = "my_data_store"
+//    )
 
 
     fun setFirstTimeLaunch(isFirstTime: Boolean) {
@@ -31,21 +31,26 @@ class SharedPreferences(context: Context)  {
         prefsEditor.commit()
     }
 
-    suspend fun saveAuthToken(authToken: String) {
-        dataStore.edit { preferences ->
-            preferences[KEY_AUTH] = authToken
-        }
-    }
+//    suspend fun saveAuthToken(authToken: String) {
+//        dataStore.edit { preferences ->
+//            preferences[KEY_AUTH] = authToken
+//        }
+//    }
 
-    fun isFirstTimeLaunch(): Boolean = prefs.getBoolean(IS_FIRST_TIME_LAUNCH, false)
+    fun isFirstTimeLaunch(): Boolean = prefs.getBoolean(IS_FIRST_TIME_LAUNCH, true)
 
     fun getLoggedStatus() : Boolean = prefs.getBoolean(IS_LOGIN_STATUS,false)
+
+    fun setLogout(){
+        prefsEditor.clear()
+        setFirstTimeLaunch(false)
+    }
 
     companion object {
         private const val PREF_NAME = "app-prefs"
         private const val IS_FIRST_TIME_LAUNCH = "IsFirstTimeLaunch"
         private const val IS_LOGIN_STATUS = "is_logging_status"
         private const val USER_ENTITY = "user_entity"
-        private val KEY_AUTH = preferencesKey<String>("key_auth")
+//        private val KEY_AUTH = preferencesKey<String>("key_auth")
     }
 }

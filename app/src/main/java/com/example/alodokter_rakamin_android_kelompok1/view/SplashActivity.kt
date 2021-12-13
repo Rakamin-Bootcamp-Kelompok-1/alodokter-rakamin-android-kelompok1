@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.example.alodokter_rakamin_android_kelompok1.R
+import com.example.alodokter_rakamin_android_kelompok1.config.SharedPreferences
 import com.example.alodokter_rakamin_android_kelompok1.view.onboard.OnBoardingActivity
 
 class SplashActivity : AppCompatActivity() {
@@ -15,8 +16,15 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         supportActionBar?.hide()
         Handler(mainLooper).postDelayed({
-            startActivity(Intent(this, OnBoardingActivity::class.java))
-            finish()
+            if(SharedPreferences(this).isFirstTimeLaunch()){
+                startActivity(Intent(this, OnBoardingActivity::class.java))
+                finish()
+            } else {
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra(MainActivity.TO_LOGIN,"not_login")
+                startActivity(intent)
+                finish()
+            }
         }, splashTime)
     }
 }
