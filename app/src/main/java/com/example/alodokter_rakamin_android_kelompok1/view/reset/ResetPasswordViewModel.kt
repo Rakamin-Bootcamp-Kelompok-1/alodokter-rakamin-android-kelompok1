@@ -38,7 +38,7 @@ class ResetPasswordViewModel : ViewModel() {
         }
     }
 
-    fun afterChangePassword(it: Editable?,errorText: String){
+    fun afterTextChange(it: Editable?, errorText: String){
         if(Patterns.EMAIL_ADDRESS.matcher(it.toString()).matches()){
             _isButtonEnabled.value = true
             _textError.value = null

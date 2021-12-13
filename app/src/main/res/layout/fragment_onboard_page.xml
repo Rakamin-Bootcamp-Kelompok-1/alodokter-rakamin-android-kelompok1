@@ -8,7 +8,7 @@
         android:id="@+id/tvOnBoard1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fresh"
+        android:text="@string/title_onboardfirst_1"
         android:textSize="@dimen/font_28"
         android:layout_marginStart="@dimen/spacing_35"
         android:layout_marginTop="@dimen/spacing_55"
@@ -21,7 +21,7 @@
         android:id="@+id/tvOnBoard2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Article"
+        android:text="@string/title_onboardfirst_2"
         android:textSize="@dimen/font_28"
         android:textColor="@color/text_black"
         android:layout_marginStart="@dimen/spacing_35"
@@ -39,8 +39,8 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="@dimen/spacing_35"/>
 
-
     <ImageView
+        android:id="@+id/imageOnBoardPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_onboard_1"

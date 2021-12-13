@@ -10,10 +10,6 @@ import com.example.alodokter_rakamin_android_kelompok1.R
 
 class BookingFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = BookingFragment()
-    }
-
     private lateinit var viewModel: BookingViewModel
 
     override fun onCreateView(
