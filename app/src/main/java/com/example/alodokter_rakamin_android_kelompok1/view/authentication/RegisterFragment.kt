@@ -10,17 +10,12 @@ import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import com.example.alodokter_rakamin_android_kelompok1.R
 import com.example.alodokter_rakamin_android_kelompok1.config.SharedPreferences
 import com.example.alodokter_rakamin_android_kelompok1.data.AuthRepository
-import com.example.alodokter_rakamin_android_kelompok1.data.entity.RegisterEntity
 import com.example.alodokter_rakamin_android_kelompok1.databinding.FragmentRegisterBinding
 import com.google.android.material.datepicker.MaterialDatePicker
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import java.util.*
 
 class RegisterFragment: Fragment() {
@@ -54,11 +49,11 @@ class RegisterFragment: Fragment() {
         binding.btnRegister.setOnClickListener {
             viewModel.getRegister().observe(viewLifecycleOwner){ user ->
                 val token = user.token
-                lifecycleScope.launch(Dispatchers.IO) {
-                    if (token != null) {
-                        SharedPreferences(requireContext()).saveAuthToken(token)
-                    }
-                }
+//                lifecycleScope.launch(Dispatchers.IO) {
+//                    if (token != null) {
+//                        SharedPreferences(requireContext()).saveAuthToken(token)
+//                    }
+//                }
                 isErrorText = user.error.toString()
                 user?.token?.let { Log.d("TEST", it) }
                 if (token != null) {
