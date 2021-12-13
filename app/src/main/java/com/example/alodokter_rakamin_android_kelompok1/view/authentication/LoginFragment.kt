@@ -10,22 +10,18 @@ import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.alodokter_rakamin_android_kelompok1.R
 import com.example.alodokter_rakamin_android_kelompok1.config.SharedPreferences
 import com.example.alodokter_rakamin_android_kelompok1.data.AuthRepository
 import com.example.alodokter_rakamin_android_kelompok1.databinding.FragmentLoginBinding
 import com.example.alodokter_rakamin_android_kelompok1.view.reset.ResetPasswordActivity
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class LoginFragment: Fragment() {
 
     private lateinit var viewModel: LoginViewModel
     private lateinit var binding: FragmentLoginBinding
     private var isErrorText = ""
-    private var isError = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -69,11 +65,11 @@ class LoginFragment: Fragment() {
             viewModel.getLogin().observe(viewLifecycleOwner){ user ->
                 Log.d("TESTA",user.toString())
                 val token = user.token
-                lifecycleScope.launch(Dispatchers.IO) {
-                    if (token != null) {
-                        SharedPreferences(requireContext()).saveAuthToken(token)
-                    }
-                }
+//                lifecycleScope.launch(Dispatchers.IO) {
+//                    if (token != null) {
+//                        SharedPreferences(requireContext()).saveAuthToken(token)
+//                    }
+//                }
                 isErrorText = user.error.toString()
                 user?.token?.let { Log.d("TEST", it) }
                 if (token != null) {

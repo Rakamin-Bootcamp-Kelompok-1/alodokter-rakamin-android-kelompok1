@@ -71,6 +71,7 @@ class ResetPasswordActivity : AppCompatActivity() {
         val btnSignUp = findViewById<MaterialButton>(R.id.btn_sign_up)
         btnSignUp.setOnClickListener {
             val intent = Intent(applicationContext, MainActivity::class.java)
+            intent.putExtra(MainActivity.TO_LOGIN,"login")
             startActivity(intent)
         }
     }
