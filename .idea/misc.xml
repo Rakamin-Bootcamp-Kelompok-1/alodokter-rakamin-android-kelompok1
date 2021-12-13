@@ -17,7 +17,6 @@
         <entry key="..\:/Project Android Studio/Alodoc/Final Project/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_details_doctor.xml" value="0.36666666666666664" />
         <entry key="..\:/Project Android Studio/Alodoc/Final Project/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Project Android Studio/Alodoc/Final Project/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Project Android Studio/Alodoc/Final Project/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_onboard.xml" value="0.20520833333333333" />
         <entry key="..\:/Project Android Studio/Alodoc/Final Project/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_reset_password.xml" value="0.20520833333333333" />
         <entry key="..\:/Project Android Studio/Alodoc/Final Project/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_success_booking.xml" value="0.22" />
         <entry key="..\:/Project Android Studio/Alodoc/Final Project/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/booking_fragment.xml" value="0.25" />
@@ -25,8 +24,6 @@
         <entry key="..\:/Project Android Studio/Alodoc/Final Project/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/item_dokter.xml" value="0.33" />
         <entry key="..\:/Project Android Studio/Alodoc/Final Project/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/item_specialist.xml" value="0.5" />
         <entry key="..\:/Project Android Studio/Alodoc/Final Project/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/item_waktu.xml" value="1.25" />
-        <entry key="..\:/Project Android Studio/Alodoc/Final Project/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/onboard_page.xml" value="0.20520833333333333" />
-        <entry key="..\:/Project Android Studio/Alodoc/Final Project/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/toolbar_home_profile.xml" value="0.36666666666666664" />
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/button_hover_background.xml" value="0.22552083333333334" />
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/ic_bottom_arrow.xml" value="0.22552083333333334" />
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/ic_btn_rounded.xml" value="0.22552083333333334" />
@@ -36,14 +33,20 @@
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/ic_logo.xml" value="0.22552083333333334" />
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/ic_rounded_form.xml" value="0.22552083333333334" />
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/drawable/ic_show_password.xml" value="0.22552083333333334" />
+        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_confirm_booking.xml" value="0.1037037037037037" />
+        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_details_doctor.xml" value="0.67" />
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_main.xml" value="0.209375" />
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_onboard.xml" value="0.209375" />
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/activity_splash.xml" value="0.209375" />
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/fragment_login.xml" value="0.22" />
+        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/fragment_onboard_page.xml" value="0.11018518518518519" />
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/fragment_register.xml" value="0.22" />
+        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/history_booking_fragment.xml" value="0.11018518518518519" />
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/item_first_onboard.xml" value="0.2" />
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/item_second_onboard.xml" value="0.209375" />
         <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/item_third_onboard.xml" value="0.5" />
+        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/onboard_page.xml" value="0.11018518518518519" />
+        <entry key="..\:/Repository Collection/alodokter-rakamin-android-kelompok1/app/src/main/res/layout/toolbar_home_profile.xml" value="0.209375" />
       </map>
     </option>
   </component>

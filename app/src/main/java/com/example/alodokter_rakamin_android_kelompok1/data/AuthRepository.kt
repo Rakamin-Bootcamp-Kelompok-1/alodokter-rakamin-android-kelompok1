@@ -35,7 +35,7 @@ class AuthRepository {
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                 if(response.isSuccessful){
                     val data = response.body()
-                    if(data != null) mutableLiveData.value = data as UserResponse
+                    if(data != null) mutableLiveData.value = data
                     else mutableLiveData.value = UserResponse(error = "Null data")
                 }
             }
