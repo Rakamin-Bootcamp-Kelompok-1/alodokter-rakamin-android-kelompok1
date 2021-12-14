@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Alodokterrakaminandroidkelompok1">
 
         <activity
-            android:name=".MyProfileActivity"
+            android:name=".ArticleListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".EditProfileActivity"
             android:exported="true"
@@ -28,11 +29,11 @@
             android:exported="true"
             android:parentActivityName=".MyProfileActivity"/>
         <activity
-            android:name="com.example.alodokter_rakamin_android_kelompok1.AboutUsActivity"
+            android:name=".AboutUsActivity"
             android:exported="true"
             android:parentActivityName=".MyProfileActivity"/>
         <activity
-            android:name=".ArticleListActivity"
+            android:name=".MyProfileActivity"
             android:exported="true"/>
         <activity
             android:name=".ArticleDetailActivity"

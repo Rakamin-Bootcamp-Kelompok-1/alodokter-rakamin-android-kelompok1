@@ -21,7 +21,7 @@
     <string name="update_password">Update Password</string>
     <string name="search_article">Search Article</string>
 
-<!--    about us-->
+    <!--    about us-->
     <string name="deskripsi_foto_about_us">Foto Ruangan - RS SMKDEV</string>
     <string name="judul_about_us">World Health Organization</string>
     <string name="isi_about_us">
@@ -31,7 +31,7 @@
 
     Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</string>
 
-<!--    artikel-->
+    <!--    artikel-->
     <string name="judul_artikel_semua">Artikel Kesehatan Terkini untuk Anda</string>
     <string name="artikel_medikuy">Artikel Medikuy</string>
     <string name="keluarga">Keluarga</string>
@@ -41,7 +41,10 @@
     <string name="kecantikan">Kecantikan</string>
     <string name="diabetes">Diabetes</string>
     <string name="hidup_sehat">Hidup Sehat</string>
-    
+    <string name="recent_post">Recent Posts</string>
+    <string name="see_all">See All</string>
+    <string name="isi_artikel_horizontal_view">Tidak Ada yang Namanya Diabetes Kering atau Diabetes...</string>
+
     <string name="judul_artikel1">4 Manfaat Daun Sambiloto untuk Kulit yang Sayang Dilewatkan</string>
     <string name="isi_short_artikel1">Tak hanya baik untuk kesehatan tubuh, manfaat daun sambiloto untuk kesehatan kulit pun begitu beragam. Berbagai kandungan nutrisi di dalamnya dipercaya baik....</string>
     <string name="judul_artikel2">Mengenal COVID-19 Varian Omicron</string>
