@@ -11,5 +11,6 @@ data class PatientEntity(
     @SerializedName("age") val age : Int,
     @SerializedName("blood_type") val blood_type : String,
     @SerializedName("created_at") val created_at : String,
-    @SerializedName("updated_at") val updated_at : String
+    @SerializedName("updated_at") val updated_at : String,
+    @SerializedName("user_id") val user_id : Int
 )

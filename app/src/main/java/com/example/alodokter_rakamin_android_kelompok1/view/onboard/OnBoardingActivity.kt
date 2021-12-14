@@ -33,11 +33,13 @@ class OnBoardingActivity : AppCompatActivity(), OnBoardPager.OnBoardListener {
                 val intent = Intent(this, MainActivity::class.java)
                 intent.putExtra(MainActivity.TO_LOGIN,"not_login")
                 startActivity(intent)
+                finish()
             }
             2 -> {
                 val intent = Intent(this, MainActivity::class.java)
                 intent.putExtra(MainActivity.TO_LOGIN,"login")
                 startActivity(intent)
+                finish()
             }
         }
     }

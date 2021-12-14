@@ -6,9 +6,7 @@ import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import com.example.alodokter_rakamin_android_kelompok1.data.repository.UserRepository
 
 class ResetPasswordViewModel : ViewModel() {
 
@@ -31,15 +29,17 @@ class ResetPasswordViewModel : ViewModel() {
     val isResend: LiveData<Boolean> = _isResend
 
     private var email: String = ""
+    private lateinit var repository: UserRepository
+    private var isCountdown = false
 
-    fun sendEmail(){
-        viewModelScope.launch(Dispatchers.IO) {
-            //auth
-        }
+    fun setRepository(userRepository: UserRepository){
+        repository = userRepository
     }
 
+    fun sendEmail() = repository.forgotPassword(email)
+
     fun afterTextChange(it: Editable?, errorText: String){
-        if(Patterns.EMAIL_ADDRESS.matcher(it.toString()).matches()){
+        if(Patterns.EMAIL_ADDRESS.matcher(it.toString()).matches() && !isCountdown){
             _isButtonEnabled.value = true
             _textError.value = null
             _isErrorEnabled.value = false
@@ -59,12 +59,14 @@ class ResetPasswordViewModel : ViewModel() {
                 _isHelperEnabled.value = true
                 _isButtonEnabled.value = false
                 _isResend.value = true
+                isCountdown = true
             }
 
             override fun onFinish() {
                 _isHelperEnabled.value = false
                 _isButtonEnabled.value = true
                 _isResend.value = false
+                isCountdown = false
             }
         }
         return countDownTimer

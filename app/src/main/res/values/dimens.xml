@@ -2,10 +2,12 @@
 <resources>
     <!-- margin -->
     <dimen name="spacing_175">175dp</dimen>
+    <dimen name="spacing_120">120dp</dimen>
     <dimen name="spacing_91">91dp</dimen>
     <dimen name="spacing_85">85dp</dimen>
     <dimen name="spacing_64">64dp</dimen>
     <dimen name="spacing_55">55dp</dimen>
+    <dimen name="spacing_48">48dp</dimen>
     <dimen name="spacing_44">44dp</dimen>
     <dimen name="spacing_40">40dp</dimen>
     <dimen name="spacing_35">35dp</dimen>

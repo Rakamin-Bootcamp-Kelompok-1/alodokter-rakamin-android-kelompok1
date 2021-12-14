@@ -9,7 +9,7 @@ data class RegisterEntity(
     @SerializedName("age") val age : Int? = null,
     @SerializedName("gender") val gender : String,
     @SerializedName("birth_date") val birth_date : String,
-    @SerializedName("phone_number") val phone_number : String,
+    @SerializedName("phone_number") val phone_number : String?,
     @SerializedName("image_path") val image_path : String? = null,
     @SerializedName("is_admin") val is_admin : Boolean = false,
     @SerializedName("is_active") val is_active : Boolean = false

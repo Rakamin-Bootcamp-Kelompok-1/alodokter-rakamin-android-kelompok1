@@ -16,4 +16,5 @@
     <color name="gray">#BCBCBC</color>
     <color name="blue_header">#2962FF</color>
     <color name="translucent">#80000000</color>
+    <color name="error_red">#ED5D5D</color>
 </resources>

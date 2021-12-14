@@ -5,7 +5,7 @@ import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.alodokter_rakamin_android_kelompok1.data.AuthRepository
+import com.example.alodokter_rakamin_android_kelompok1.data.repository.AuthRepository
 import com.example.alodokter_rakamin_android_kelompok1.data.entity.RegisterEntity
 import com.example.alodokter_rakamin_android_kelompok1.data.response.UserResponse
 
@@ -71,7 +71,7 @@ class RegisterViewModel : ViewModel(){
     private var phoneNumber = ""
     private var gender = ""
 
-    fun getRegister() : LiveData<UserResponse> = repository.getRegister(RegisterEntity(
+    fun getRegister() = repository.getRegister(RegisterEntity(
         full_name = fullName,
         password_digest = password,
         email = email,
