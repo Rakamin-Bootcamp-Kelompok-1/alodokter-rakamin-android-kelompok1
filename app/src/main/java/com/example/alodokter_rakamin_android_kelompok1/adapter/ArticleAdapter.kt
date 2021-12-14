@@ -1,9 +1,11 @@
-package com.example.alodokter_rakamin_android_kelompok1
+package com.example.alodokter_rakamin_android_kelompok1.adapter
 
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.alodokter_rakamin_android_kelompok1.data.model.ArticleVertical
+import com.example.alodokter_rakamin_android_kelompok1.R
 
 class ArticleAdapter (private val data: ArrayList<ArticleVertical>): RecyclerView.Adapter<ArticleViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {

@@ -1,9 +1,9 @@
-package com.example.alodokter_rakamin_android_kelompok1
+package com.example.alodokter_rakamin_android_kelompok1.view.profile
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import com.example.alodokter_rakamin_android_kelompok1.R
 import kotlinx.android.synthetic.main.activity_edit_profile.*
 
 class EditProfileActivity : AppCompatActivity()  {

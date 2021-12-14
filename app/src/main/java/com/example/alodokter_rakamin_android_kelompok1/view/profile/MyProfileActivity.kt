@@ -1,9 +1,9 @@
-package com.example.alodokter_rakamin_android_kelompok1
+package com.example.alodokter_rakamin_android_kelompok1.view.profile
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.alodokter_rakamin_android_kelompok1.AboutUsActivity
+import com.example.alodokter_rakamin_android_kelompok1.R
 import kotlinx.android.synthetic.main.activity_my_profile.*
 
 class MyProfileActivity : AppCompatActivity() {

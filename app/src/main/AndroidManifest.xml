@@ -28,28 +28,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MyProfileActivity"
+            android:name=".view.profile.MyProfileActivity"
             android:exported="true"/>
 
         <activity
-            android:name=".EditProfileActivity"
+            android:name=".view.profile.EditProfileActivity"
             android:exported="true"
-            android:parentActivityName=".MyProfileActivity"/>
+            android:parentActivityName=".view.profile.MyProfileActivity"/>
         <activity
-            android:name=".ChangePasswordActivity"
+            android:name=".view.profile.ChangePasswordActivity"
             android:exported="true"
-            android:parentActivityName=".MyProfileActivity"/>
+            android:parentActivityName=".view.profile.MyProfileActivity"/>
         <activity
-            android:name=".AboutUsActivity"
+            android:name=".view.profile.AboutUsActivity"
             android:exported="true"
-            android:parentActivityName=".MyProfileActivity"/>
+            android:parentActivityName=".view.profile.MyProfileActivity"/>
         <activity
-            android:name=".ArticleListActivity"
+            android:name=".view.article.ArticleListActivity"
             android:exported="true"/>
         <activity
-            android:name=".ArticleDetailActivity"
+            android:name=".view.article.ArticleDetailActivity"
             android:exported="true"
-            android:parentActivityName=".ArticleListActivity"/>
+            android:parentActivityName=".view.article.ArticleListActivity"/>
     </application>
 
 </manifest>

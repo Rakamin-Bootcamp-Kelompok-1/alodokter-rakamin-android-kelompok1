@@ -1,12 +1,12 @@
-package com.example.alodokter_rakamin_android_kelompok1
+package com.example.alodokter_rakamin_android_kelompok1.adapter
 
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.alodokter_rakamin_android_kelompok1.R
+import com.example.alodokter_rakamin_android_kelompok1.data.model.ArticleVertical
 
 class ArticleViewHolder(v: View):
     RecyclerView.ViewHolder(v) {

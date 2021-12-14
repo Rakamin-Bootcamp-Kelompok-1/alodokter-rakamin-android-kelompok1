@@ -1,17 +1,14 @@
-package com.example.alodokter_rakamin_android_kelompok1
+package com.example.alodokter_rakamin_android_kelompok1.view.article
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
 import androidx.core.view.size
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.alodokter_rakamin_android_kelompok1.ArticleAdapter
-import com.example.alodokter_rakamin_android_kelompok1.ArticleVertical
+import com.example.alodokter_rakamin_android_kelompok1.adapter.ArticleAdapter
+import com.example.alodokter_rakamin_android_kelompok1.data.model.ArticleVertical
 import com.example.alodokter_rakamin_android_kelompok1.R
-import kotlinx.android.synthetic.main.activity_articel_list.*
 
 class ArticleListActivity : AppCompatActivity(){
 
