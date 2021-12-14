@@ -1,270 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    android:background="@color/white">
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/artikel_medikuy"
+        android:textSize="18dp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/searchView"/>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/artikel_medikuy"
-            android:textSize="18dp"
-            android:textColor="@color/black"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/searchView"/>
+            android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/Toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageButton
-                    android:id="@+id/ibBack"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="24dp"
-                    android:layout_height="48dp"
-                    android:src="@drawable/ic_pointleft"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <ImageButton
+                android:id="@+id/ibBack"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="24dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_pointleft"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.appcompat.widget.Toolbar>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
 
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="18dp"
-            android:background="@drawable/shape_search_article"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/Toolbar"
-            app:queryHint="@string/search_article"
-            app:queryBackground="@color/gray"
-            app:iconifiedByDefault="false"/>
-<!--        <TextView-->
-<!--            android:id="@+id/tvJudulSemuaArtikel"-->
-<!--            android:textSize="18dp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textAlignment="center"-->
-<!--            android:text="@string/judul_artikel_semua"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/searchView"-->
-<!--            android:paddingVertical="14dp"/>-->
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="18dp"
+        android:background="@drawable/shape_search_article"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Toolbar"
+        app:queryHint="@string/search_article"
+        app:queryBackground="@color/gray"
+        app:iconifiedByDefault="false"/>
 
-<!--        <Button-->
-<!--            android:id="@+id/btKeluarga"-->
-<!--            android:textSize="14dp"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@drawable/shape_button_artikel"-->
-<!--            android:text="@string/keluarga"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/tvJudulSemuaArtikel"-->
-<!--            app:layout_constraintEnd_toStartOf="@id/btNutrisi"/>-->
-
-<!--        <Button-->
-<!--            android:id="@+id/btNutrisi"-->
-<!--            android:textSize="14dp"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintStart_toEndOf="@id/btKeluarga"-->
-<!--            app:layout_constraintEnd_toStartOf="@id/btBayi"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/tvJudulSemuaArtikel"-->
-<!--            android:text="@string/nutrisi"-->
-<!--            android:background="@drawable/shape_button_artikel"/>-->
-
-<!--        <Button-->
-<!--            android:id="@+id/btBayi"-->
-<!--            android:textSize="14dp"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintStart_toEndOf="@id/btNutrisi"-->
-<!--            app:layout_constraintEnd_toEndOf="@id/btKehamilan"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/tvJudulSemuaArtikel"-->
-<!--            android:text="@string/bayi"-->
-<!--            android:background="@drawable/shape_button_artikel"/>-->
-
-<!--        <Button-->
-<!--            android:id="@+id/btKehamilan"-->
-<!--            android:textSize="14dp"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintStart_toEndOf="@id/btBayi"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/tvJudulSemuaArtikel"-->
-<!--            android:text="@string/kehamilan"-->
-<!--            android:background="@drawable/shape_button_artikel"/>-->
-
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/btKeluarga"-->
-<!--            app:layout_constraintBottom_toTopOf="@id/btKecantikan" />-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="18dp"
+        app:layout_constraintTop_toBottomOf="@id/searchView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/rv_article_vertical"/>
 
 
-<!--        <Button-->
-<!--            android:id="@+id/btKecantikan"-->
-<!--            android:textSize="14dp"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@drawable/shape_button_artikel"-->
-<!--            android:text="@string/kecantikan"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/btKeluarga"-->
-<!--            app:layout_constraintEnd_toStartOf="@id/btDiabetes"-->
-<!--            android:layout_marginTop="14dp"-->
-<!--            />-->
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--        <Button-->
-<!--            android:id="@+id/btDiabetes"-->
-<!--            android:textSize="14dp"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintStart_toEndOf="@id/btKecantikan"-->
-<!--            app:layout_constraintEnd_toStartOf="@id/btHidupSehat"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/btKeluarga"-->
-<!--            android:text="@string/diabetes"-->
-<!--            android:background="@drawable/shape_button_artikel"-->
-<!--            android:layout_marginTop="14dp"/>-->
-
-<!--        <Button-->
-<!--            android:id="@+id/btHidupSehat"-->
-<!--            android:textSize="14dp"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintStart_toEndOf="@id/btDiabetes"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/btKeluarga"-->
-<!--            android:text="@string/hidup_sehat"-->
-<!--            android:background="@drawable/shape_button_artikel"-->
-<!--            android:layout_marginTop="14dp"/>-->
-
-        <TextView
-            android:id="@+id/tvJudulArtikel1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/judul_artikel1"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:paddingHorizontal="18dp"
-            android:paddingTop="28dp"
-            android:paddingBottom="14dp"
-            app:layout_constraintTop_toBottomOf="@id/searchView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-        <TextView
-            android:id="@+id/tvIsiShortArtikel1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/isi_short_artikel1"
-            android:paddingHorizontal="18dp"
-            app:layout_constraintTop_toBottomOf="@id/tvJudulArtikel1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-        <ImageButton
-            android:id="@+id/ibArtikel1"
-            android:layout_width="wrap_content"
-            android:layout_height="210dp"
-            android:src="@drawable/ic_gambar_artikel1"
-            android:scaleType="fitCenter"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvIsiShortArtikel1"
-            android:paddingHorizontal="18dp"
-            android:background="@color/white"/>
-
-        <TextView
-            android:id="@+id/tvJudulArtikel2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/judul_artikel2"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:paddingHorizontal="18dp"
-            android:paddingTop="28dp"
-            android:paddingBottom="14dp"
-            app:layout_constraintTop_toBottomOf="@id/ibArtikel1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-        <TextView
-            android:id="@+id/tvIsiShortArtikel2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/isi_short_artikel2"
-            android:paddingHorizontal="18dp"
-            app:layout_constraintTop_toBottomOf="@id/tvJudulArtikel2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-        <ImageButton
-            android:id="@+id/ibArtikel2"
-            android:layout_width="wrap_content"
-            android:layout_height="210dp"
-            android:src="@drawable/ic_gambar_artikel2"
-            android:scaleType="fitCenter"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvIsiShortArtikel2"
-            android:paddingHorizontal="18dp"
-            android:background="@color/white"/>
-
-        <TextView
-            android:id="@+id/tvJudulArtikel3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/judul_artikel3"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:paddingHorizontal="18dp"
-            android:paddingTop="28dp"
-            android:paddingBottom="14dp"
-            app:layout_constraintTop_toBottomOf="@id/ibArtikel2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-        <TextView
-            android:id="@+id/tvIsiShortArtikel3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/isi_short_artikel3"
-            android:paddingHorizontal="18dp"
-            app:layout_constraintTop_toBottomOf="@id/tvJudulArtikel3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-        <ImageButton
-            android:id="@+id/ibArtikel3"
-            android:layout_width="wrap_content"
-            android:layout_height="210dp"
-            android:src="@drawable/ic_gambar_artikel3"
-            android:scaleType="fitCenter"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvIsiShortArtikel3"
-            android:paddingHorizontal="18dp"
-            android:background="@color/white"/>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</ScrollView>
