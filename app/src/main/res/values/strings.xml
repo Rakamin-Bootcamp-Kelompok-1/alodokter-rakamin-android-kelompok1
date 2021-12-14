@@ -84,6 +84,11 @@
     <string name="lihat_riwayat">Lihat Riwayat</string>
     <string name="tidak_kembali_ke_home">Tidak, Kembali ke Home</string>
     <string name="location">Location</string>
+    <string name="artikel">Artikel</string>
+    <string name="content_description">Content Description</string>
+    <string name="lihat_semua_artikel">Lihat Semua Artikel</string>
+    <string name="consult_to_doctor_anywhere_anytime">Consult to Doctor Anywhere, Anytime</string>
+    <string name="see_doctor">See Doctor</string>
 
     <string-array name="gender">
         <item>Male</item>

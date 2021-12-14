@@ -15,4 +15,5 @@
     <color name="main_blue">#46A3F9</color>
     <color name="gray">#BCBCBC</color>
     <color name="blue_header">#2962FF</color>
+    <color name="translucent">#80000000</color>
 </resources>
