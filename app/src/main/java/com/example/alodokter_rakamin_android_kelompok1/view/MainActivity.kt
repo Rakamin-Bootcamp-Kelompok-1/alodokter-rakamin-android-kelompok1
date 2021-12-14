@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         when(navController.currentDestination?.id){
             R.id.loginFragment -> navView.selectedItemId = R.id.navigation_home
-            R.id.registerFragment -> navController.popBackStack()
+            R.id.registerFragment -> navController.navigate(R.id.loginFragment)
             else -> super.onBackPressed()
         }
     }

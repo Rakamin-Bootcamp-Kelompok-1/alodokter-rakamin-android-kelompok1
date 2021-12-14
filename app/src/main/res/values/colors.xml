@@ -14,4 +14,5 @@
     <color name="blue_splash">#4C7CCC</color>
     <color name="main_blue">#46A3F9</color>
     <color name="gray">#BCBCBC</color>
+    <color name="error_red">#ED5D5D</color>
 </resources>

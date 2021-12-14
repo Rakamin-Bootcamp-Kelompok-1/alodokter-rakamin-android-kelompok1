@@ -8,7 +8,7 @@
     <string name="splash_desc">Your Personal Health Care</string>
 
     <!-- login text -->
-    <string name="title_login">Welcome \nIn The App</string>
+    <string name="title_login">Welcome</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
     <string name="sign_in">Sign In</string>
@@ -27,12 +27,12 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="already_have_an_account">Already Have an Account?</string>
     <string name="different_confirm_password">Different Password</string>
-    <string name="phone_mode">+%d</string>
+    <string name="phone_mode">+ </string>
     <string name="min_full_name">Name can\'t empty</string>
     <string name="min_gender">Gender can\'t empty</string>
     <string name="min_date">Date can\'t empty</string>
     <string name="min_phone_number">Phone number can\'t empty</string>
-    <string name="date_format">%02d/%02d/%d</string>
+    <string name="date_format">%02d-%02d-%d</string>
 
     <!-- main activity text -->
     <string name="home">Home</string>
