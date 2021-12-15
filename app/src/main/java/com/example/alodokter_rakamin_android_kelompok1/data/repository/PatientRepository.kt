@@ -7,6 +7,7 @@ import com.example.alodokter_rakamin_android_kelompok1.data.entity.PatientEntity
 import com.example.alodokter_rakamin_android_kelompok1.data.response.DataResponse
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
+import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -83,6 +84,53 @@ class PatientRepository {
             }
 
             override fun onFailure(call: Call<PatientEntity>, t: Throwable) {
+                data.value = ApiResponse.Error(t.message.toString())
+            }
+        })
+        return data
+    }
+
+    fun editPatient(id: Int, user: JSONObject) : MutableLiveData<ApiResponse<PatientEntity>>{
+        val data = MutableLiveData<ApiResponse<PatientEntity>>()
+        data.value = ApiResponse.Loading
+        val requestBody = user.toString().toRequestBody("application/json".toMediaTypeOrNull())
+        val responseBodyCallApi = ApiClient().getApi().editPatient(id, requestBody)
+        responseBodyCallApi.enqueue(object : Callback<PatientEntity>{
+            override fun onResponse(call: Call<PatientEntity>, response: Response<PatientEntity>) {
+                if(response.isSuccessful){
+                    val patient = response.body()
+                    if(patient != null){
+                        data.value = ApiResponse.Success(patient)
+                    } else data.value = ApiResponse.Error("Failed get patient")
+                } else data.value = ApiResponse.Error("Action is interrupted. Retry submit")
+            }
+
+            override fun onFailure(call: Call<PatientEntity>, t: Throwable) {
+                data.value = ApiResponse.Error(t.message.toString())
+            }
+        })
+
+        return data
+    }
+
+    fun deletePatient(id: Int) : MutableLiveData<ApiResponse<JSONObject>>{
+        val data = MutableLiveData<ApiResponse<JSONObject>>()
+        data.value = ApiResponse.Loading
+        val responseBodyCallApi = ApiClient().getApi().deletePatient(id)
+        responseBodyCallApi.enqueue(object : Callback<ResponseBody>{
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if(response.isSuccessful){
+                    val value = response.body()
+                    if(value != null){
+                        val jsonObject = JSONObject(value.string())
+                        data.value = ApiResponse.Success(jsonObject)
+                    } else {
+                        data.value = ApiResponse.Error("Patient has been deleted, but cannot get status")
+                    }
+                } else data.value = ApiResponse.Error("Can't delete patient")
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 data.value = ApiResponse.Error(t.message.toString())
             }
         })
