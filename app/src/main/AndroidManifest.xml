@@ -27,6 +27,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".view.profile.MyProfileActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".view.profile.EditProfileActivity"
+            android:exported="true"
+            android:parentActivityName=".view.profile.MyProfileActivity"/>
+        <activity
+            android:name=".view.profile.ChangePasswordActivity"
+            android:exported="true"
+            android:parentActivityName=".view.profile.MyProfileActivity"/>
+        <activity
+            android:name=".view.profile.AboutUsActivity"
+            android:exported="true"
+            android:parentActivityName=".view.profile.MyProfileActivity"/>
+        <activity
+            android:name=".view.article.ArticleListActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".view.article.ArticleDetailActivity"
+            android:exported="true"
+            android:parentActivityName=".view.article.ArticleListActivity"/>
     </application>
 
 </manifest>

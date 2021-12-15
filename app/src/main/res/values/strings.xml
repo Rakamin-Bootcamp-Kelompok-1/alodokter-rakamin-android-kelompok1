@@ -56,10 +56,97 @@
     <string name="title_onboardthird_1">Make an</string>
     <string name="title_onboardthird_2">Appointment</string>
 
+    <!--  artikel  -->
+    <string name="artikel_title">Artikel Medikuy</string>
+    <string name="search_article">Search Article</string>
+
+
+    <!--  Booking  -->
+    <string name="top_doctor">Top Doctor</string>
+    <string name="detail_dokter">Detail Dokter</string>
+    <string name="specialist">Specialist</string>
+    <string name="biography">Biography</string>
+    <string name="book_an_appointment">Book An Appointment</string>
+    <string name="konfirmasi_booking">Konfirmasi Booking</string>
+    <string name="booking_untuk">Booking untuk</string>
+    <string name="ganti_pasien">Ganti Pasien</string>
+    <string name="jenis_kelamin">Jenis Kelamin</string>
+    <string name="nama">Nama</string>
+    <string name="golongan_darah">Golongan Darah</string>
+    <string name="tanggal_lahir">Tanggal Lahir</string>
+    <string name="umur">Umur</string>
+    <string name="status">Status</string>
+    <string name="atur_waktu">Atur Waktu</string>
+    <string name="pesan_pribadi">Pesan Pribadi</string>
+    <string name="metode_pembayaran">Metode Pembayaran</string>
+    <string name="content_booking">Silahkan datang pada jadwal yang telah anda pilih</string>
+    <string name="kode_booking_anda">Kode booking anda</string>
+    <string name="lihat_riwayat">Lihat Riwayat</string>
+    <string name="tidak_kembali_ke_home">Tidak, Kembali ke Home</string>
+    <string name="location">Location</string>
+    <string name="artikel">Artikel</string>
+    <string name="content_description">Content Description</string>
+    <string name="lihat_semua_artikel">Lihat Semua Artikel</string>
+    <string name="consult_to_doctor_anywhere_anytime">Consult to Doctor Anywhere, Anytime</string>
+    <string name="see_doctor">See Doctor</string>
+
     <string-array name="gender">
         <item>Male</item>
         <item>Female</item>
         <item>Custom</item>
     </string-array>
+    <string name="my_profile">My Profile</string>
+    <string name="profil1">Russi Hersiano</string>
+    <string name="nohp_profil1">0812-7545-3367</string>
+    <string name="account">Account</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="change_password">Change Password</string>
+    <string name="medikuy_app">MediKuy App</string>
+    <string name="about_us">About Us</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="label_full_name">Full Name</string>
+    <string name="label_email">Email</string>
+    <string name="label_birth_date">Birth Date</string>
+    <string name="label_phone_number">Phone Number</string>
+    <string name="save_edit">Save Edit</string>
+    <string name="label_old_password">Old Password</string>
+    <string name="label_new_password">New Password</string>
+    <string name="label_confirm_password">Confirm Password</string>
+    <string name="update_password">Update Password</string>
 
+    <!--    about us-->
+    <string name="deskripsi_foto_about_us">Foto Ruangan - RS SMKDEV</string>
+    <string name="judul_about_us">World Health Organization</string>
+    <string name="isi_about_us">
+        Amet - minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+
+    \n\n Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+
+    Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</string>
+
+    <!--    artikel-->
+    <string name="judul_artikel_semua">Artikel Kesehatan Terkini untuk Anda</string>
+    <string name="artikel_medikuy">Artikel Medikuy</string>
+    <string name="keluarga">Keluarga</string>
+    <string name="nutrisi">Nutrisi</string>
+    <string name="bayi">Bayi</string>
+    <string name="kehamilan">Kehamilan</string>
+    <string name="kecantikan">Kecantikan</string>
+    <string name="diabetes">Diabetes</string>
+    <string name="hidup_sehat">Hidup Sehat</string>
+    <string name="recent_post">Recent Posts</string>
+    <string name="see_all">See All</string>
+    <string name="isi_artikel_horizontal_view">Tidak Ada yang Namanya Diabetes Kering atau Diabetes...</string>
+
+    <string name="judul_artikel1">4 Manfaat Daun Sambiloto untuk Kulit yang Sayang Dilewatkan</string>
+    <string name="isi_short_artikel1">Tak hanya baik untuk kesehatan tubuh, manfaat daun sambiloto untuk kesehatan kulit pun begitu beragam. Berbagai kandungan nutrisi di dalamnya dipercaya baik....</string>
+    <string name="judul_artikel2">Mengenal COVID-19 Varian Omicron</string>
+    <string name="isi_short_artikel2">Varian Omicron (B.1.1.529) merupakan salah satu hasil mutasi virus Corona. Berdasarkan bukti yang ada sejauh ini, varian Omicron memiliki tingkat mutasi yang tinggi....</string>
+    <string name="judul_artikel3">4 Manfaat Daun Sambiloto untuk Kulit yang Sayang Dilewatkan</string>
+    <string name="isi_short_artikel3">Tak hanya baik untuk kesehatan tubuh, manfaat daun sambiloto untuk kesehatan kulit pun begitu beragam. Berbagai kandungan nutrisi di dalamnya dipercaya baik....</string>
+    <string name="isi_artikel1">Tak hanya baik untuk kesehatan tubuh, manfaat daun sambiloto untuk kesehatan kulit pun begitu beragam. Berbagai kandungan nutrisi di dalamnya dipercaya baik untuk mencegah infeksi pada kulit dan melindungi kulit dari bahaya radikal bebas.\n\n
+    Daun sambiloto (Andrographis paniculata) adalah salah satu tanaman obat tradisional yang banyak dibudidayakan di berbagai negara Asia, termasuk Indonesia. Daun ini dipercaya dapat mengatasi berbagai masalah kesehatan, seperti gangguan fungsi hati, penyakit jantung, alergi, hingga infeksi.\n\n
+    Beberapa studi mengungkapkan bahwa daun sambiloto kaya akan antioksidan, seperti andrographolide, flavonoid, terpenoid, tannin, dan saponin. Selain itu, tanaman ini juga diketahui bersifat antiradang, antikanker, antibakteri, dan antivirus.\n\n
+    Dengan beragam nutrisinya tersebut, daun sambiloto diketahui dapat menurunkan risiko terkena masalah kulit. Inilah mengapa Anda bisa memanfaatkan daun sambiloto untuk menjaga kesehatan kulit. \n\n</string>
 </resources>
