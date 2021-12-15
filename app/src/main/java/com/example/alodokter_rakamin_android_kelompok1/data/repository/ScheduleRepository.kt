@@ -29,7 +29,7 @@ class ScheduleRepository {
                 if(response.isSuccessful){
                     val schedule = response.body()
                     if(schedule != null) {
-                        if (schedule.articles.isEmpty()) data.value = ApiResponse.Error("Schedules not found")
+                        if (schedule.data.isEmpty()) data.value = ApiResponse.Error("Schedules not found")
                         else {
                             // jika ada local add all data ke room db
                             data.value = ApiResponse.Success(schedule)

@@ -27,7 +27,7 @@ class HistoryRepository {
                 if(response.isSuccessful){
                     val booking = response.body()
                     if(booking != null) {
-                        if (booking.articles.isEmpty()) data.value = ApiResponse.Error("Booking not found")
+                        if (booking.data.isEmpty()) data.value = ApiResponse.Error("Booking not found")
                         else {
                             // jika ada local add all data ke room db
                             data.value = ApiResponse.Success(booking)

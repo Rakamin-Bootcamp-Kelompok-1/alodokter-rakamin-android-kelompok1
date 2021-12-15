@@ -69,7 +69,6 @@
     <string name="book_an_appointment">Book An Appointment</string>
     <string name="konfirmasi_booking">Konfirmasi Booking</string>
     <string name="booking_untuk">Booking untuk</string>
-    <string name="ganti_pasien">Ganti Pasien</string>
     <string name="jenis_kelamin">Jenis Kelamin</string>
     <string name="nama">Nama</string>
     <string name="golongan_darah">Golongan Darah</string>
@@ -156,5 +155,5 @@
     <string name="daftar">Daftar</string>
     <string name="old_password">Old Password</string>
     <string name="new_password">New Password</string>
-    <string name="confirm_password">Confirm Password</string>
+    <string name="data_not_found">Data Not Found</string>
 </resources>
