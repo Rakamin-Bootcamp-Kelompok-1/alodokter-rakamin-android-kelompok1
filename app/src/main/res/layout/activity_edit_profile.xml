@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.profile.editprofile.EditProfileActivity">
+    tools:context=".view.profile.EditProfileActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/edit_profile"
-            android:textSize="18sp"
+            android:textSize="18dp"
             android:textColor="@color/black"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,103 +63,118 @@
             android:layout_marginStart="95dp"
             android:layout_marginTop="55dp"
             android:src="@drawable/ic_add_icon"
-            app:layout_constraintBottom_toTopOf="@+id/tvFormFullName"
+            app:layout_constraintBottom_toBottomOf="@+id/ivProfileIconBig"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/Toolbar" />
 
-        <TextView
-            android:id="@+id/tvLabelFullName"
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/ivProfileIconBig"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/spacing_40"
+            android:layout_marginTop="@dimen/spacing_32"
+            android:layout_marginEnd="@dimen/spacing_40"
+            app:hintTextAppearance="@style/TextAppearance.AppCompat"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+            app:boxBackgroundColor="@color/white"
+            android:hint="@string/fullname"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/label_full_name"
-            android:layout_marginTop="10dp"
-            android:paddingVertical="5dp"
-            android:paddingHorizontal="41dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivProfileIconBig">
 
-        <EditText
-            android:id="@+id/tvFormFullName"
-            android:layout_width="330dp"
-            android:layout_height="45dp"
-            android:background="@drawable/shape_fillable_form"
-            android:elevation="10dp"
-            android:paddingHorizontal="41dp"
-            android:paddingVertical="5dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvLabelFullName" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:paddingStart="@dimen/padding_10"
+                android:paddingEnd="@dimen/padding_10" />
 
-        <TextView
-            android:id="@+id/tvLabelEmail"
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tvFormFullName"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/spacing_40"
+            android:layout_marginTop="@dimen/spacing_32"
+            android:layout_marginEnd="@dimen/spacing_40"
+            app:hintTextAppearance="@style/TextAppearance.AppCompat"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+            app:boxBackgroundColor="@color/white"
+            android:hint="@string/fullname"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/label_email"
-            android:paddingVertical="5dp"
-            android:paddingHorizontal="41dp"
-            android:layout_marginTop="10dp"/>
-        <EditText
-            android:id="@+id/tvFormEmail"
-            android:layout_width="330dp"
-            android:layout_height="45dp"
-            app:layout_constraintTop_toBottomOf="@id/tvLabelEmail"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:paddingVertical="5dp"
-            android:paddingHorizontal="41dp"
-            android:background="@drawable/shape_fillable_form"
-            android:elevation="10dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtInputName">
 
-        <TextView
-            android:id="@+id/tvLabelBirthDate"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:paddingStart="@dimen/padding_10"
+                android:paddingEnd="@dimen/padding_10" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputDateBirth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tvFormEmail"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/spacing_40"
+            android:layout_marginTop="@dimen/spacing_32"
+            android:layout_marginEnd="@dimen/spacing_40"
+            app:hintTextAppearance="@style/TextAppearance.AppCompat"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+            app:boxBackgroundColor="@color/white"
+            app:endIconDrawable="@drawable/ic_calendar"
+            app:endIconMode="custom"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/label_birth_date"
-            android:paddingVertical="5dp"
-            android:paddingHorizontal="41dp"
-            android:layout_marginTop="10dp"/>
-        <EditText
-            android:id="@+id/tvFormBirthDate"
-            android:layout_width="330dp"
-            android:layout_height="45dp"
-            app:layout_constraintTop_toBottomOf="@id/tvLabelBirthDate"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:paddingVertical="5dp"
-            android:paddingHorizontal="41dp"
-            android:background="@drawable/shape_fillable_form"
-            android:elevation="10dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtInputEmail">
 
-        <TextView
-            android:id="@+id/tvLabelPhoneNumber"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtBirthDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:hint="@string/date_of_birth"
+                android:inputType="none"
+                android:paddingStart="@dimen/padding_10"
+                android:paddingEnd="@dimen/padding_10" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tvFormBirthDate"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/spacing_40"
+            android:layout_marginTop="@dimen/spacing_32"
+            android:layout_marginEnd="@dimen/spacing_40"
+            app:hintTextAppearance="@style/TextAppearance.AppCompat"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+            app:prefixText="@string/phone_mode"
+            app:boxBackgroundColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/label_phone_number"
-            android:paddingVertical="5dp"
-            android:paddingHorizontal="41dp"
-            android:layout_marginTop="10dp"/>
-        <EditText
-            android:id="@+id/tvFormPhoneNumber"
-            android:layout_width="330dp"
-            android:layout_height="45dp"
-            app:layout_constraintTop_toBottomOf="@id/tvLabelPhoneNumber"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:paddingVertical="5dp"
-            android:paddingHorizontal="41dp"
-            android:background="@drawable/shape_fillable_form"
-            android:elevation="10dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtInputDateBirth">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/phone"
+                android:inputType="phone"
+                android:digits="0123456789+"
+                android:paddingStart="@dimen/padding_10"
+                android:paddingEnd="@dimen/padding_10" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
         <Button
             android:id="@+id/btSaveEdit"
@@ -167,8 +182,8 @@
             android:layout_height="45dp"
             android:text="@string/save_edit"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/tvFormPhoneNumber"
+            android:textSize="18dp"
+            app:layout_constraintTop_toBottomOf="@id/txtInputNumber"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginVertical="25dp"
