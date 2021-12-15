@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class BookingEntity (
     @SerializedName("id") val id: Int,
-    @SerializedName("message") val message : Int,
+    @SerializedName("message") val message : String,
     @SerializedName("payment_method") val paymentMethod : String,
     @SerializedName("total_price") val totalPrice : Int,
     @SerializedName("doctor_id") val doctorId : Int,

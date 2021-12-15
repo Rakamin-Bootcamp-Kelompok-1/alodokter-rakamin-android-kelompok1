@@ -30,7 +30,7 @@ class PatientRepository {
                 if(response.isSuccessful){
                     val patients = response.body()
                     if(patients != null) {
-                        if (patients.articles.isEmpty()) data.value = ApiResponse.Error("Patients not found")
+                        if (patients.data.isEmpty()) data.value = ApiResponse.Error("Patients not found")
                         else {
                             // jika ada local add all data ke room db
                             data.value = ApiResponse.Success(patients)

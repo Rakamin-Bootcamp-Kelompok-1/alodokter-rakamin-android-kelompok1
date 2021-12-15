@@ -18,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/shawn_doctor"
+            android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -97,7 +98,7 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/tvRupiah"
+            android:id="@+id/tvStar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@id/cvRupiah"
@@ -116,7 +117,7 @@
             android:layout_height="wrap_content"
             android:text="10:00 - 14:00"
             android:fontFamily="@font/nunito_bold"
-            app:layout_constraintStart_toEndOf="@+id/tvRupiah"
+            app:layout_constraintStart_toEndOf="@+id/tvStar"
             app:layout_constraintTop_toBottomOf="@+id/strip"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_margin="@dimen/spacing_10"

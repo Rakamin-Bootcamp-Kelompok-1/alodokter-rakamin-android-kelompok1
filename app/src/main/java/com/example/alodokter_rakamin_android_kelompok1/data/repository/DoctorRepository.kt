@@ -23,7 +23,7 @@ class DoctorRepository {
                 if(response.isSuccessful){
                     val doctors = response.body()
                     if(doctors != null) {
-                        if (doctors.articles.isEmpty()) data.value = ApiResponse.Error("Doctors not found")
+                        if (doctors.data.isEmpty()) data.value = ApiResponse.Error("Doctors not found")
                         else {
                             // jika ada local add all data ke room db
                             data.value = ApiResponse.Success(doctors)

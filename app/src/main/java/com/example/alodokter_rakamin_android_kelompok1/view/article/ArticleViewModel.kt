@@ -1,12 +1,9 @@
-package com.example.alodokter_rakamin_android_kelompok1.view.home
+package com.example.alodokter_rakamin_android_kelompok1.view.article
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.alodokter_rakamin_android_kelompok1.data.repository.ArticleRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
+class ArticleViewModel : ViewModel() {
     private lateinit var repository: ArticleRepository
 
 

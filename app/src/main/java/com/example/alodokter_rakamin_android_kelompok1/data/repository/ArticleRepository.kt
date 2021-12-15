@@ -1,5 +1,6 @@
 package com.example.alodokter_rakamin_android_kelompok1.data.repository
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.alodokter_rakamin_android_kelompok1.api.ApiClient
 import com.example.alodokter_rakamin_android_kelompok1.api.ApiResponse
@@ -21,9 +22,10 @@ class ArticleRepository {
                 response: Response<DataResponse<ArticleEntity>>
             ) {
                 if(response.isSuccessful){
+                    Log.v("1422", response.toString())
                     val articles = response.body()
                     if(articles != null) {
-                        if (articles.articles.isEmpty()) data.value = ApiResponse.Error("Articles not found")
+                        if (articles.data.isEmpty()) data.value = ApiResponse.Error("Articles not found")
                         else {
                             // jika ada local add all data ke room db
                             data.value = ApiResponse.Success(articles)
