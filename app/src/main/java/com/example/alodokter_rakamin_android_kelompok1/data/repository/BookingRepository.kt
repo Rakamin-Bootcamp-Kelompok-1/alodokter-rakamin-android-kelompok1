@@ -70,7 +70,7 @@ class BookingRepository {
     fun deleteBooking(id: Int) : MutableLiveData<ApiResponse<JSONObject>>{
         val data = MutableLiveData<ApiResponse<JSONObject>>()
         data.value = ApiResponse.Loading
-        val responseBodyCallApi = ApiClient().getApi().deletePatient(id)
+        val responseBodyCallApi = ApiClient().getApi().deleteBooking(id)
         responseBodyCallApi.enqueue(object : Callback<ResponseBody>{
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 if(response.isSuccessful){
