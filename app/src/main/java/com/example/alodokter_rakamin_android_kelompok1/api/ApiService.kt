@@ -1,9 +1,6 @@
 package com.example.alodokter_rakamin_android_kelompok1.api
 
-import com.example.alodokter_rakamin_android_kelompok1.data.entity.ArticleEntity
-import com.example.alodokter_rakamin_android_kelompok1.data.entity.DoctorEntity
-import com.example.alodokter_rakamin_android_kelompok1.data.entity.PatientEntity
-import com.example.alodokter_rakamin_android_kelompok1.data.entity.UserEntity
+import com.example.alodokter_rakamin_android_kelompok1.data.entity.*
 import com.example.alodokter_rakamin_android_kelompok1.data.response.DataResponse
 import com.example.alodokter_rakamin_android_kelompok1.data.response.UserResponse
 import okhttp3.RequestBody
@@ -47,7 +44,7 @@ interface ApiService {
     @POST("password/edit/{token}")
     fun changePassword(
         @Body requestBody: RequestBody
-    ): Call<ResponseBody>
+    ): Call<ResponseBody>//belum ada api nya
 
     //article
     @Headers(
@@ -108,5 +105,56 @@ interface ApiService {
     fun addPatient(
         @Body requestBody: RequestBody
     ): Call<PatientEntity>
+
+    @Headers(
+        "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.oT7kSePnYs7eVIsRIzIi0UEC7XBclsrO3qrnXwic8Zg",
+    )
+    @PATCH("patient/{id}")
+    fun editPatient(
+        @Path("id") id: Int,
+        @Body requestBody: RequestBody
+    ) : Call<PatientEntity>
+
+    @DELETE("patient/{id}")
+    fun deletePatient(
+        @Path("id") id: Int,
+    ): Call<ResponseBody>
+
+    //schedule
+    @GET("schedule/doctor")
+    fun getSchedulesDoctor(
+        @Query("page") page: Int,
+        @Query("per_page") perPage: Int,
+        @Body requestBody: RequestBody
+    ): Call<DataResponse<ScheduleEntity>>
+
+    //booking
+    @GET("bookings")
+    fun getBookings(
+        @Query("page") page: Int,
+        @Query("per_page") perPage: Int,
+        @Body requestBody: RequestBody
+    ): Call<DataResponse<BookingEntity>>
+
+    @Headers(
+        "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.oT7kSePnYs7eVIsRIzIi0UEC7XBclsrO3qrnXwic8Zg",
+    )
+    @POST("bookings")
+    fun addBooking(
+        @Body requestBody: RequestBody
+    ): Call<BookingEntity>
+
+    @GET("bookings/history")
+    fun getHistoryBookings(
+        @Query("page") page: Int,
+        @Query("per_page") perPage: Int,
+        @Body requestBody: RequestBody
+    ): Call<DataResponse<BookingEntity>>
+
+    @DELETE("bookings/{id}")
+    fun deleteBooking(
+        @Path("id") id: Int,
+    ): Call<ResponseBody>
+
 
 }
