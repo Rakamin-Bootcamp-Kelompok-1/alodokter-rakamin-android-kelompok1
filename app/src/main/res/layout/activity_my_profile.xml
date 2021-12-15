@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/my_profile"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textColor="@color/black"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,6 +78,7 @@
                 android:textSize="15sp"/>
 
             <TextView
+                android:id="@+id/tvPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/nohp_profil1"

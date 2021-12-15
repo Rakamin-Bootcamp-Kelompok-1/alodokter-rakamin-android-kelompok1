@@ -95,6 +95,8 @@
         <item>Female</item>
         <item>Custom</item>
     </string-array>
+
+    <!--profile-->
     <string name="my_profile">My Profile</string>
     <string name="profil1">Russi Hersiano</string>
     <string name="nohp_profil1">0812-7545-3367</string>
@@ -114,6 +116,8 @@
     <string name="label_new_password">New Password</string>
     <string name="label_confirm_password">Confirm Password</string>
     <string name="update_password">Update Password</string>
+    <string name="success_change_password">Berhasil ganti password</string>
+    <string name="phone_format">+ %s</string>
 
     <!--    about us-->
     <string name="deskripsi_foto_about_us">Foto Ruangan - RS SMKDEV</string>
@@ -149,12 +153,10 @@
     Daun sambiloto (Andrographis paniculata) adalah salah satu tanaman obat tradisional yang banyak dibudidayakan di berbagai negara Asia, termasuk Indonesia. Daun ini dipercaya dapat mengatasi berbagai masalah kesehatan, seperti gangguan fungsi hati, penyakit jantung, alergi, hingga infeksi.\n\n
     Beberapa studi mengungkapkan bahwa daun sambiloto kaya akan antioksidan, seperti andrographolide, flavonoid, terpenoid, tannin, dan saponin. Selain itu, tanaman ini juga diketahui bersifat antiradang, antikanker, antibakteri, dan antivirus.\n\n
     Dengan beragam nutrisinya tersebut, daun sambiloto diketahui dapat menurunkan risiko terkena masalah kulit. Inilah mengapa Anda bisa memanfaatkan daun sambiloto untuk menjaga kesehatan kulit. \n\n</string>
-    <string name="ganti_pasien">Ganti Pasien</string>
     <string name="tambah_patient">Tambah Patient</string>
     <string name="laki_laki">Laki-laki</string>
     <string name="perempuan">Perempuan</string>
     <string name="daftar">Daftar</string>
     <string name="old_password">Old Password</string>
     <string name="new_password">New Password</string>
-    <string name="confirm_password">Confirm Password</string>
 </resources>
