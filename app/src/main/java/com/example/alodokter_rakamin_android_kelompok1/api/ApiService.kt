@@ -41,11 +41,6 @@ interface ApiService {
         @Body requestBody: RequestBody
     ): Call<ResponseBody>
 
-    @POST("password/edit/{token}")
-    fun changePassword(
-        @Body requestBody: RequestBody
-    ): Call<ResponseBody>//belum ada api nya
-
     //article
     @Headers(
         "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.oT7kSePnYs7eVIsRIzIi0UEC7XBclsrO3qrnXwic8Zg",
@@ -60,7 +55,7 @@ interface ApiService {
     fun getArticlesByCategory(
         @Query("page") page: Int,
         @Query("per_page") perPage: Int
-    ): Call<DataResponse<ArticleEntity>>
+    ): Call<DataResponse<ArticleEntity>>//diganti
 
     @GET("articles/{id}")
     fun getDetailArticle(
@@ -91,7 +86,7 @@ interface ApiService {
         @Query("page") page: Int,
         @Query("per_page") perPage: Int,
         @Body requestBody: RequestBody
-    ): Call<DataResponse<PatientEntity>>
+    ): Call<DataResponse<PatientEntity>>//diganti
 
     @GET("patient/{id}")
     fun getDetailPatient(
@@ -126,7 +121,7 @@ interface ApiService {
         @Query("page") page: Int,
         @Query("per_page") perPage: Int,
         @Body requestBody: RequestBody
-    ): Call<DataResponse<ScheduleEntity>>
+    ): Call<DataResponse<ScheduleEntity>>//diganti
 
     //booking
     @GET("bookings")
@@ -134,7 +129,7 @@ interface ApiService {
         @Query("page") page: Int,
         @Query("per_page") perPage: Int,
         @Body requestBody: RequestBody
-    ): Call<DataResponse<BookingEntity>>
+    ): Call<DataResponse<BookingEntity>>//diganti
 
     @Headers(
         "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.oT7kSePnYs7eVIsRIzIi0UEC7XBclsrO3qrnXwic8Zg",
@@ -149,7 +144,7 @@ interface ApiService {
         @Query("page") page: Int,
         @Query("per_page") perPage: Int,
         @Body requestBody: RequestBody
-    ): Call<DataResponse<BookingEntity>>
+    ): Call<DataResponse<BookingEntity>>//diganti
 
     @DELETE("bookings/{id}")
     fun deleteBooking(

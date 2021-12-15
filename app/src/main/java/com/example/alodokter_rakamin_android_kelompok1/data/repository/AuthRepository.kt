@@ -67,9 +67,9 @@ class AuthRepository {
                 Log.d("TEST",response.body().toString())
                 val data = response.body()
                 if(data != null){
-                    if (data.error != null) mutableLiveData.value = ApiResponse.Error(data.error.toString())
+                    if (data.error != null) mutableLiveData.value = ApiResponse.Error("Email / Password Salah, Silahkan Masukan Kembali!")
                     else mutableLiveData.value = ApiResponse.Success(data)
-                } else mutableLiveData.value = ApiResponse.Error("Invalid email or password")
+                } else mutableLiveData.value = ApiResponse.Error("Email / Password Salah, Silahkan Masukan Kembali!")
             }
 
             override fun onFailure(call: Call<UserResponse>, t: Throwable) {
