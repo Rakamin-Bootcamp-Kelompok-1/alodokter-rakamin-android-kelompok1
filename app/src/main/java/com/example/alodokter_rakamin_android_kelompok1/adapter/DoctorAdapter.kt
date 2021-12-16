@@ -13,10 +13,10 @@ import com.example.alodokter_rakamin_android_kelompok1.data.entity.DoctorEntity
 class DoctorAdapter (private val data: ArrayList<DoctorEntity>):
     RecyclerView.Adapter<DoctorAdapter.DoctorViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = DoctorViewHolder (
-        LayoutInflater.from(parent.context).inflate( R.layout.item_dokter,
-            parent, false)
-    )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : DoctorAdapter.DoctorViewHolder {
+        val inflater = LayoutInflater.from(parent.context).inflate(R.layout.item_dokter, parent, false)
+        return DoctorViewHolder(inflater)
+    }
 
     override fun getItemCount() = data.size
 
@@ -49,7 +49,7 @@ class DoctorAdapter (private val data: ArrayList<DoctorEntity>):
             img?.setImageResource(R.drawable.shawn_doctor)
             name?.text = data.doctor_name
             Log.v("1422", data.toString())
-            star?.text = data.star.toString()
+            star?.text = data.star
             specialist?.text = data.speciality
             location?.text = data.location_practice
         }

@@ -7,7 +7,7 @@ class ArticleViewModel : ViewModel() {
     private lateinit var repository: ArticleRepository
 
 
-    fun getAllArticles() = repository.getArticles(1, 5)
+    fun getAllArticles() = repository.getArticles(1, 60)
 
     fun setRepository(articleRepository: ArticleRepository){
         repository = articleRepository
