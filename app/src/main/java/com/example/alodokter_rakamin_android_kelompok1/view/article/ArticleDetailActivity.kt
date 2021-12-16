@@ -1,8 +1,6 @@
 package com.example.alodokter_rakamin_android_kelompok1.view.article
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
@@ -10,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.alodokter_rakamin_android_kelompok1.R
-import com.example.alodokter_rakamin_android_kelompok1.adapter.ArticleAdapter
 import com.example.alodokter_rakamin_android_kelompok1.adapter.RecentArticleAdapter
 import com.example.alodokter_rakamin_android_kelompok1.api.ApiResponse
 import com.example.alodokter_rakamin_android_kelompok1.config.hide
@@ -20,7 +17,6 @@ import com.example.alodokter_rakamin_android_kelompok1.data.repository.ArticleRe
 import com.example.alodokter_rakamin_android_kelompok1.databinding.ActivityDetailArtikelBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_detail_artikel.*
-import kotlinx.android.synthetic.main.activity_edit_profile.*
 import kotlinx.android.synthetic.main.activity_edit_profile.ibBack
 
 class ArticleDetailActivity : AppCompatActivity(){

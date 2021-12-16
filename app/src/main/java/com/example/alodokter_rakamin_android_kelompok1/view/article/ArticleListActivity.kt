@@ -1,11 +1,12 @@
 package com.example.alodokter_rakamin_android_kelompok1.view.article
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.alodokter_rakamin_android_kelompok1.adapter.ArticleAdapter
 import com.example.alodokter_rakamin_android_kelompok1.R
 import com.example.alodokter_rakamin_android_kelompok1.api.ApiResponse
@@ -15,6 +16,8 @@ import com.example.alodokter_rakamin_android_kelompok1.data.entity.ArticleEntity
 import com.example.alodokter_rakamin_android_kelompok1.data.repository.ArticleRepository
 import com.example.alodokter_rakamin_android_kelompok1.databinding.ActivityArticelListBinding
 import com.google.android.material.snackbar.Snackbar
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ArticleListActivity : AppCompatActivity(){
 
@@ -22,6 +25,7 @@ class ArticleListActivity : AppCompatActivity(){
     private lateinit var viewModel: ArticleViewModel
     private lateinit var binding: ActivityArticelListBinding
     private val data = ArrayList<ArticleEntity>()
+    private val dataSearch = ArrayList<ArticleEntity>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +33,33 @@ class ArticleListActivity : AppCompatActivity(){
         setContentView(binding.root)
         viewModel = ViewModelProvider(this)[ArticleViewModel::class.java]
 
+
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(searchArticle: String?): Boolean {
+                data.clear()
+                val searchText = searchArticle!!
+                if (searchText.isNotEmpty()){
+                    dataSearch.forEach {
+                        if (it.article_title.contains(searchText)){
+                            data.add(it)
+                        }
+                    }
+                    binding.recyclerView.adapter?.notifyDataSetChanged()
+
+                } else {
+                    data.clear()
+                    data.addAll(dataSearch)
+                    binding.recyclerView.adapter?.notifyDataSetChanged()
+                }
+                return false
+            }
+
+            override fun onQueryTextChange(searchArticle: String?): Boolean {
+                return false
+            }
+        })
         init()
+        
         setToolbar()
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = adapter
