@@ -21,7 +21,7 @@ class HistoryBookingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(HistoryBookingViewModel::class.java)
+        viewModel = ViewModelProvider(this)[HistoryBookingViewModel::class.java]
 
     }
 

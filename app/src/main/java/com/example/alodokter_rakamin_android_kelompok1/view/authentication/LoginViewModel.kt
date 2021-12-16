@@ -5,7 +5,7 @@ import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.alodokter_rakamin_android_kelompok1.data.AuthRepository
+import com.example.alodokter_rakamin_android_kelompok1.data.repository.AuthRepository
 import com.example.alodokter_rakamin_android_kelompok1.data.entity.LoginEntity
 
 

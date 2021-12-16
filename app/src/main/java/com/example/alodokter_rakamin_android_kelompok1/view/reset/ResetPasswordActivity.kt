@@ -6,13 +6,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
 import androidx.appcompat.widget.Toolbar
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.textfield.TextInputEditText
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
 import com.example.alodokter_rakamin_android_kelompok1.R
+import com.example.alodokter_rakamin_android_kelompok1.api.ApiResponse
+import com.example.alodokter_rakamin_android_kelompok1.data.repository.UserRepository
 import com.example.alodokter_rakamin_android_kelompok1.view.MainActivity
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.progressindicator.CircularProgressIndicator
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 
 class ResetPasswordActivity : AppCompatActivity() {
@@ -32,7 +37,10 @@ class ResetPasswordActivity : AppCompatActivity() {
         btnSubmit = findViewById(R.id.btn_submit)
         textInput = findViewById(R.id.text_input)
         textLayout = findViewById(R.id.text_input_field)
+        val loading: CircularProgressIndicator = findViewById(R.id.loading)
+        val layout: ConstraintLayout = findViewById(R.id.parentResetPasswordLayout)
         viewModel = ViewModelProvider(this)[ResetPasswordViewModel::class.java]
+        viewModel.setRepository(UserRepository())
         setToolbar()
         textInput.doAfterTextChanged {
             viewModel.afterTextChange(it,resources.getString(R.string.not_email_address))
@@ -66,8 +74,29 @@ class ResetPasswordActivity : AppCompatActivity() {
         }
         btnSubmit.setOnClickListener {
             viewModel.countDown().start()
-            viewModel.sendEmail()
+            viewModel.sendEmail().observe(this){
+                when(it){
+                    is ApiResponse.Success -> {
+                        loading.hide()
+                        val jsonObject = it.data
+                        val status = jsonObject.getString("status")
+                        val snackBar = Snackbar.make(layout, status, Snackbar.LENGTH_LONG)
+                        snackBar.setBackgroundTint(ContextCompat.getColor(this,R.color.main_blue))
+                        snackBar.show()
+                    }
+                    is ApiResponse.Error -> {
+                        loading.hide()
+                        val snackBar = Snackbar.make(layout, it.error, Snackbar.LENGTH_LONG)
+                        snackBar.setBackgroundTint(ContextCompat.getColor(this,R.color.error_red))
+                        snackBar.show()
+                    }
+                    is ApiResponse.Loading -> {
+                        loading.show()
+                    }
+                }
+            }
         }
+        loading.hide()
         val btnSignUp = findViewById<MaterialButton>(R.id.btn_sign_up)
         btnSignUp.setOnClickListener {
             val intent = Intent(applicationContext, MainActivity::class.java)

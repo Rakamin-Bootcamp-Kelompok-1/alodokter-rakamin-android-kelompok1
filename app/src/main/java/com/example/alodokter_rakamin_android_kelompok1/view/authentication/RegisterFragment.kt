@@ -6,23 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.alodokter_rakamin_android_kelompok1.R
+import com.example.alodokter_rakamin_android_kelompok1.api.ApiResponse
 import com.example.alodokter_rakamin_android_kelompok1.config.SharedPreferences
-import com.example.alodokter_rakamin_android_kelompok1.data.AuthRepository
+import com.example.alodokter_rakamin_android_kelompok1.data.repository.AuthRepository
 import com.example.alodokter_rakamin_android_kelompok1.databinding.FragmentRegisterBinding
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.snackbar.Snackbar
 import java.util.*
 
 class RegisterFragment: Fragment() {
 
     private lateinit var viewModel: RegisterViewModel
     private lateinit var binding: FragmentRegisterBinding
-    private var isErrorText = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,28 +47,33 @@ class RegisterFragment: Fragment() {
         viewModel.isButtonEnabled.observe(viewLifecycleOwner) {
             binding.btnRegister.isEnabled = it
         }
+        binding.loading.hide()
         binding.btnRegister.setOnClickListener {
-            viewModel.getRegister().observe(viewLifecycleOwner){ user ->
-                val token = user.token
-//                lifecycleScope.launch(Dispatchers.IO) {
-//                    if (token != null) {
-//                        SharedPreferences(requireContext()).saveAuthToken(token)
-//                    }
-//                }
-                isErrorText = user.error.toString()
-                user?.token?.let { Log.d("TEST", it) }
-                if (token != null) {
-                    user.let { SharedPreferences(requireContext()).setUser(it, true) }
-                    navController.navigate(R.id.navigation_home)
-                } else if (user?.error != null) {
-                    Toast.makeText(requireContext(),isErrorText, Toast.LENGTH_LONG).show()
+            viewModel.getRegister().observe(viewLifecycleOwner){
+                when(it){
+                    is ApiResponse.Success -> {
+                        binding.loading.hide()
+                        val user = it.data
+                        val token = user.token as String
+                        user.let { SharedPreferences(requireContext()).setUser(token, true) }
+                        navController.navigate(R.id.navigation_home)
+                    }
+                    is ApiResponse.Error -> {
+                        binding.loading.hide()
+                        val snackBar = Snackbar.make(binding.parentRegisterLayout, it.error, Snackbar.LENGTH_LONG)
+                        snackBar.setBackgroundTint(ContextCompat.getColor(requireContext(),R.color.error_red))
+                        snackBar.show()
+                    }
+                    is ApiResponse.Loading -> {
+                        binding.loading.show()
+                    }
                 }
             }
 
             Log.d("TEST","TEST")
         }
         binding.txtNextSignIn.setOnClickListener {
-            navController.popBackStack()
+            navController.navigate(R.id.loginFragment)
         }
     }
 

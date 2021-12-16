@@ -7,12 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray">#DADADA</color>
 
     <!-- theme color -->
     <color name="blue_tosca">#7BABEB</color>
     <color name="text_black">#25467D</color>
     <color name="blue_splash">#4C7CCC</color>
     <color name="main_blue">#46A3F9</color>
-    <color name="gray">#BCBCBC</color>
+    <color name="gray_dark">#BCBCBC</color>
     <color name="blue_header">#2962FF</color>
+    <color name="translucent">#80000000</color>
+    <color name="error_red">#ED5D5D</color>
 </resources>

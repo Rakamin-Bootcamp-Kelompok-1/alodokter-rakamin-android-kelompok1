@@ -8,7 +8,7 @@
     <string name="splash_desc">Your Personal Health Care</string>
 
     <!-- login text -->
-    <string name="title_login">Welcome \nIn The App</string>
+    <string name="title_login">Welcome</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
     <string name="sign_in">Sign In</string>
@@ -27,12 +27,12 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="already_have_an_account">Already Have an Account?</string>
     <string name="different_confirm_password">Different Password</string>
-    <string name="phone_mode">+%d</string>
+    <string name="phone_mode">+ </string>
     <string name="min_full_name">Name can\'t empty</string>
     <string name="min_gender">Gender can\'t empty</string>
     <string name="min_date">Date can\'t empty</string>
     <string name="min_phone_number">Phone number can\'t empty</string>
-    <string name="date_format">%02d/%02d/%d</string>
+    <string name="date_format">%02d-%02d-%d</string>
 
     <!-- main activity text -->
     <string name="home">Home</string>
@@ -84,6 +84,11 @@
     <string name="lihat_riwayat">Lihat Riwayat</string>
     <string name="tidak_kembali_ke_home">Tidak, Kembali ke Home</string>
     <string name="location">Location</string>
+    <string name="artikel">Artikel</string>
+    <string name="content_description">Content Description</string>
+    <string name="lihat_semua_artikel">Lihat Semua Artikel</string>
+    <string name="consult_to_doctor_anywhere_anytime">Consult to Doctor Anywhere, Anytime</string>
+    <string name="see_doctor">See Doctor</string>
 
     <string-array name="gender">
         <item>Male</item>
@@ -91,4 +96,68 @@
         <item>Custom</item>
     </string-array>
 
+    <!--profile-->
+    <string name="my_profile">My Profile</string>
+    <string name="profil1">Russi Hersiano</string>
+    <string name="nohp_profil1">0812-7545-3367</string>
+    <string name="account">Account</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="change_password">Change Password</string>
+    <string name="medikuy_app">MediKuy App</string>
+    <string name="about_us">About Us</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="label_full_name">Full Name</string>
+    <string name="label_email">Email</string>
+    <string name="label_birth_date">Birth Date</string>
+    <string name="label_phone_number">Phone Number</string>
+    <string name="save_edit">Save Edit</string>
+    <string name="label_old_password">Old Password</string>
+    <string name="label_new_password">New Password</string>
+    <string name="label_confirm_password">Confirm Password</string>
+    <string name="update_password">Update Password</string>
+    <string name="success_change_password">Berhasil ganti password</string>
+    <string name="phone_format">+ %s</string>
+
+    <!--    about us-->
+    <string name="deskripsi_foto_about_us">Foto Ruangan - RS SMKDEV</string>
+    <string name="judul_about_us">World Health Organization</string>
+    <string name="isi_about_us">
+        Amet - minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+
+    \n\n Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+
+    Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</string>
+
+    <!--    artikel-->
+    <string name="judul_artikel_semua">Artikel Kesehatan Terkini untuk Anda</string>
+    <string name="artikel_medikuy">Artikel Medikuy</string>
+    <string name="keluarga">Keluarga</string>
+    <string name="nutrisi">Nutrisi</string>
+    <string name="bayi">Bayi</string>
+    <string name="kehamilan">Kehamilan</string>
+    <string name="kecantikan">Kecantikan</string>
+    <string name="diabetes">Diabetes</string>
+    <string name="hidup_sehat">Hidup Sehat</string>
+    <string name="recent_post">Recent Posts</string>
+    <string name="see_all">See All</string>
+    <string name="isi_artikel_horizontal_view">Tidak Ada yang Namanya Diabetes Kering atau Diabetes...</string>
+
+    <string name="judul_artikel1">4 Manfaat Daun Sambiloto untuk Kulit yang Sayang Dilewatkan</string>
+    <string name="isi_short_artikel1">Tak hanya baik untuk kesehatan tubuh, manfaat daun sambiloto untuk kesehatan kulit pun begitu beragam. Berbagai kandungan nutrisi di dalamnya dipercaya baik....</string>
+    <string name="judul_artikel2">Mengenal COVID-19 Varian Omicron</string>
+    <string name="isi_short_artikel2">Varian Omicron (B.1.1.529) merupakan salah satu hasil mutasi virus Corona. Berdasarkan bukti yang ada sejauh ini, varian Omicron memiliki tingkat mutasi yang tinggi....</string>
+    <string name="judul_artikel3">4 Manfaat Daun Sambiloto untuk Kulit yang Sayang Dilewatkan</string>
+    <string name="isi_short_artikel3">Tak hanya baik untuk kesehatan tubuh, manfaat daun sambiloto untuk kesehatan kulit pun begitu beragam. Berbagai kandungan nutrisi di dalamnya dipercaya baik....</string>
+    <string name="isi_artikel1">Tak hanya baik untuk kesehatan tubuh, manfaat daun sambiloto untuk kesehatan kulit pun begitu beragam. Berbagai kandungan nutrisi di dalamnya dipercaya baik untuk mencegah infeksi pada kulit dan melindungi kulit dari bahaya radikal bebas.\n\n
+    Daun sambiloto (Andrographis paniculata) adalah salah satu tanaman obat tradisional yang banyak dibudidayakan di berbagai negara Asia, termasuk Indonesia. Daun ini dipercaya dapat mengatasi berbagai masalah kesehatan, seperti gangguan fungsi hati, penyakit jantung, alergi, hingga infeksi.\n\n
+    Beberapa studi mengungkapkan bahwa daun sambiloto kaya akan antioksidan, seperti andrographolide, flavonoid, terpenoid, tannin, dan saponin. Selain itu, tanaman ini juga diketahui bersifat antiradang, antikanker, antibakteri, dan antivirus.\n\n
+    Dengan beragam nutrisinya tersebut, daun sambiloto diketahui dapat menurunkan risiko terkena masalah kulit. Inilah mengapa Anda bisa memanfaatkan daun sambiloto untuk menjaga kesehatan kulit. \n\n</string>
+    <string name="tambah_patient">Tambah Patient</string>
+    <string name="laki_laki">Laki-laki</string>
+    <string name="perempuan">Perempuan</string>
+    <string name="daftar">Daftar</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="data_not_found">Data Not Found</string>
 </resources>
