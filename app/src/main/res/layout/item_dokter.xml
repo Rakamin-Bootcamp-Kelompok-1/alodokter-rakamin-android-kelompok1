@@ -84,14 +84,15 @@
             app:cardCornerRadius="@dimen/spacing_5"
             android:layout_marginStart="@dimen/spacing_20"
             android:layout_marginTop="@dimen/spacing_10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/spacing_10"
             >
 
             <ImageView
-                android:id="@+id/ivRupiah"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_rupiah"
+                android:layout_width="@dimen/spacing_24"
+                android:layout_height="@dimen/spacing_24"
                 android:padding="@dimen/padding_5"
+                android:src="@drawable/ic_action_star"
                 app:layout_constraintTop_toBottomOf="@+id/tvSpecialist"
                 app:layout_constraintStart_toEndOf="@id/ivDoctor"
                 />
@@ -106,8 +107,8 @@
             android:layout_marginTop="@dimen/spacing_10"
             android:layout_marginStart="@dimen/spacing_5"
             android:text="4"
-            android:fontFamily="@font/nunito_medium"
-            android:textColor="@color/black"
+            android:textSize="@dimen/font_18"
+            android:fontFamily="@font/nunito_bold"
 
             />
 
@@ -116,6 +117,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="10:00 - 14:00"
+            android:textSize="@dimen/font_18"
             android:fontFamily="@font/nunito_bold"
             app:layout_constraintStart_toEndOf="@+id/tvStar"
             app:layout_constraintTop_toBottomOf="@+id/strip"
@@ -123,15 +125,6 @@
             android:layout_margin="@dimen/spacing_10"
 
             />
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
 </androidx.cardview.widget.CardView>
 

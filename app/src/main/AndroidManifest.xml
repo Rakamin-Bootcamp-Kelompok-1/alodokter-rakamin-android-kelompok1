@@ -40,6 +40,9 @@
             android:exported="true"
             android:parentActivityName=".view.profile.myprofile.MyProfileActivity"/>
         <activity
+            android:name=".view.profile.myprofile.MyProfileActivity"
+            android:exported="true"/>
+        <activity
             android:name=".view.profile.changepassword.ChangePasswordActivity"
             android:exported="true"
             android:parentActivityName=".view.profile.myprofile.MyProfileActivity"/>

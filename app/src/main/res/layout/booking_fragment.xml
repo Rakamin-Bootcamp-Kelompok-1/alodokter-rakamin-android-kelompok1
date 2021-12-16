@@ -5,17 +5,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/parentBookingLayout"
     tools:context=".view.booking.BookingFragment">
+
+    <include
+        android:id="@+id/toolbar_profile"
+        layout="@layout/toolbar_home_profile"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
     <SearchView
         android:id="@+id/svDoctor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_profile"
         app:layout_constraintEnd_toEndOf="parent"
         android:queryHint="Search Doctor"
-        android:layout_margin="@dimen/spacing_20"
+        android:layout_marginHorizontal="@dimen/spacing_20"
         />
 
     <androidx.recyclerview.widget.RecyclerView

@@ -32,11 +32,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="5dp"/>
         <ImageView
-            android:id="@+id/ibArtikel1"
+            android:id="@+id/ivArtikel"
             android:layout_width="wrap_content"
             android:layout_height="210dp"
             android:src="@drawable/ic_gambar_artikel1"
             android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvIsiShortArtikel1"
