@@ -42,7 +42,7 @@
 
     <!-- reset password text -->
     <string name="back">Back</string>
-    <string name="example">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam orci ipsum, porttitor in euismod nec.</string>
+    <string name="example">Sillahkan masukkan email untuk mendapatkan password terbaru.</string>
     <string name="email">Email</string>
     <string name="submit">Submit</string>
     <string name="resend_email">Resend Email</string>

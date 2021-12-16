@@ -13,7 +13,7 @@ data class DoctorEntity(
     @SerializedName("status")
     val status: String,
     @SerializedName("star")
-    val star: Int,
+    val star: String,
     @SerializedName("location_practice")
     val location_practice: String,
     @SerializedName("biography")

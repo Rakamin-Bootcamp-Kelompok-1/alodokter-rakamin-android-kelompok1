@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class DataResponse<T> (
     @SerializedName("data") val data : ArrayList<T?>,
-    @SerializedName("meta") val meta: MetaArticleResponse
+    @SerializedName("meta") val meta: MetaResponse
 )
