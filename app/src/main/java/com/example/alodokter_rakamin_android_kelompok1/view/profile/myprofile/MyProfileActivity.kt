@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import com.example.alodokter_rakamin_android_kelompok1.R
 import com.example.alodokter_rakamin_android_kelompok1.config.SharedPreferences
 import com.example.alodokter_rakamin_android_kelompok1.data.response.UserResponse
@@ -32,17 +34,26 @@ class MyProfileActivity : AppCompatActivity() {
         json = Gson().fromJson(user, UserResponse::class.java)
         binding.tvProfileName.text = json.user?.full_name
         binding.tvPhone.text = resources.getString(R.string.phone_format,json.user?.phone_number)
-        binding.btEditProfile.setOnClickListener{
-            Intent(this, EditProfileActivity::class.java).also{
-                it.putExtra(EditProfileActivity.EDIT_PROFILE,json.toString())
-                startActivity(it)
+        val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                user = result.data?.getStringExtra(MY_PROFILE_ACTIVITY) as String
+                json = Gson().fromJson(user, UserResponse::class.java)
+                binding.tvProfileName.text = json.user?.full_name
+                binding.tvPhone.text = resources.getString(R.string.phone_format,json.user?.phone_number)
             }
         }
+
+        binding.btEditProfile.setOnClickListener{
+            startForResult.launch(Intent(this, EditProfileActivity::class.java).also{
+                val jsonString = Gson().toJson(json)
+                it.putExtra(EditProfileActivity.EDIT_PROFILE,jsonString)
+            })
+        }
         binding.btChangePassword.setOnClickListener{
-            Intent(this, ChangePasswordActivity::class.java).also{
-                it.putExtra(ChangePasswordActivity.CHANGE_PASSWORD,json.toString())
-                startActivity(it)
-            }
+            startForResult.launch(Intent(this, ChangePasswordActivity::class.java).also{
+                val jsonString = Gson().toJson(json)
+                it.putExtra(ChangePasswordActivity.CHANGE_PASSWORD,jsonString)
+            })
         }
         binding.btAboutUs.setOnClickListener{
             Intent(this, AboutUsActivity::class.java).also{
@@ -55,16 +66,6 @@ class MyProfileActivity : AppCompatActivity() {
                 it.putExtra(MainActivity.TO_LOGIN,"not_login")
                 startActivity(it)
             }
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK) {
-            user = data?.getStringExtra(MY_PROFILE_ACTIVITY) as String
-            json = Gson().fromJson(user, UserResponse::class.java)
-            binding.tvProfileName.text = json.user?.full_name
-            binding.tvPhone.text = resources.getString(R.string.phone_format,json.user?.phone_number)
         }
     }
 }

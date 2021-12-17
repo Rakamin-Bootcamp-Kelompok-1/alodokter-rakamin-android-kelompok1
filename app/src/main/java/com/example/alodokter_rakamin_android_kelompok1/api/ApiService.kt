@@ -25,6 +25,9 @@ interface ApiService {
         @Body requestBody: RequestBody
     ): Call<UserResponse>
 
+    @Headers(
+        "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.oT7kSePnYs7eVIsRIzIi0UEC7XBclsrO3qrnXwic8Zg",
+    )
     @GET("token_authenticate")
     fun getUser(@Header("Authorization") token: String): Call<UserEntity>
 

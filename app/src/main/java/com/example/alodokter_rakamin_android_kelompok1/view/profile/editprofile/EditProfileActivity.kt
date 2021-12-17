@@ -2,6 +2,7 @@ package com.example.alodokter_rakamin_android_kelompok1.view.profile.editprofile
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
@@ -12,9 +13,10 @@ import com.example.alodokter_rakamin_android_kelompok1.data.repository.UserRepos
 import com.example.alodokter_rakamin_android_kelompok1.data.response.UserResponse
 import com.example.alodokter_rakamin_android_kelompok1.databinding.ActivityEditProfileBinding
 import com.example.alodokter_rakamin_android_kelompok1.view.profile.myprofile.MyProfileActivity
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.activity_edit_profile.*
+import java.util.*
 
 class EditProfileActivity : AppCompatActivity()  {
 
@@ -28,6 +30,7 @@ class EditProfileActivity : AppCompatActivity()  {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("1425f","TESTA")
         binding = ActivityEditProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val user = intent.getStringExtra(EDIT_PROFILE)
@@ -36,8 +39,9 @@ class EditProfileActivity : AppCompatActivity()  {
         initText(json)
         viewModel.setRepository(UserRepository())
         viewModel.setUser(json)
-        isErrorsEnable()
         afterTextChanged()
+        isErrorsEnable()
+        datePicker()
         viewModel.isButtonEnabled.observe(this) {
             binding.btSaveEdit.isEnabled = it
         }
@@ -51,10 +55,11 @@ class EditProfileActivity : AppCompatActivity()  {
                         binding.edtEmail.setText(it.data.user?.email)
                         binding.edtBirthDate.setText(it.data.user?.birth_date)
                         binding.edtPhoneNumber.setText(it.data.user?.phone_number)
+                        json = it.data
                     }
                     is ApiResponse.Error -> {
                         binding.loading.hide()
-                        val snackBar = Snackbar.make(parentEditProfile, it.error, Snackbar.LENGTH_LONG)
+                        val snackBar = Snackbar.make(binding.parentEditProfile, it.error, Snackbar.LENGTH_LONG)
                         snackBar.setBackgroundTint(ContextCompat.getColor(this,R.color.error_red))
                         snackBar.show()
                     }
@@ -67,7 +72,8 @@ class EditProfileActivity : AppCompatActivity()  {
         supportActionBar?.hide()
         binding.ibBack.setOnClickListener {
             Intent (this, MyProfileActivity::class.java).also {
-                it.putExtra(MyProfileActivity.MY_PROFILE_ACTIVITY,json.toString())
+                val jsonString = Gson().toJson(json)
+                it.putExtra(MyProfileActivity.MY_PROFILE_ACTIVITY,jsonString)
                 startActivity(it)
                 finish()
             }
@@ -130,10 +136,36 @@ class EditProfileActivity : AppCompatActivity()  {
         }
     }
 
+    private fun datePicker(){
+        val datePicker = MaterialDatePicker.Builder.datePicker()
+            .setTitleText(resources.getString(R.string.date_of_birth))
+            .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+            .build()
+        binding.edtBirthDate.setOnClickListener {
+            datePicker.show(supportFragmentManager,"DATE_TAG")
+        }
+        datePicker.addOnPositiveButtonClickListener {
+            val calendar = Calendar.getInstance()
+            calendar.timeInMillis = it
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+            val month = calendar.get(Calendar.MONTH)
+            val year = calendar.get(Calendar.YEAR)
+            binding.edtBirthDate.setText(resources.getString(R.string.date_format,day,month,year))
+        }
+    }
+
     override fun onBackPressed() {
         val intent = Intent()
-        intent.putExtra(MyProfileActivity.MY_PROFILE_ACTIVITY,json.toString())
+        val jsonString = Gson().toJson(json)
+        intent.putExtra(MyProfileActivity.MY_PROFILE_ACTIVITY,jsonString)
         setResult(RESULT_OK,intent)
+        Log.d("1425f","TEST")
+//        Intent (this, MyProfileActivity::class.java).also {
+//            val jsonString = Gson().toJson(json)
+//            it.putExtra(MyProfileActivity.MY_PROFILE_ACTIVITY,jsonString)
+//            startActivity(it)
+//            finish()
+//        }
         finish()
     }
 

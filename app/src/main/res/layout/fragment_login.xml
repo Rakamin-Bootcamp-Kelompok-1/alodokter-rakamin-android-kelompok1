@@ -53,8 +53,7 @@
         android:hint="@string/password"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
         app:boxBackgroundColor="@color/white"
-        app:endIconDrawable="@drawable/ic_hide_password"
-        app:endIconMode="custom"
+        app:passwordToggleEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtInputEmail">

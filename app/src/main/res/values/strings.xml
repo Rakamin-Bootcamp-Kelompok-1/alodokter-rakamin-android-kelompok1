@@ -118,6 +118,8 @@
     <string name="update_password">Update Password</string>
     <string name="success_change_password">Berhasil ganti password</string>
     <string name="phone_format">+ %s</string>
+    <string name="different_old_password">Different Old Password</string>
+
 
     <!--    about us-->
     <string name="deskripsi_foto_about_us">Foto Ruangan - RS SMKDEV</string>

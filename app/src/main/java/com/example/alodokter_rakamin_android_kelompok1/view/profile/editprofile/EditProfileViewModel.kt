@@ -2,6 +2,7 @@ package com.example.alodokter_rakamin_android_kelompok1.view.profile.editprofile
 
 import android.content.Context
 import android.text.Editable
+import android.util.Log
 import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -52,10 +53,17 @@ class EditProfileViewModel : ViewModel(){
     private var phoneNumber = ""
     private var age = 0
     private var id = 0
+    private var isChange = false
 
     fun editProfile(context: Context):MutableLiveData<ApiResponse<UserResponse>> {
         checkAge()
         putUser()
+        isChange = false
+        isEmail = false
+        isFullName = false
+        isDate = false
+        isPhoneNumber = false
+        checkBtn()
         return repository.editUser(context,id,user)
     }
 
@@ -80,13 +88,15 @@ class EditProfileViewModel : ViewModel(){
         user.put("age",age)
     }
 
+
     fun afterTextChangeFullName(it: Editable?, errorText: String){
-        if(it.toString().isNotEmpty() || it.toString() != fullName){
+        if(it.toString().isNotEmpty() && (it.toString().trim() != fullName)){
             isFullName = true
             _textErrorFullName.value = null
             _isErrorEnabledFullName.value = false
             fullName = it.toString().trim()
-        } else if(it.toString() == fullName){
+            isChange = true
+        } else if(it.toString().trim() == fullName && !isChange){
             isFullName = false
         } else {
             isFullName = false
@@ -98,12 +108,13 @@ class EditProfileViewModel : ViewModel(){
     }
 
     fun afterTextChangeDate(it: Editable?, errorText: String){
-        if(it.toString().isNotEmpty() || it.toString() != date){
+        if(it.toString().isNotEmpty() && it.toString().trim() != date ){
             _isErrorEnabledDate.value = false
             _textErrorDate.value = null
             isDate = true
             date = it.toString().trim()
-        } else if(it.toString() == date) {
+            isChange = true
+        } else if(it.toString().trim() == date && !isChange){
             isDate = false
         } else {
             isDate = false
@@ -115,12 +126,13 @@ class EditProfileViewModel : ViewModel(){
     }
 
     fun afterTextChangePhoneNumber(it: Editable?, errorText: String){
-        if(it.toString().isNotEmpty() || it.toString() != phoneNumber){
+        if(it.toString().isNotEmpty() && it.toString().trim() != phoneNumber){
             _isErrorEnabledPhoneNumber.value = false
             _textErrorPhoneNumber.value = null
             isPhoneNumber = true
             phoneNumber = it.toString().trim()
-        } else if(it.toString() == phoneNumber) {
+            isChange = true
+        } else if(it.toString().trim() == phoneNumber && !isChange){
             isPhoneNumber = false
         } else {
             isPhoneNumber = false
@@ -132,12 +144,13 @@ class EditProfileViewModel : ViewModel(){
     }
 
     fun afterTextChangeEmail(it: Editable?, errorText: String){
-        if(Patterns.EMAIL_ADDRESS.matcher(it.toString()).matches() || it.toString() != email){
+        if(Patterns.EMAIL_ADDRESS.matcher(it.toString()).matches() && it.toString().trim() != email){
             _isErrorEnabledEmail.value = false
             _textErrorEmail.value = null
             isEmail = true
             email = it.toString().trim()
-        } else if(it.toString() == email) {
+            isChange = true
+        } else if(it.toString().trim() == email && !isChange){
             isEmail = false
         } else {
             isEmail = false
@@ -164,6 +177,22 @@ class EditProfileViewModel : ViewModel(){
     }
 
     private fun checkBtn(){
-        _isButtonEnabled.value = isEmail && isDate && isFullName && isPhoneNumber
+        Log.d("1425a",isEmail.toString())
+        Log.d("1425b",isDate.toString())
+        Log.d("1425c",isFullName.toString())
+        Log.d("1425d",isPhoneNumber.toString())
+        Log.d("1425e",isChange.toString())
+        if(isChange){
+            isEmail = true
+            isDate = true
+            isFullName = true
+            isPhoneNumber = true
+        } else {
+            isEmail = false
+            isDate = false
+            isFullName = false
+            isPhoneNumber = false
+        }
+        _isButtonEnabled.value = isEmail && isDate && isFullName && isPhoneNumber && isChange
     }
 }
