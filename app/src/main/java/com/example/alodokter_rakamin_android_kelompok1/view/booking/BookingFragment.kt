@@ -21,6 +21,7 @@ import com.example.alodokter_rakamin_android_kelompok1.config.hide
 import com.example.alodokter_rakamin_android_kelompok1.config.show
 import com.example.alodokter_rakamin_android_kelompok1.data.entity.DoctorEntity
 import com.example.alodokter_rakamin_android_kelompok1.data.repository.DoctorRepository
+import com.example.alodokter_rakamin_android_kelompok1.data.repository.UserRepository
 import com.example.alodokter_rakamin_android_kelompok1.data.response.DataResponse
 import com.example.alodokter_rakamin_android_kelompok1.data.response.UserResponse
 import com.example.alodokter_rakamin_android_kelompok1.databinding.BookingFragmentBinding
@@ -64,8 +65,8 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
         binding.toolbarProfile.ivProfile.setOnClickListener {
             if(SharedPreferences(requireContext()).getLoggedStatus()){
                 val intent = Intent(requireContext(), MyProfileActivity::class.java)
-//                val jsonString = Gson().toJson(user)
-//                intent.putExtra(MyProfileActivity.MY_PROFILE_ACTIVITY,jsonString)
+                val jsonString = Gson().toJson(user)
+                intent.putExtra(MyProfileActivity.MY_PROFILE_ACTIVITY,jsonString)
                 startActivity(intent)
             } else {
                 val navView: BottomNavigationView = activity?.findViewById(R.id.nav_view) as BottomNavigationView
@@ -79,6 +80,7 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
     private fun init(){
         val token = SharedPreferences(requireContext()).getUserToken()
         viewModel.setRepository(DoctorRepository())
+        viewModel.setUserRepository(UserRepository())
         viewModel.getAllDoctors().observe(viewLifecycleOwner){
             getData(it)
         }

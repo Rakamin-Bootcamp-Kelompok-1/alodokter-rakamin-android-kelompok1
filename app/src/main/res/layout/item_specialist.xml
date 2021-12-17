@@ -4,8 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
-    android:padding="@dimen/spacing_5"
-    >
+    android:padding="@dimen/spacing_5">
 
     <ImageView
         android:id="@+id/ivSpecialistDoctor"

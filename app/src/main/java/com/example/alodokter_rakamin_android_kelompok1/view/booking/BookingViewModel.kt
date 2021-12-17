@@ -21,6 +21,10 @@ class BookingViewModel : ViewModel() {
         repository = doctorRepository
     }
 
+    fun setUserRepository(userRepository: UserRepository){
+        this.userRepository = userRepository
+    }
+
     fun getUser(token: String) = userRepository.getUser(token)
 
     fun setPage(metaResponse: MetaResponse){

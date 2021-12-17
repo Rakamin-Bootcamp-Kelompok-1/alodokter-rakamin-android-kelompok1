@@ -5,13 +5,11 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="@dimen/spacing_10"
     android:layout_margin="@dimen/spacing_10"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/ivDoctor"
@@ -28,12 +26,13 @@
 
         <TextView
             android:id="@+id/tvDoctorName"
-            android:layout_width="@dimen/spacing_250"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="1"
             app:layout_constraintStart_toEndOf="@+id/ivDoctor"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:text="Dr. Shawn Murphy"
             android:fontFamily="@font/nunito_bold"
             android:textColor="@color/black"
@@ -66,12 +65,13 @@
 
         <TextView
             android:id="@+id/tvLoc"
-            android:layout_width="@dimen/spacing_175"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="1"
             app:layout_constraintStart_toEndOf="@+id/strip"
             app:layout_constraintTop_toBottomOf="@+id/tvDoctorName"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="@dimen/spacing_10"
             android:fontFamily="@font/nunito_regular"
             android:textStyle="bold"
@@ -86,7 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@+id/ivDoctor"
-            app:layout_constraintTop_toBottomOf="@+id/tvSpecialist"
+            app:layout_constraintTop_toBottomOf="@+id/tvLoc"
             app:cardCornerRadius="@dimen/spacing_5"
             android:layout_marginStart="@dimen/spacing_20"
             android:layout_marginTop="@dimen/spacing_10"
@@ -109,7 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@id/cvRupiah"
-            app:layout_constraintTop_toBottomOf="@id/tvSpecialist"
+            app:layout_constraintTop_toBottomOf="@id/tvLoc"
             android:layout_marginTop="@dimen/spacing_10"
             android:layout_marginStart="@dimen/spacing_5"
             android:text="4"
@@ -126,7 +126,7 @@
             android:textSize="@dimen/font_18"
             android:fontFamily="@font/nunito_bold"
             app:layout_constraintStart_toEndOf="@+id/tvStar"
-            app:layout_constraintTop_toBottomOf="@+id/strip"
+            app:layout_constraintTop_toBottomOf="@+id/tvLoc"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_margin="@dimen/spacing_10"
 

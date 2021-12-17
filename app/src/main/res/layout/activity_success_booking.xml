@@ -82,6 +82,7 @@
         android:backgroundTint="@color/white"
         android:text="@string/lihat_riwayat"
         android:textColor="@color/main_blue"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toTopOf="@+id/btnHome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -97,6 +98,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="@dimen/spacing_20"
+        android:textAllCaps="false"
 
         />
 
