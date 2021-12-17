@@ -54,6 +54,10 @@ class ArticleDetailActivity : AppCompatActivity(){
         binding.rvRecentPost.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         binding.rvRecentPost.adapter = adapter
 
+        binding.btnSeeAll.setOnClickListener {
+            finish()
+        }
+
         supportActionBar?.hide()
         ibBack.setOnClickListener {
             finish()
