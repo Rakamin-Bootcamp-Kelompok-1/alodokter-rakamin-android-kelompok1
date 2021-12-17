@@ -15,22 +15,25 @@
 
         <ImageView
             android:id="@+id/ivDoctor"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="@dimen/spacing_72"
+            android:layout_height="@dimen/spacing_72"
             android:src="@drawable/shawn_doctor"
             android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_margin="@dimen/spacing_20"/>
+            android:layout_marginBottom="@dimen/spacing_10"
+            android:layout_marginTop="@dimen/spacing_20"
+            android:layout_marginHorizontal="@dimen/spacing_20"/>
 
         <TextView
             android:id="@+id/tvDoctorName"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/spacing_250"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
             app:layout_constraintStart_toEndOf="@+id/ivDoctor"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:text="Dr. Shawn Murphy"
             android:fontFamily="@font/nunito_bold"
             android:textColor="@color/black"
@@ -63,28 +66,27 @@
 
         <TextView
             android:id="@+id/tvLoc"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/spacing_175"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_10"
-            android:layout_marginTop="@dimen/spacing_10"
-            android:layout_marginEnd="@dimen/spacing_20"
-            android:fontFamily="@font/nunito_regular"
-            android:text="@string/location"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/tvJadwalDoktor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            android:ellipsize="end"
+            android:maxLines="1"
             app:layout_constraintStart_toEndOf="@+id/strip"
-
             app:layout_constraintTop_toBottomOf="@+id/tvDoctorName"
-            app:layout_constraintVertical_bias="0.0" />
+            android:layout_marginTop="@dimen/spacing_10"
+            android:fontFamily="@font/nunito_regular"
+            android:textStyle="bold"
+            android:text="@string/location"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:layout_marginEnd="@dimen/spacing_20"
+
+            />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvRupiah"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@+id/ivDoctor"
-            app:layout_constraintTop_toBottomOf="@+id/tvLoc"
+            app:layout_constraintTop_toBottomOf="@+id/tvSpecialist"
             app:cardCornerRadius="@dimen/spacing_5"
             android:layout_marginStart="@dimen/spacing_20"
             android:layout_marginTop="@dimen/spacing_10"
@@ -107,7 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@id/cvRupiah"
-            app:layout_constraintTop_toBottomOf="@id/tvLoc"
+            app:layout_constraintTop_toBottomOf="@id/tvSpecialist"
             android:layout_marginTop="@dimen/spacing_10"
             android:layout_marginStart="@dimen/spacing_5"
             android:text="4"
@@ -124,7 +126,7 @@
             android:textSize="@dimen/font_18"
             android:fontFamily="@font/nunito_bold"
             app:layout_constraintStart_toEndOf="@+id/tvStar"
-            app:layout_constraintTop_toBottomOf="@+id/tvLoc"
+            app:layout_constraintTop_toBottomOf="@+id/strip"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_margin="@dimen/spacing_10"
 

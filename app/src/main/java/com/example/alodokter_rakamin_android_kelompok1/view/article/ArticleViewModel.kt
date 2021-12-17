@@ -1,7 +1,5 @@
 package com.example.alodokter_rakamin_android_kelompok1.view.article
 
-import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.alodokter_rakamin_android_kelompok1.api.ApiResponse
@@ -28,8 +26,6 @@ class ArticleViewModel : ViewModel() {
     }
 
     fun loadNewArticles() : MutableLiveData<ApiResponse<DataResponse<ArticleEntity>>>{
-        Log.d("420699",page.toString())
-        Log.d("420699",totalPage.toString())
         return if(totalPage > page){
             page++
             getAllArticles(page)
