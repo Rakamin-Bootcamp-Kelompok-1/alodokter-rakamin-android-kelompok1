@@ -13,6 +13,8 @@ class ArticleViewModel : ViewModel() {
         repository = articleRepository
     }
 
+
+
     fun getRecentArticle() = repository.getArticles(1, 3)
 
 }
