@@ -51,16 +51,24 @@ interface ApiService {
         @Query("per_page") perPage: Int
     ): Call<DataResponse<ArticleEntity>>
 
-    @GET("articles/category")
+    @POST("articles/category")
     fun getArticlesByCategory(
         @Query("page") page: Int,
-        @Query("per_page") perPage: Int
-    ): Call<DataResponse<ArticleEntity>>//diganti
+        @Query("per_page") perPage: Int,
+        @Body requestBody: RequestBody
+    ): Call<DataResponse<ArticleEntity>>
 
     @GET("articles/{id}")
     fun getDetailArticle(
         @Path("id") id: Int
-    ) : Call<ArticleEntity>
+    ) : Call<ArticleEntity>//mungkin tidak dipakai
+
+    @POST("articles/search")
+    fun searchArticleTitle(
+        @Query("page") page: Int,
+        @Query("per_page") perPage: Int,
+        @Body requestBody: RequestBody
+    ): Call<DataResponse<ArticleEntity>>
 
     //doctor
     @Headers(
@@ -78,20 +86,34 @@ interface ApiService {
     @GET("doctor/{id}")
     fun getDetailDoctor(
         @Path("id") id: Int
-    ): Call<DoctorEntity>
+    ): Call<DoctorEntity>//mungkin tidak dipakai
+
+    @POST("doctor/search")
+    fun searchDoctorsTitle(
+        @Query("page") page: Int,
+        @Query("per_page") perPage: Int,
+        @Body requestBody: RequestBody
+    ): Call<DataResponse<DoctorEntity>>
+
+    @POST("doctor/category")
+    fun getDoctorsByCategory(
+        @Query("page") page: Int,
+        @Query("per_page") perPage: Int,
+        @Body requestBody: RequestBody
+    ): Call<DataResponse<DoctorEntity>>
 
     //patient
-    @GET("patients/list")
+    @POST("patients/list")
     fun getPatientsByUser(
         @Query("page") page: Int,
         @Query("per_page") perPage: Int,
         @Body requestBody: RequestBody
-    ): Call<DataResponse<PatientEntity>>//diganti
+    ): Call<DataResponse<PatientEntity>>
 
     @GET("patient/{id}")
     fun getDetailPatient(
         @Path("id") id: Int
-    ): Call<PatientEntity>
+    ): Call<PatientEntity>//mungkin tidak dipakai
 
     @Headers(
         "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.oT7kSePnYs7eVIsRIzIi0UEC7XBclsrO3qrnXwic8Zg",
@@ -116,12 +138,12 @@ interface ApiService {
     ): Call<ResponseBody>
 
     //schedule
-    @GET("schedule/doctor")
+    @POST("schedule/doctor")
     fun getSchedulesDoctor(
         @Query("page") page: Int,
         @Query("per_page") perPage: Int,
         @Body requestBody: RequestBody
-    ): Call<DataResponse<ScheduleEntity>>//diganti
+    ): Call<DataResponse<ScheduleEntity>>
 
     //booking
     @GET("bookings")
@@ -129,7 +151,7 @@ interface ApiService {
         @Query("page") page: Int,
         @Query("per_page") perPage: Int,
         @Body requestBody: RequestBody
-    ): Call<DataResponse<BookingEntity>>//diganti
+    ): Call<DataResponse<BookingEntity>>//mungkin tidak dipakai
 
     @Headers(
         "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.oT7kSePnYs7eVIsRIzIi0UEC7XBclsrO3qrnXwic8Zg",
@@ -139,12 +161,12 @@ interface ApiService {
         @Body requestBody: RequestBody
     ): Call<BookingEntity>
 
-    @GET("bookings/history")
+    @POST("bookings/history")
     fun getHistoryBookings(
         @Query("page") page: Int,
         @Query("per_page") perPage: Int,
         @Body requestBody: RequestBody
-    ): Call<DataResponse<BookingEntity>>//diganti
+    ): Call<DataResponse<BookingEntity>>
 
     @DELETE("bookings/{id}")
     fun deleteBooking(
