@@ -11,7 +11,6 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.alodokter_rakamin_android_kelompok1.R
-import com.example.alodokter_rakamin_android_kelompok1.adapter.ArticleAdapter
 import com.example.alodokter_rakamin_android_kelompok1.adapter.HomeArticleAdapter
 import com.example.alodokter_rakamin_android_kelompok1.api.ApiResponse
 import com.example.alodokter_rakamin_android_kelompok1.config.hide
@@ -20,7 +19,7 @@ import com.example.alodokter_rakamin_android_kelompok1.data.entity.ArticleEntity
 import com.example.alodokter_rakamin_android_kelompok1.data.repository.ArticleRepository
 import com.example.alodokter_rakamin_android_kelompok1.databinding.HomeFragmentBinding
 import com.example.alodokter_rakamin_android_kelompok1.view.article.ArticleListActivity
-import com.example.alodokter_rakamin_android_kelompok1.view.reset.ResetPasswordActivity
+import com.example.alodokter_rakamin_android_kelompok1.view.profile.myprofile.MyProfileActivity
 import com.google.android.material.snackbar.Snackbar
 
 class HomeFragment : Fragment() {
@@ -46,6 +45,11 @@ class HomeFragment : Fragment() {
         binding.rvArtikel.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
         binding.rvArtikel.adapter = adapter
 
+
+        binding.toolbarProfile.ivProfile.setOnClickListener {
+//            val intent = Intent(requireContext(), MyProfileActivity::class.java)
+//            startActivity(intent)
+        }
 
         binding.tvAllArticles.setOnClickListener {
             val intent = Intent(context, ArticleListActivity::class.java)
