@@ -35,37 +35,50 @@ class ChangePasswordActivity : AppCompatActivity()  {
         viewModel = ViewModelProvider(this)[ChangePasswordViewModel::class.java]
         viewModel.setRepository(UserRepository())
         viewModel.setUser(json)
-        isErrorsEnable()
         afterTextChanged()
+        isErrorsEnable()
+        binding.loading.hide()
         viewModel.isButtonEnabled.observe(this) {
             binding.btSaveEdit.isEnabled = it
         }
         binding.btSaveEdit.setOnClickListener {
-            viewModel.editPassword(this).observe(this){
-                when(it){
-                    is ApiResponse.Success -> {
-                        binding.loading.hide()
-                        val snackBar = Snackbar.make(parentEditProfile, resources.getString(R.string.success_change_password), Snackbar.LENGTH_LONG)
-                        snackBar.setBackgroundTint(ContextCompat.getColor(this,R.color.error_red))
-                        snackBar.show()
-                        json = it.data
-                    }
-                    is ApiResponse.Error -> {
-                        binding.loading.hide()
-                        val snackBar = Snackbar.make(parentEditProfile, it.error, Snackbar.LENGTH_LONG)
-                        snackBar.setBackgroundTint(ContextCompat.getColor(this,R.color.error_red))
-                        snackBar.show()
-                    }
-                    is ApiResponse.Loading -> {
-                        binding.loading.show()
+            if(viewModel.checkPassword()){
+                viewModel.editPassword(this).observe(this){
+                    when(it){
+                        is ApiResponse.Success -> {
+                            binding.loading.hide()
+                            val snackBar = Snackbar.make(binding.parent, resources.getString(R.string.success_change_password), Snackbar.LENGTH_LONG)
+                            snackBar.setBackgroundTint(ContextCompat.getColor(this,R.color.error_red))
+                            snackBar.show()
+                            json = it.data
+                            binding.edtNewPassword.setText("")
+                            binding.edtOldPassword.setText("")
+                            binding.edtConfirmPassword.setText("")
+                        }
+                        is ApiResponse.Error -> {
+                            binding.loading.hide()
+                            val snackBar = Snackbar.make(binding.parent, it.error, Snackbar.LENGTH_LONG)
+                            snackBar.setBackgroundTint(ContextCompat.getColor(this,R.color.error_red))
+                            snackBar.show()
+                        }
+                        is ApiResponse.Loading -> {
+                            binding.loading.show()
+                        }
                     }
                 }
+            }
+            else {
+                binding.loading.hide()
+                val snackBar = Snackbar.make(binding.parent, resources.getString(R.string.different_old_password), Snackbar.LENGTH_LONG)
+                snackBar.setBackgroundTint(ContextCompat.getColor(this,R.color.error_red))
+                snackBar.show()
             }
         }
         supportActionBar?.hide()
         binding.ibBack.setOnClickListener {
             Intent (this, MyProfileActivity::class.java).also {
-                it.putExtra(MyProfileActivity.MY_PROFILE_ACTIVITY,json.toString())
+                val jsonString = Gson().toJson(json)
+                it.putExtra(MyProfileActivity.MY_PROFILE_ACTIVITY,jsonString)
                 startActivity(it)
                 finish()
             }
@@ -113,7 +126,8 @@ class ChangePasswordActivity : AppCompatActivity()  {
 
     override fun onBackPressed() {
         val intent = Intent()
-        intent.putExtra(MyProfileActivity.MY_PROFILE_ACTIVITY,json.toString())
+        val jsonString = Gson().toJson(json)
+        intent.putExtra(MyProfileActivity.MY_PROFILE_ACTIVITY,jsonString)
         setResult(RESULT_OK,intent)
         finish()
     }

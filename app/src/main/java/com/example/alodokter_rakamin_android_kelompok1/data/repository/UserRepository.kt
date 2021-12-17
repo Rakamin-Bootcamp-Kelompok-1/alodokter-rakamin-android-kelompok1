@@ -72,6 +72,7 @@ class UserRepository {
         responseBodyCallApi.enqueue(object : Callback<UserEntity>{
             override fun onResponse(call: Call<UserEntity>, response: Response<UserEntity>) {
                 val value = response.body()
+                Log.d("1425",value.toString())
                 data.value = ApiResponse.Success(UserResponse(value,token))
             }
 

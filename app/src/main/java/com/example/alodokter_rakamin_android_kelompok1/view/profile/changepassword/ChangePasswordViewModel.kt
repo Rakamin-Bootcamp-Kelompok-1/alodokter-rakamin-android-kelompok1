@@ -2,9 +2,11 @@ package com.example.alodokter_rakamin_android_kelompok1.view.profile.changepassw
 
 import android.content.Context
 import android.text.Editable
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import at.favre.lib.crypto.bcrypt.BCrypt
 import com.example.alodokter_rakamin_android_kelompok1.api.ApiResponse
 import com.example.alodokter_rakamin_android_kelompok1.data.repository.UserRepository
 import com.example.alodokter_rakamin_android_kelompok1.data.response.UserResponse
@@ -39,6 +41,8 @@ class ChangePasswordViewModel: ViewModel() {
     private lateinit var repository: UserRepository
     private var password = ""
     private var id = 0
+    private var passwordDigest = ""
+    private var oldPassword = ""
 
     fun editPassword(context: Context):MutableLiveData<ApiResponse<UserResponse>> {
         putUser()
@@ -51,21 +55,30 @@ class ChangePasswordViewModel: ViewModel() {
 
     fun setUser(userResponse: UserResponse) {
         id = userResponse.user?.id!!
+        passwordDigest = userResponse.user.password_digest
     }
 
     private fun putUser(){
         user.put("password",password)
     }
 
+    fun checkPassword(): Boolean{
+        val result = BCrypt.verifyer().verify(oldPassword.toCharArray(),passwordDigest)
+        var check = false
+        if(result.verified) check = true
+        return check
+    }
+
     fun afterTextChangeOldPassword(it: Editable?, errorText: String){
-        if(it.toString().length > 1){
-            isOldPassword = true
-            _textErrorOldPassword.value = null
-            _isErrorEnabledOldPassword.value = false
-        } else {
+        if(it.toString().length < 2) {
             isOldPassword = false
             _textErrorOldPassword.value = errorText
             _isErrorEnabledOldPassword.value = true
+        } else {
+            isOldPassword = true
+            _textErrorOldPassword.value = null
+            _isErrorEnabledOldPassword.value = false
+            oldPassword = it.toString()
         }
         checkBtn()
     }

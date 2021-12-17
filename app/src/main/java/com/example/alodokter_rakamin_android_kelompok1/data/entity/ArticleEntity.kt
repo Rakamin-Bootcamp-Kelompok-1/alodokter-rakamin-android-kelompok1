@@ -9,7 +9,7 @@ data class ArticleEntity(
     @SerializedName("image_data") val image_data : String,
     @SerializedName("article_title") val article_title : String,
     @SerializedName("content_desc") val content_desc : String,
-    @SerializedName("main_article") val main_article : String,
+    @SerializedName("main_article") val main_article : Boolean,
     @SerializedName("created_at") val created_at : String,
     @SerializedName("updated_at") val updated_at : String
 
