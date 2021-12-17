@@ -21,9 +21,13 @@
 
         <SearchView
             android:id="@+id/svArtikel"
+            android:layout_marginHorizontal="@dimen/spacing_20"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/spacing_20"
+            android:queryHint="Search Article"
+            android:iconifiedByDefault="false"
+            android:background="@drawable/ic_search_bg"
+            android:queryBackground="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar_profile" />
@@ -43,7 +47,6 @@
                 android:id="@+id/ivFullScreenAd"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
                 android:layout_marginBottom="@dimen/spacing_8"
                 android:scaleType="fitXY" />
 
