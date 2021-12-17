@@ -70,7 +70,7 @@ class ArticleDetailActivity : AppCompatActivity(){
             when(it){
                 is ApiResponse.Success -> {
                     val articles = it.data
-                    if (articles != null){
+                    if (!articles.data.isNullOrEmpty()){
                         data.addAll(articles.data.filterNotNull())
                         binding.rvRecentPost.show()
                         adapter.setData(data)

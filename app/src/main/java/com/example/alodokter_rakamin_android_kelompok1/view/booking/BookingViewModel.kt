@@ -31,6 +31,11 @@ class BookingViewModel : ViewModel() {
         totalPage = metaResponse.totalPage
     }
 
+    fun resetData(){
+        page = 1
+        totalPage = 1
+    }
+
     fun loadNewDoctors() : MutableLiveData<ApiResponse<DataResponse<DoctorEntity>>> {
         return if(totalPage > page){
             page++
@@ -41,4 +46,7 @@ class BookingViewModel : ViewModel() {
             data
         }
     }
+
+    fun searchArticles(page:Int = 1, perPage: Int = 10,query:String) = repository.searchDoctorsTitle(page,perPage,query)
+
 }

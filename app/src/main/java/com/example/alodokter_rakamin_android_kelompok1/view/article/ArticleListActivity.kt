@@ -1,6 +1,5 @@
 package com.example.alodokter_rakamin_android_kelompok1.view.article
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -17,23 +16,24 @@ import com.example.alodokter_rakamin_android_kelompok1.data.repository.ArticleRe
 import com.example.alodokter_rakamin_android_kelompok1.data.response.DataResponse
 import com.example.alodokter_rakamin_android_kelompok1.databinding.ActivityArticelListBinding
 import com.google.android.material.snackbar.Snackbar
-import java.util.*
 import kotlin.collections.ArrayList
 
 class ArticleListActivity : AppCompatActivity(), ArticleAdapter.OnLoadMoreListener{
 
-    lateinit var adapter: ArticleAdapter
+    companion object{
+        const val QUERY_STRING = "query_string"
+    }
+
+    private lateinit var adapter: ArticleAdapter
     private lateinit var viewModel: ArticleViewModel
     private lateinit var binding: ActivityArticelListBinding
     private val data = ArrayList<ArticleEntity>()
-    private val dataSearch = ArrayList<ArticleEntity>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityArticelListBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel = ViewModelProvider(this)[ArticleViewModel::class.java]
-
 
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(searchArticle: String?): Boolean {
@@ -45,23 +45,18 @@ class ArticleListActivity : AppCompatActivity(), ArticleAdapter.OnLoadMoreListen
                     viewModel.searchArticles(query = searchText).observe(this@ArticleListActivity){
                         getData(it)
                     }
-//                    dataSearch.forEach {
-//                        if (it.article_title.contains(searchText)){
-//                            data.add(it)
-//                        }
-//                    }
-//                    binding.recyclerView.adapter?.notifyDataSetChanged()
-
                 }
-//                else {
-//                    data.clear()
-//                    data.addAll(dataSearch)
-//                    binding.recyclerView.adapter?.notifyDataSetChanged()
-//                }
                 return false
             }
 
             override fun onQueryTextChange(searchArticle: String?): Boolean {
+                if(searchArticle.isNullOrEmpty()) {
+                    viewModel.resetData()
+                    adapter.resetData()
+                    viewModel.getAllArticles().observe(this@ArticleListActivity) {
+                        getData(it)
+                    }
+                }
                 return false
             }
         })
@@ -72,8 +67,15 @@ class ArticleListActivity : AppCompatActivity(), ArticleAdapter.OnLoadMoreListen
 
     private fun init() {
         viewModel.setRepository(ArticleRepository())
-        viewModel.getAllArticles().observe(this){
-            getData(it)
+        val stringQuery = intent.getStringExtra(QUERY_STRING)
+        if(stringQuery != null){
+            viewModel.searchArticles(query = stringQuery).observe(this){
+                getData(it)
+            }
+        } else {
+            viewModel.getAllArticles().observe(this){
+                getData(it)
+            }
         }
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = ArticleAdapter(binding.recyclerView)

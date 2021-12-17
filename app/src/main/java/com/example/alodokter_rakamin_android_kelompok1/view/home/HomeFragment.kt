@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
@@ -70,11 +71,25 @@ class HomeFragment : Fragment() {
                 navController.navigate(R.id.loginFragment)
             }
         }
-
         binding.tvAllArticles.setOnClickListener {
             val intent = Intent(context, ArticleListActivity::class.java)
             startActivity(intent)
         }
+        binding.svArtikel.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(searchArticle: String?): Boolean {
+                val searchText = searchArticle!!
+                if (searchText.isNotEmpty()){
+                    val intent = Intent(context, ArticleListActivity::class.java)
+                    intent.putExtra(ArticleListActivity.QUERY_STRING,searchText)
+                    startActivity(intent)
+                }
+                return false
+            }
+
+            override fun onQueryTextChange(searchArticle: String?): Boolean {
+                return false
+            }
+        })
     }
 
     private fun init(){

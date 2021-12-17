@@ -35,8 +35,8 @@ class ArticleViewModel : ViewModel() {
     }
 
     fun resetData(){
-        var page = 1
-        var totalPage = 1
+        page = 1
+        totalPage = 1
     }
 
     fun searchArticles(page:Int = 1, perPage: Int = 10,query:String) = repository.searchArticlesTitle(page,perPage,query)

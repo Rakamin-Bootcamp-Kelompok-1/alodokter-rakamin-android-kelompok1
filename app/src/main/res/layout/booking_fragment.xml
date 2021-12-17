@@ -20,7 +20,7 @@
         android:id="@+id/svDoctor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="Search Article"
+        android:queryHint="Search Doctors"
         android:iconifiedByDefault="false"
         android:background="@drawable/ic_search_bg"
         android:queryBackground="@android:color/transparent"

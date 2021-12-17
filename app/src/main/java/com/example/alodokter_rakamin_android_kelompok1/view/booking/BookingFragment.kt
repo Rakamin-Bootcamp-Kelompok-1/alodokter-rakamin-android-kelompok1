@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -74,6 +75,32 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
                 navController.navigate(R.id.loginFragment)
             }
         }
+
+        binding.svDoctor.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(searchDoctors: String?): Boolean {
+                data.clear()
+                val searchText = searchDoctors!!
+                if (searchText.isNotEmpty()){
+                    viewModel.resetData()
+                    doctorAdapter.resetData()
+                    viewModel.searchArticles(query = searchText).observe(this@BookingFragment.viewLifecycleOwner){
+                        getData(it)
+                    }
+                }
+                return false
+            }
+
+            override fun onQueryTextChange(searchDoctors: String?): Boolean {
+                if(searchDoctors.isNullOrEmpty()){
+                    viewModel.getAllDoctors().observe(this@BookingFragment.viewLifecycleOwner){
+                        viewModel.resetData()
+                        doctorAdapter.resetData()
+                        getData(it)
+                    }
+                }
+                return false
+            }
+        })
 
     }
 
