@@ -24,8 +24,8 @@ class ArticleViewHolder(v: View):
 
     init {
         img = v.findViewById(R.id.ivArtikel)
-        title = v.findViewById(R.id.tvJudulArtikel1)
-        isi = v.findViewById(R.id.tvIsiShortArtikel1)
+        title = v.findViewById(R.id.tvJudulArtikel)
+        isi = v.findViewById(R.id.tvIsiShortArtikel)
         v.setOnClickListener(this)
     }
 
