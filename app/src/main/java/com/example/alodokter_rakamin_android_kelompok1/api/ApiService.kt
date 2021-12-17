@@ -66,7 +66,7 @@ interface ApiService {
         @Path("id") id: Int
     ) : Call<ArticleEntity>//mungkin tidak dipakai
 
-    @POST("articles/search")
+    @POST("article/search")
     fun searchArticleTitle(
         @Query("page") page: Int,
         @Query("per_page") perPage: Int,

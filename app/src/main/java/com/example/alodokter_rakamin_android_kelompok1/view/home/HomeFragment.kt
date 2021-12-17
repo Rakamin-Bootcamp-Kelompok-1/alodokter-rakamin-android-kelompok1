@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -38,6 +39,7 @@ class HomeFragment : Fragment() {
     private lateinit var adapter: HomeArticleAdapter
     private val data = ArrayList<ArticleEntity>()
     private lateinit var user: UserResponse
+    private lateinit var navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,7 +56,7 @@ class HomeFragment : Fragment() {
         init()
         binding.rvArtikel.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
         binding.rvArtikel.adapter = adapter
-        val navController = findNavController()
+        navController = findNavController()
 
         binding.toolbarProfile.ivProfile.setOnClickListener {
             if(SharedPreferences(requireContext()).getLoggedStatus()){
@@ -142,7 +144,17 @@ class HomeFragment : Fragment() {
         }
 
         adapter = HomeArticleAdapter(data)
-
+        binding.btnSeeDoctors.setOnClickListener {
+            if(SharedPreferences(requireContext()).getLoggedStatus()){
+                val navView: BottomNavigationView = activity?.findViewById(R.id.nav_view) as BottomNavigationView
+                navView.visibility = View.VISIBLE
+                navController.navigate(R.id.navigation_consult)
+            } else {
+                val navView: BottomNavigationView = activity?.findViewById(R.id.nav_view) as BottomNavigationView
+                navView.visibility = View.GONE
+                navController.navigate(R.id.loginFragment)
+            }
+        }
     }
 
 

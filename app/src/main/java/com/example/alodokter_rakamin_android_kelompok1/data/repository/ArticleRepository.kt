@@ -113,7 +113,7 @@ class ArticleRepository {
                 response: Response<DataResponse<ArticleEntity>>
             ) {
                 if(response.isSuccessful){
-                    Log.v("1422", response.toString())
+                    Log.v("1429", response.toString())
                     val articles = response.body()
                     if(articles != null) {
                         if (articles.data.isEmpty()) data.value = ApiResponse.Error("Articles not found")

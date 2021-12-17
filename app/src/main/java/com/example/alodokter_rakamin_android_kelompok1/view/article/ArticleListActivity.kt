@@ -40,18 +40,24 @@ class ArticleListActivity : AppCompatActivity(), ArticleAdapter.OnLoadMoreListen
                 data.clear()
                 val searchText = searchArticle!!
                 if (searchText.isNotEmpty()){
-                    dataSearch.forEach {
-                        if (it.article_title.contains(searchText)){
-                            data.add(it)
-                        }
+                    viewModel.resetData()
+                    adapter.resetData()
+                    viewModel.searchArticles(query = searchText).observe(this@ArticleListActivity){
+                        getData(it)
                     }
-                    binding.recyclerView.adapter?.notifyDataSetChanged()
+//                    dataSearch.forEach {
+//                        if (it.article_title.contains(searchText)){
+//                            data.add(it)
+//                        }
+//                    }
+//                    binding.recyclerView.adapter?.notifyDataSetChanged()
 
-                } else {
-                    data.clear()
-                    data.addAll(dataSearch)
-                    binding.recyclerView.adapter?.notifyDataSetChanged()
                 }
+//                else {
+//                    data.clear()
+//                    data.addAll(dataSearch)
+//                    binding.recyclerView.adapter?.notifyDataSetChanged()
+//                }
                 return false
             }
 
