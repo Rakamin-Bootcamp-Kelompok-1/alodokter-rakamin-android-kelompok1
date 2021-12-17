@@ -1,7 +1,6 @@
 package com.example.alodokter_rakamin_android_kelompok1.view.article
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
@@ -54,7 +53,6 @@ class ArticleListActivity : AppCompatActivity(), ArticleAdapter.OnLoadMoreListen
     }
 
     override fun onLoadMore() {
-        Log.d("42069","HALOBANG")
         viewModel.loadNewArticles().observe(this){
             getData(it)
         }
@@ -65,13 +63,10 @@ class ArticleListActivity : AppCompatActivity(), ArticleAdapter.OnLoadMoreListen
             is ApiResponse.Success -> {
                 binding.loading.hide()
                 val articles = it.data
-                Log.d("42069", articles.data.count().toString())
-                Log.d("42069", articles.meta.toString())
                 viewModel.setPage(articles.meta)
                 if (!articles.data.isNullOrEmpty()) {
                     data.clear()
                     data.addAll(articles.data.filterNotNull())
-                    Log.d("42069", data.count().toString())
                     binding.tvEmpty.hide()
                     binding.recyclerView.show()
                     adapter.setLoad()

@@ -27,6 +27,6 @@ data class DoctorEntity(
     @SerializedName("updated_at")
     val updated_at: String,
     @SerializedName("image_path")
-    val image_path: String
+    val image_path: String?
 
 )
