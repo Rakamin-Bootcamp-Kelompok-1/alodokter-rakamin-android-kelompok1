@@ -17,6 +17,7 @@ class ArticleViewModel : ViewModel() {
 
     fun getAllArticles(page:Int = 1, perPage: Int = 10) = repository.getArticles(page, perPage)
 
+    fun getAllArticles() = repository.getArticles(1, 60)
 
     fun setRepository(articleRepository: ArticleRepository){
         repository = articleRepository
@@ -38,4 +39,7 @@ class ArticleViewModel : ViewModel() {
             data
         }
     }
+
+    fun getRecentArticle() = repository.getArticles(1, 3)
+
 }
