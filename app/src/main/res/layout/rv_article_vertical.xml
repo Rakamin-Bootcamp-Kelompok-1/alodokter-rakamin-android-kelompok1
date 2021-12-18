@@ -51,7 +51,8 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/poppins_regular"
                 android:lineSpacingExtra="7sp"
-                android:text="@string/judul_artikel1"
+                android:text="@string/isi_artikel1"
+                android:maxLines="2"
                 android:textColor="#4f4f4f"
                 android:layout_marginBottom="@dimen/spacing_10"
                 android:textSize="13sp" />

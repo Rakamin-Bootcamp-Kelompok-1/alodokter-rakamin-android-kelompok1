@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,275 +10,266 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <ImageButton
-        android:id="@+id/ibBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/ic_action_back"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_margin="@dimen/spacing_20"
-        />
-
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/detail_dokter"
-        app:layout_constraintStart_toEndOf="@+id/ibBack"
-        app:layout_constraintTop_toTopOf="parent"
-        android:fontFamily="@font/nunito_regular"
-        android:textStyle="bold"
-        android:textSize="@dimen/font_18"
-        android:textColor="@color/black"
-        android:layout_margin="@dimen/spacing_30"
-        />
-
-    <ImageView
-        android:id="@+id/ivDoctor"
-        android:layout_width="119dp"
-        android:layout_height="113dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ibBack"
-        android:layout_margin="@dimen/spacing_20"
-        />
-
-    <TextView
-        android:id="@+id/tvDoctorName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/ivDoctor"
-        android:text="Dr. Shaun Murphy"
-        android:fontFamily="@font/nunito_regular"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-        android:layout_marginTop="@dimen/spacing_40"
-        android:layout_marginStart="@dimen/spacing_20"/>
-
-    <TextView
-        android:id="@+id/tvSpecialist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/ivDoctor"
-        app:layout_constraintTop_toBottomOf="@+id/tvDoctorName"
-        android:layout_marginTop="@dimen/spacing_10"
-        android:layout_marginStart="@dimen/spacing_20"
-        android:text="@string/specialist"
-        android:textStyle="bold"
-        android:fontFamily="@font/nunito_regular"
-        />
-
-    <TextView
-        android:id="@+id/strip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="-"
-        android:layout_marginTop="@dimen/spacing_10"
-        android:layout_marginStart="@dimen/spacing_10"
-        app:layout_constraintStart_toEndOf="@+id/tvSpecialist"
-        app:layout_constraintTop_toBottomOf="@+id/tvDoctorName"
-        />
-
-    <TextView
-        android:id="@+id/tvLoc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/strip"
-        app:layout_constraintTop_toBottomOf="@+id/tvDoctorName"
-        android:layout_marginTop="@dimen/spacing_10"
-        android:fontFamily="@font/nunito_regular"
-        android:textStyle="bold"
-        android:text="Location"
-        android:layout_marginStart="@dimen/spacing_10"
-        />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvRupiah"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/ivDoctor"
-        app:layout_constraintTop_toBottomOf="@+id/tvSpecialist"
-        app:cardCornerRadius="@dimen/spacing_5"
-        android:layout_marginStart="@dimen/spacing_20"
-        android:layout_marginTop="@dimen/spacing_10">
-
-        <ImageView
-            android:id="@+id/ivRupiah"
+        <ImageButton
+            android:id="@+id/ibBack"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_rupiah"
-            android:padding="@dimen/padding_5"
-            app:layout_constraintTop_toBottomOf="@+id/tvSpecialist"
-            app:layout_constraintStart_toEndOf="@id/ivDoctor"
-            />
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/tvRupiah"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/cvRupiah"
-        app:layout_constraintTop_toBottomOf="@id/tvSpecialist"
-        android:layout_marginTop="@dimen/spacing_10"
-        android:layout_marginStart="@dimen/spacing_5"
-        android:text="250.000"
-        android:fontFamily="@font/nunito_medium"
-        android:textColor="@color/black"
-
-        />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvStar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/ivDoctor"
-        app:layout_constraintTop_toBottomOf="@+id/cvRupiah"
-        app:cardCornerRadius="@dimen/spacing_5"
-        android:layout_marginStart="@dimen/spacing_20"
-        android:layout_marginTop="@dimen/spacing_10">
-
-        <ImageView
-            android:id="@+id/ivStar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/padding_5"
-            />
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/tvRating"
-        android:text="4"
-        android:fontFamily="@font/nunito_medium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tvRupiah"
-        app:layout_constraintStart_toEndOf="@id/cvStar"
-        android:textColor="@color/black"
-        android:layout_marginTop="@dimen/spacing_10"
-        />
-
-    <TextView
-        android:id="@+id/outOf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="out of 5"
-        android:fontFamily="@font/nunito_medium"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@+id/tvRating"
-        app:layout_constraintTop_toBottomOf="@+id/tvRupiah"
-        android:layout_marginTop="@dimen/spacing_10"
-
-        />
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvBio"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_margin="@dimen/spacing_20"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivDoctor"
-        app:cardCornerRadius="@dimen/spacing_5">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
+            android:layout_margin="@dimen/spacing_20"
+            android:src="@drawable/ic_action_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvBio"
+            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/biography"
+            android:layout_margin="@dimen/spacing_30"
+            android:fontFamily="@font/nunito_regular"
+            android:text="@string/detail_dokter"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/ibBack"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivDoctor"
+            android:layout_width="119dp"
+            android:layout_height="113dp"
+            android:layout_margin="@dimen/spacing_20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ibBack" />
+
+        <TextView
+            android:id="@+id/tvDoctorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_20"
+            android:layout_marginTop="@dimen/spacing_40"
+            android:fontFamily="@font/nunito_regular"
+            android:text="Dr. Shaun Murphy"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/ivDoctor"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+        <TextView
+            android:id="@+id/tvSpecialist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_20"
+            android:layout_marginTop="@dimen/spacing_10"
+            android:fontFamily="@font/nunito_regular"
+            android:text="@string/specialist"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/ivDoctor"
+            app:layout_constraintTop_toBottomOf="@+id/tvDoctorName" />
+
+        <TextView
+            android:id="@+id/strip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:layout_marginTop="@dimen/spacing_10"
+            android:text="-"
+            app:layout_constraintStart_toEndOf="@+id/tvSpecialist"
+            app:layout_constraintTop_toBottomOf="@+id/tvDoctorName" />
+
+        <TextView
+            android:id="@+id/tvLoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:layout_marginTop="@dimen/spacing_10"
+            android:fontFamily="@font/nunito_regular"
+            android:text="Location"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/strip"
+            app:layout_constraintTop_toBottomOf="@+id/tvDoctorName" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvRupiah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_20"
+            android:layout_marginTop="@dimen/spacing_10"
+            app:cardCornerRadius="@dimen/spacing_5"
+            app:layout_constraintStart_toEndOf="@+id/ivDoctor"
+            app:layout_constraintTop_toBottomOf="@+id/tvSpecialist">
+
+            <ImageView
+                android:id="@+id/ivRupiah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_5"
+                android:src="@drawable/ic_rupiah"
+                app:layout_constraintStart_toEndOf="@id/ivDoctor"
+                app:layout_constraintTop_toBottomOf="@+id/tvSpecialist" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvRupiah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_5"
+            android:layout_marginTop="@dimen/spacing_10"
             android:fontFamily="@font/nunito_medium"
-            android:textColor="@color/blue_header"
-            android:layout_margin="@dimen/spacing_10"/>
+            android:text="250.000"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/cvRupiah"
+            app:layout_constraintTop_toBottomOf="@id/tvSpecialist"
+
+            />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvStar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_20"
+            android:layout_marginTop="@dimen/spacing_10"
+            app:cardCornerRadius="@dimen/spacing_5"
+            app:layout_constraintStart_toEndOf="@+id/ivDoctor"
+            app:layout_constraintTop_toBottomOf="@+id/cvRupiah">
+
+            <ImageView
+                android:id="@+id/ivStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_5" />
+        </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/tvBioDesc"
-            android:layout_margin="@dimen/spacing_10"
+            android:id="@+id/tvRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_10"
+            android:fontFamily="@font/nunito_medium"
+            android:text="4"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/cvStar"
+            app:layout_constraintTop_toBottomOf="@+id/tvRupiah" />
+
+        <TextView
+            android:id="@+id/outOf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_10"
+            android:fontFamily="@font/nunito_medium"
+            android:text="out of 5"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/tvRating"
+            app:layout_constraintTop_toBottomOf="@+id/tvRupiah"
+
+            />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvBio"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_margin="@dimen/spacing_20"
+            app:cardCornerRadius="@dimen/spacing_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivDoctor">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/tvBio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_10"
+                    android:fontFamily="@font/nunito_medium"
+                    android:text="@string/biography"
+                    android:textColor="@color/blue_header" />
+
+                <TextView
+                    android:id="@+id/tvBioDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_10"
+                    android:text="Lorem Ipsum" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvEducation"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_margin="@dimen/spacing_20"
+            app:cardCornerRadius="@dimen/spacing_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvBio">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvEducation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_10"
+                    android:fontFamily="@font/nunito_medium"
+                    android:text="Education"
+                    android:textColor="@color/blue_header" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvSchedules"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_margin="@dimen/spacing_20"
+            app:cardCornerRadius="@dimen/spacing_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvEducation">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvSchedules"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_10"
+                    android:fontFamily="@font/nunito_medium"
+                    android:text="Schedules"
+                    android:textColor="@color/blue_header" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lorem Ipsum"/>
+            android:layout_margin="@dimen/spacing_20"
+            android:fontFamily="@font/nunito_medium"
+            android:text="@string/book_an_appointment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cvSchedules"
 
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvEducation"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_margin="@dimen/spacing_20"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cvBio"
-        app:cardCornerRadius="@dimen/spacing_5">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvEducation"
-                android:text="Education"
-                android:fontFamily="@font/nunito_medium"
-                android:textColor="@color/blue_header"
-                android:layout_margin="@dimen/spacing_10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvSchedules"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_margin="@dimen/spacing_20"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cvEducation"
-        app:cardCornerRadius="@dimen/spacing_5">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvSchedules"
-                android:text="Schedules"
-                android:fontFamily="@font/nunito_medium"
-                android:textColor="@color/blue_header"
-                android:layout_margin="@dimen/spacing_10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/cvSchedules"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/book_an_appointment"
-        android:layout_margin="@dimen/spacing_20"
-        android:fontFamily="@font/nunito_medium"
-
-        />
-
+            />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </androidx.core.widget.NestedScrollView>
