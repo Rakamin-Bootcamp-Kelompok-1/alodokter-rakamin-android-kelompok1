@@ -47,7 +47,7 @@
 
         <TextView
             android:id="@+id/tvDoctorName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_20"
             android:layout_marginTop="@dimen/spacing_40"
@@ -55,6 +55,7 @@
             android:text="@string/name_doctor"
             android:textColor="@color/black"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivDoctor"
             app:layout_constraintTop_toBottomOf="@+id/tvConfirmTitle" />
 
@@ -82,13 +83,14 @@
 
         <TextView
             android:id="@+id/tvLoc"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_10"
+            android:layout_marginHorizontal="@dimen/spacing_10"
             android:layout_marginTop="@dimen/spacing_10"
             android:fontFamily="@font/nunito_regular"
             android:text="@string/location_doctor"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/strip"
             app:layout_constraintTop_toBottomOf="@+id/tvDoctorName" />
 
@@ -100,7 +102,15 @@
             android:layout_marginTop="@dimen/spacing_10"
             app:cardCornerRadius="@dimen/spacing_5"
             app:layout_constraintStart_toEndOf="@+id/ivDoctor"
-            app:layout_constraintTop_toBottomOf="@+id/tvSpecialist">
+            app:layout_constraintTop_toBottomOf="@+id/tvLoc">
+
+            <ImageView
+                android:id="@+id/ivRupiah"
+                android:layout_width="@dimen/spacing_25"
+                android:layout_height="@dimen/spacing_25"
+                android:src="@drawable/ic_rupiah"
+
+                />
 
         </androidx.cardview.widget.CardView>
 
@@ -114,7 +124,7 @@
             android:text="@string/price_doctor"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@id/cvRupiah"
-            app:layout_constraintTop_toBottomOf="@id/tvSpecialist"
+            app:layout_constraintTop_toBottomOf="@id/tvLoc"
 
             />
 
@@ -128,6 +138,14 @@
             app:layout_constraintStart_toEndOf="@+id/ivDoctor"
             app:layout_constraintTop_toBottomOf="@+id/cvRupiah">
 
+            <ImageView
+                android:id="@+id/ivStar"
+                android:layout_width="@dimen/spacing_25"
+                android:layout_height="@dimen/spacing_25"
+                android:src="@drawable/ic_action_star"
+
+                />
+
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -137,20 +155,22 @@
             android:layout_marginTop="@dimen/spacing_10"
             android:fontFamily="@font/nunito_medium"
             android:text="@string/rate_doctor"
+            android:layout_marginHorizontal="@dimen/spacing_10"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@id/cvStar"
-            app:layout_constraintTop_toBottomOf="@+id/tvRupiah" />
+            app:layout_constraintTop_toBottomOf="@+id/cvRupiah" />
 
         <TextView
             android:id="@+id/outOf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_10"
+            android:layout_marginStart="@dimen/spacing_5"
             android:fontFamily="@font/nunito_medium"
             android:text="@string/out_of_5"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/tvRating"
-            app:layout_constraintTop_toBottomOf="@+id/tvRupiah" />
+            app:layout_constraintTop_toBottomOf="@+id/cvRupiah" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvPatient"
@@ -164,7 +184,7 @@
             app:cardElevation="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivDoctor">
+            app:layout_constraintTop_toBottomOf="@+id/cvStar">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

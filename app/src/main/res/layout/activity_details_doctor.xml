@@ -50,7 +50,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/spacing_20"
-            android:layout_marginTop="@dimen/spacing_40"
+            android:layout_marginTop="@dimen/spacing_20"
             android:fontFamily="@font/nunito_regular"
             android:text="Dr. Shaun Murphy"
             android:textColor="@color/black"
@@ -102,7 +102,7 @@
             android:layout_marginTop="@dimen/spacing_10"
             app:cardCornerRadius="@dimen/spacing_5"
             app:layout_constraintStart_toEndOf="@+id/ivDoctor"
-            app:layout_constraintTop_toBottomOf="@+id/tvSpecialist">
+            app:layout_constraintTop_toBottomOf="@+id/tvLoc">
 
             <ImageView
                 android:layout_width="@dimen/spacing_25"
@@ -135,7 +135,7 @@
             android:layout_marginTop="@dimen/spacing_10"
             app:cardCornerRadius="@dimen/spacing_5"
             app:layout_constraintStart_toEndOf="@+id/ivDoctor"
-            app:layout_constraintTop_toBottomOf="@+id/tvPrice">
+            app:layout_constraintTop_toBottomOf="@+id/cvRupiah">
 
             <ImageView
                 android:id="@+id/ivStar"
@@ -150,7 +150,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_5"
-            android:layout_marginTop="@dimen/spacing_5"
+            android:layout_marginTop="@dimen/spacing_10"
             android:fontFamily="@font/nunito_medium"
             android:text="4"
             android:textColor="@color/black"
@@ -162,7 +162,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_2dp"
-            android:layout_marginTop="@dimen/spacing_5"
+            android:layout_marginTop="@dimen/spacing_10"
             android:fontFamily="@font/nunito_medium"
             android:text="out of 5"
             android:textColor="@color/black"
@@ -285,11 +285,11 @@
 
                 <TextView
                     android:id="@+id/detailTvSchedules"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/spacing_10"
                     android:fontFamily="@font/nunito_medium"
-                    android:text="isi schedule doctor"
+                    android:text="@string/isi_schedule_doctor"
                     android:textColor="@color/black"/>
 
             </LinearLayout>
