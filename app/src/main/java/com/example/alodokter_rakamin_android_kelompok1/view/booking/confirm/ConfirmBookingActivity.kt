@@ -6,17 +6,24 @@ import android.util.Log
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearSnapHelper
+import androidx.recyclerview.widget.SnapHelper
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.alodokter_rakamin_android_kelompok1.R
+import com.example.alodokter_rakamin_android_kelompok1.adapter.ConfirmBookingAdapter
 import com.example.alodokter_rakamin_android_kelompok1.api.ApiResponse
 import com.example.alodokter_rakamin_android_kelompok1.config.SharedPreferences
 import com.example.alodokter_rakamin_android_kelompok1.config.hide
 import com.example.alodokter_rakamin_android_kelompok1.config.show
+import com.example.alodokter_rakamin_android_kelompok1.data.entity.CalendarEntity
 import com.example.alodokter_rakamin_android_kelompok1.data.repository.PatientRepository
 import com.example.alodokter_rakamin_android_kelompok1.databinding.ActivityConfirmBookingBinding
 import com.google.android.material.snackbar.Snackbar
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ConfirmBookingActivity : AppCompatActivity() {
 
@@ -30,6 +37,12 @@ class ConfirmBookingActivity : AppCompatActivity() {
         const val DOCTOR_SCHEDULE = "doctor_schedule"
     }
 
+    private val sdf = SimpleDateFormat("MMMM yyyy", Locale.ENGLISH)
+    private val cal = Calendar.getInstance(Locale.ENGLISH)
+    private val currentDate = Calendar.getInstance(Locale.ENGLISH)
+    private val dates = ArrayList<Date>()
+    private lateinit var confirmAdapter: ConfirmBookingAdapter
+    private val calendarList2 = ArrayList<CalendarEntity>()
     private lateinit var binding: ActivityConfirmBookingBinding
     private lateinit var viewModel: ConfirmBookingViewModel
 
@@ -48,6 +61,9 @@ class ConfirmBookingActivity : AppCompatActivity() {
         val price = intent.getIntExtra(DOCTOR_PRICE_RATE, 0)
 
         initPatient()
+        setUpAdapter()
+        setUpClickListener()
+        setUpCalendar()
 
         var requestOptions = RequestOptions()
         requestOptions = requestOptions.transform(RoundedCorners(50))
@@ -69,9 +85,7 @@ class ConfirmBookingActivity : AppCompatActivity() {
 
     }
 
-    private fun initCalender(){
 
-    }
 
     private fun initPatient(){
         binding.loading.hide()
@@ -112,4 +126,59 @@ class ConfirmBookingActivity : AppCompatActivity() {
         }
         // else intent != null
     }
+
+    /**
+     * Set up click listener
+     */
+    private fun setUpClickListener() {
+        binding.ivCalendarNext.setOnClickListener {
+            cal.add(Calendar.MONTH, 1)
+            setUpCalendar()
+        }
+        binding.ivCalendarPrevious.setOnClickListener {
+            cal.add(Calendar.MONTH, -1)
+            if (cal == currentDate)
+                setUpCalendar()
+            else
+                setUpCalendar()
+        }
+    }
+
+    /**
+     * Setting up adapter for recyclerview
+     */
+    private fun setUpAdapter() {
+        val spacingInPixels = resources.getDimensionPixelSize(R.dimen.spacing_10)
+        binding.rvAtur.addItemDecoration(CalendarItemDecoration(spacingInPixels))
+        val snapHelper: SnapHelper = LinearSnapHelper()
+        snapHelper.attachToRecyclerView(binding.rvAtur)
+        confirmAdapter = ConfirmBookingAdapter { _: CalendarEntity, position: Int ->
+            calendarList2.forEachIndexed { index, calendarModel ->
+                calendarModel.isSelected = index == position
+            }
+            confirmAdapter.setData(calendarList2)
+        }
+        binding.rvAtur.adapter = confirmAdapter
+    }
+
+    /**
+     * Function to setup calendar for every month
+     */
+    private fun setUpCalendar() {
+        val calendarList = ArrayList<CalendarEntity>()
+        binding.tvDateMonth.text = sdf.format(cal.time)
+        val monthCalendar = cal.clone() as Calendar
+        val maxDaysInMonth = cal.getActualMaximum(Calendar.DAY_OF_MONTH)
+        dates.clear()
+        monthCalendar.set(Calendar.DAY_OF_MONTH, 1)
+        while (dates.size < maxDaysInMonth) {
+            dates.add(monthCalendar.time)
+            calendarList.add(CalendarEntity(monthCalendar.time))
+            monthCalendar.add(Calendar.DAY_OF_MONTH, 1)
+        }
+        calendarList2.clear()
+        calendarList2.addAll(calendarList)
+        confirmAdapter.setData(calendarList)
+    }
+
 }
