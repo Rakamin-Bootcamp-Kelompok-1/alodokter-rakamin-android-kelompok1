@@ -13,7 +13,6 @@
 
         <ImageView
             android:id="@+id/ibBack"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_20"
@@ -283,6 +282,15 @@
                     android:fontFamily="@font/nunito_medium"
                     android:text="Schedules"
                     android:textColor="@color/blue_header" />
+
+                <TextView
+                    android:id="@+id/detailTvSchedules"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_10"
+                    android:fontFamily="@font/nunito_medium"
+                    android:text="isi schedule doctor"
+                    android:textColor="@color/black"/>
 
             </LinearLayout>
 

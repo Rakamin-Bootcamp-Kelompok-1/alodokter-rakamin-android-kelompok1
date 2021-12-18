@@ -189,6 +189,9 @@
     <string name="yearold_patient">20</string>
     <string name="blood_patient">O</string>
     <string name="status_patient">Keluarga</string>
+    <string name="title_notfunction_article">Artikel Kesehatan Terkini untuk Anda</string>
+    <string name="Icon_edit_profile">icon profile</string>
+    <string name="img_profile">Image Profile</string>
 
 
 </resources>

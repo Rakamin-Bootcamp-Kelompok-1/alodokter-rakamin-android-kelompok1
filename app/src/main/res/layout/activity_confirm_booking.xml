@@ -153,17 +153,16 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvPatient"
-            app:layout_constraintBottom_toBottomOf="pare"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_margin="@dimen/spacing_20"
-            app:cardCornerRadius="@dimen/spacing_8"
-            app:cardBackgroundColor="#0D000000"
-            app:cardElevation="0dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@color/gray"
             android:layout_marginTop="@dimen/spacing_20"
+            android:background="@color/gray"
+            app:cardBackgroundColor="#0D000000"
+            app:cardCornerRadius="@dimen/spacing_8"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivDoctor">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -176,9 +175,9 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/spacing_20"
                     android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
+                    app:layout_constraintTop_toTopOf="parent">
 
 
                     <TextView
@@ -431,8 +430,8 @@
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
-                android:backgroundTint="@color/white"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
                 android:text="10:00 - 12:00" />
 
             <com.google.android.material.chip.Chip
@@ -444,9 +443,9 @@
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
                 android:backgroundTint="@color/main_blue"
-                android:text="16:00 - 18:00" />
+                android:text="16:00 - 18:00"
+                android:textColor="@color/white" />
         </com.google.android.material.chip.ChipGroup>
 
         <TextView
