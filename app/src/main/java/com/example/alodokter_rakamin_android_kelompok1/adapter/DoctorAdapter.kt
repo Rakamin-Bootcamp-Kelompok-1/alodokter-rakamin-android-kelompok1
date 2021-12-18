@@ -1,5 +1,6 @@
 package com.example.alodokter_rakamin_android_kelompok1.adapter
 
+import android.content.Intent
 import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,9 +16,10 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.alodokter_rakamin_android_kelompok1.R
 import com.example.alodokter_rakamin_android_kelompok1.data.entity.DoctorEntity
+import com.example.alodokter_rakamin_android_kelompok1.view.booking.details.DetailsDoctorActivity
 
 class DoctorAdapter (recyclerView: RecyclerView):
-    RecyclerView.Adapter<DoctorAdapter.DoctorViewHolder>() {
+    RecyclerView.Adapter<DoctorAdapter.DoctorViewHolder>(){
 
     private var loading: Boolean = false
     lateinit var onLoadMoreListener: OnLoadMoreListener
@@ -70,13 +72,14 @@ class DoctorAdapter (recyclerView: RecyclerView):
         fun onLoadMore()
     }
 
-    inner class DoctorViewHolder(v: View): RecyclerView.ViewHolder(v){
+    inner class DoctorViewHolder(v: View): RecyclerView.ViewHolder(v), View.OnClickListener{
 
         private var img: ImageView? = null
         private var name: TextView? = null
         private var location: TextView? = null
         private var specialist: TextView? = null
         private var star: TextView? = null
+        private lateinit var result: DoctorEntity
 
         init {
             img = v.findViewById(R.id.ivDoctor)
@@ -84,6 +87,7 @@ class DoctorAdapter (recyclerView: RecyclerView):
             location = v.findViewById(R.id.tvLoc)
             star = v.findViewById(R.id.tvStar)
             specialist = v.findViewById(R.id.tvSpecialist)
+            v.setOnClickListener(this)
         }
 
         fun bind(data: DoctorEntity){
@@ -105,8 +109,25 @@ class DoctorAdapter (recyclerView: RecyclerView):
             star?.text = data.star
             specialist?.text = data.speciality
             location?.text = data.location_practice
+            result = data
+        }
+
+        override fun onClick(view: View?) {
+            val intent = Intent(itemView.context, DetailsDoctorActivity::class.java)
+            intent.putExtra(DetailsDoctorActivity.DOCTOR_NAME,result.doctor_name)
+            intent.putExtra(DetailsDoctorActivity.DOCTOR_IMAGE,result.image_path)
+            intent.putExtra(DetailsDoctorActivity.DOCTOR_RATING,result.star)
+            intent.putExtra(DetailsDoctorActivity.DOCTOR_PRICE_RATE,result.price_rate)
+            intent.putExtra(DetailsDoctorActivity.DOCTOR_LOCATION,result.location_practice)
+            intent.putExtra(DetailsDoctorActivity.DOCTOR_SPECIALITY,result.speciality)
+            intent.putExtra(DetailsDoctorActivity.DOCTOR_BIOGRAPHY,result.biography)
+            intent.putExtra(DetailsDoctorActivity.DOCTOR_EDUCATION,result.education)
+            itemView.context.startActivity(intent)
         }
 
 
+
     }
+
+
 }

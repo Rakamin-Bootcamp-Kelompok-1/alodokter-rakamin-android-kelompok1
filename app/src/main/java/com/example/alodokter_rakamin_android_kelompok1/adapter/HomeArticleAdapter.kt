@@ -46,6 +46,7 @@ class HomeArticleAdapter ():
             img = v.findViewById(R.id.ivImageArticle)
             title = v.findViewById(R.id.tvDetailTitle)
             isi = v.findViewById(R.id.tvContentDesc)
+            v.setOnClickListener(this)
         }
 
         fun bind(data: ArticleEntity){

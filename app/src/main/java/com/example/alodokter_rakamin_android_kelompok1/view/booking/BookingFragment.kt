@@ -53,10 +53,7 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
 
         init()
         // Adapter for Doctor
-        binding.rvDoctor.layoutManager = LinearLayoutManager(requireContext())
-        doctorAdapter = DoctorAdapter(binding.rvDoctor)
-        doctorAdapter.onLoadMoreListener = this
-        binding.rvDoctor.adapter = doctorAdapter
+
 
         // Adapter for Speciality
 
@@ -146,6 +143,10 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
                 }
             }
         }
+        binding.rvDoctor.layoutManager = LinearLayoutManager(requireContext())
+        doctorAdapter = DoctorAdapter(binding.rvDoctor)
+        doctorAdapter.onLoadMoreListener = this
+        binding.rvDoctor.adapter = doctorAdapter
     }
 
     override fun onLoadMore() {

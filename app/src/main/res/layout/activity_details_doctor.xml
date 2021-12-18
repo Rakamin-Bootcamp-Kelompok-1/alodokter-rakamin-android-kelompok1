@@ -2,6 +2,7 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentDetailDoctorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.booking.details.DetailsDoctorActivity">
@@ -10,9 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/ibBack"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_20"
@@ -24,12 +25,15 @@
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/spacing_30"
+            android:layout_margin="@dimen/spacing_20"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/nunito_regular"
             android:text="@string/detail_dokter"
             android:textColor="@color/black"
             android:textSize="@dimen/font_18"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.415"
             app:layout_constraintStart_toEndOf="@+id/ibBack"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,19 +42,21 @@
             android:layout_width="119dp"
             android:layout_height="113dp"
             android:layout_margin="@dimen/spacing_20"
+            android:src="@drawable/shawn_doctor"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ibBack" />
 
         <TextView
             android:id="@+id/tvDoctorName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_20"
+            android:layout_marginHorizontal="@dimen/spacing_20"
             android:layout_marginTop="@dimen/spacing_40"
             android:fontFamily="@font/nunito_regular"
             android:text="Dr. Shaun Murphy"
             android:textColor="@color/black"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivDoctor"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
@@ -78,13 +84,14 @@
 
         <TextView
             android:id="@+id/tvLoc"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_10"
+            android:layout_marginHorizontal="@dimen/spacing_10"
             android:layout_marginTop="@dimen/spacing_10"
             android:fontFamily="@font/nunito_regular"
             android:text="Location"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/strip"
             app:layout_constraintTop_toBottomOf="@+id/tvDoctorName" />
 
@@ -99,17 +106,16 @@
             app:layout_constraintTop_toBottomOf="@+id/tvSpecialist">
 
             <ImageView
-                android:id="@+id/ivRupiah"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/padding_5"
-                android:src="@drawable/ic_rupiah"
-                app:layout_constraintStart_toEndOf="@id/ivDoctor"
-                app:layout_constraintTop_toBottomOf="@+id/tvSpecialist" />
+                android:layout_width="@dimen/spacing_25"
+                android:layout_height="@dimen/spacing_25"
+                android:padding="@dimen/spacing_5"
+                android:src="@drawable/ic_rupiah" />
+
+
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/tvRupiah"
+            android:id="@+id/tvPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_5"
@@ -118,7 +124,7 @@
             android:text="250.000"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@id/cvRupiah"
-            app:layout_constraintTop_toBottomOf="@id/tvSpecialist"
+            app:layout_constraintTop_toBottomOf="@id/tvLoc"
 
             />
 
@@ -130,36 +136,39 @@
             android:layout_marginTop="@dimen/spacing_10"
             app:cardCornerRadius="@dimen/spacing_5"
             app:layout_constraintStart_toEndOf="@+id/ivDoctor"
-            app:layout_constraintTop_toBottomOf="@+id/cvRupiah">
+            app:layout_constraintTop_toBottomOf="@+id/tvPrice">
 
             <ImageView
                 android:id="@+id/ivStar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/padding_5" />
+                android:layout_width="@dimen/spacing_25"
+                android:layout_height="@dimen/spacing_25"
+                android:padding="@dimen/padding_5"
+                android:src="@drawable/ic_action_star" />
         </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/tvRating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_10"
+            android:layout_marginStart="@dimen/spacing_5"
+            android:layout_marginTop="@dimen/spacing_5"
             android:fontFamily="@font/nunito_medium"
             android:text="4"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@id/cvStar"
-            app:layout_constraintTop_toBottomOf="@+id/tvRupiah" />
+            app:layout_constraintTop_toBottomOf="@+id/cvRupiah" />
 
         <TextView
             android:id="@+id/outOf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_10"
+            android:layout_marginStart="@dimen/spacing_2dp"
+            android:layout_marginTop="@dimen/spacing_5"
             android:fontFamily="@font/nunito_medium"
             android:text="out of 5"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/tvRating"
-            app:layout_constraintTop_toBottomOf="@+id/tvRupiah"
+            app:layout_constraintTop_toBottomOf="@+id/cvRupiah"
 
             />
 
@@ -167,16 +176,16 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cvBio"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="match_parent"
             android:layout_margin="@dimen/spacing_20"
             app:cardCornerRadius="@dimen/spacing_5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivDoctor">
+            app:layout_constraintTop_toBottomOf="@+id/outOf">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
 
@@ -192,8 +201,10 @@
                 <TextView
                     android:id="@+id/tvBioDesc"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/spacing_10"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/spacing_16"
+                    android:layout_marginBottom="@dimen/spacing_10"
+                    android:justificationMode="inter_word"
                     android:text="Lorem Ipsum" />
 
             </LinearLayout>
@@ -203,7 +214,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cvEducation"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_20"
             app:cardCornerRadius="@dimen/spacing_5"
             app:layout_constraintEnd_toEndOf="parent"
@@ -216,13 +227,34 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tvEducation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/spacing_10"
                     android:fontFamily="@font/nunito_medium"
                     android:text="Education"
                     android:textColor="@color/blue_header" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:src="@drawable/ic_dot"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/spacing_10"/>
+
+                    <TextView
+                        android:id="@+id/tvEducation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/spacing_10"
+                        android:fontFamily="@font/nunito_semi_bold"
+                        android:text="Alodokter" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -257,6 +289,7 @@
         </androidx.cardview.widget.CardView>
 
         <Button
+            android:id="@+id/btnBooking"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_20"
