@@ -63,6 +63,10 @@ class ConfirmBookingActivity : AppCompatActivity() {
         binding.tvRupiah.text = price.toString()
         binding.tvRating.text = rating
 
+        binding.ibBack.setOnClickListener {
+            finish()
+        }
+
     }
 
     private fun initCalender(){

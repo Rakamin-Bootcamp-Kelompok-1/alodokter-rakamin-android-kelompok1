@@ -52,26 +52,10 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
         viewModel = ViewModelProvider(this)[BookingViewModel::class.java]
 
         init()
-        // Adapter for Doctor
-
-
         // Adapter for Speciality
 
 
-        val navController = findNavController()
 
-        binding.toolbarProfile.ivProfile.setOnClickListener {
-            if(SharedPreferences(requireContext()).getLoggedStatus()){
-                val intent = Intent(requireContext(), MyProfileActivity::class.java)
-                val jsonString = Gson().toJson(user)
-                intent.putExtra(MyProfileActivity.MY_PROFILE_ACTIVITY,jsonString)
-                startActivity(intent)
-            } else {
-                val navView: BottomNavigationView = activity?.findViewById(R.id.nav_view) as BottomNavigationView
-                navView.visibility = View.GONE
-                navController.navigate(R.id.loginFragment)
-            }
-        }
 
         binding.svDoctor.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(searchDoctors: String?): Boolean {
@@ -102,6 +86,7 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
     }
 
     private fun init(){
+        val navController = findNavController()
         val token = SharedPreferences(requireContext()).getUserToken()
         viewModel.setRepository(DoctorRepository())
         viewModel.setUserRepository(UserRepository())
@@ -130,6 +115,18 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
                         }
                     }
                     binding.toolbarProfile.tvName.text = user.user?.full_name
+                    binding.toolbarProfile.ivProfile.setOnClickListener {
+                        if(SharedPreferences(requireContext()).getLoggedStatus()){
+                            val intent = Intent(requireContext(), MyProfileActivity::class.java)
+                            val jsonString = Gson().toJson(user)
+                            intent.putExtra(MyProfileActivity.MY_PROFILE_ACTIVITY,jsonString)
+                            startActivity(intent)
+                        } else {
+                            val navView: BottomNavigationView = activity?.findViewById(R.id.nav_view) as BottomNavigationView
+                            navView.visibility = View.GONE
+                            navController.navigate(R.id.loginFragment)
+                        }
+                    }
                 }
                 is ApiResponse.Error -> {
                     val snackBar = Snackbar.make(binding.parentBookingLayout, it.error, Snackbar.LENGTH_LONG)
@@ -165,9 +162,11 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
                     data.clear()
                     data.addAll(doctors.data.filterNotNull())
                     binding.rvDoctor.show()
+                    binding.tvNotFound.hide()
                     doctorAdapter.setLoad()
                     doctorAdapter.setData(data)
                 } else {
+                    binding.tvNotFound.show()
                     binding.rvDoctor.hide()
                 }
             }
@@ -176,9 +175,13 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
                 snackbar.setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.error_red))
                 snackbar.show()
                 binding.loading.hide()
+                binding.tvNotFound.show()
+                binding.rvDoctor.hide()
             }
             is ApiResponse.Loading -> {
                 binding.loading.show()
+                binding.tvNotFound.hide()
+                binding.rvDoctor.hide()
             }
         }
     }

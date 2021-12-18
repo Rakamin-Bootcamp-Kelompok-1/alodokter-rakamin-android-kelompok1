@@ -154,7 +154,6 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvPatient"
-            app:layout_constraintBottom_toBottomOf="pare"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_margin="@dimen/spacing_20"

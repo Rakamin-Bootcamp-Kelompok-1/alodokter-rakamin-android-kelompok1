@@ -43,6 +43,10 @@ class MyProfileActivity : AppCompatActivity() {
             }
         }
 
+        binding.ibBack.setOnClickListener {
+            finish()
+        }
+
         binding.btEditProfile.setOnClickListener{
             startForResult.launch(Intent(this, EditProfileActivity::class.java).also{
                 val jsonString = Gson().toJson(json)
