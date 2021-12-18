@@ -40,13 +40,13 @@ class ArticleDetailActivity : AppCompatActivity(){
         viewModel = ViewModelProvider(this)[ArticleViewModel::class.java]
 
         val title = intent.getStringExtra(TITLE)
-        val content_desc = intent.getStringExtra(CONTENT_DESC)
-        val image_article = intent.getStringExtra(IMAGE)
+        val contentDesc = intent.getStringExtra(CONTENT_DESC)
+        val imageArticle = intent.getStringExtra(IMAGE)
 
         binding.tvJudulArtikel.text = title
-        binding.tvIsiArtikel.text = content_desc
+        binding.tvIsiArtikel.text = contentDesc
         Glide.with(this)
-            .load(image_article)
+            .load(imageArticle)
             .error(R.drawable.ic_gambar_artikel1)
             .into(ivArtikel)
 
@@ -88,6 +88,6 @@ class ArticleDetailActivity : AppCompatActivity(){
             }
         }
 
-        adapter = RecentArticleAdapter(data)
+        adapter = RecentArticleAdapter()
     }
 }
