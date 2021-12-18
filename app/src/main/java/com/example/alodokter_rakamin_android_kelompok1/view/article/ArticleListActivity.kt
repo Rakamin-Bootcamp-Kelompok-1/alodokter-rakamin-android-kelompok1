@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
+import androidx.core.view.size
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.alodokter_rakamin_android_kelompok1.adapter.ArticleAdapter
@@ -121,8 +122,13 @@ class ArticleListActivity : AppCompatActivity(), ArticleAdapter.OnLoadMoreListen
                 snackbar.setBackgroundTint(ContextCompat.getColor(this, R.color.error_red))
                 snackbar.show()
                 binding.loading.hide()
-                binding.tvEmpty.show()
-                binding.recyclerView.hide()
+                if(adapter.itemCount > 0){
+                    binding.tvEmpty.hide()
+                    binding.recyclerView.show()
+                } else {
+                    binding.tvEmpty.show()
+                    binding.recyclerView.hide()
+                }
             }
             is ApiResponse.Loading -> {
                 binding.loading.show()

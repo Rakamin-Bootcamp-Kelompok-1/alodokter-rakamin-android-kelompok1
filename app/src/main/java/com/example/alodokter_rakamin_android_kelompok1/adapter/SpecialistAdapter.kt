@@ -13,7 +13,6 @@ import kotlin.collections.ArrayList
 class SpecialistAdapter(var data: ArrayList<Specialist>) :
     RecyclerView.Adapter<SpecialistAdapter.SpecialistViewHolder>() {
 
-    private var category = ""
     lateinit var onClickListener: onClick
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):SpecialistViewHolder {
@@ -35,6 +34,7 @@ class SpecialistAdapter(var data: ArrayList<Specialist>) :
         RecyclerView.ViewHolder(v), View.OnClickListener {
         private var img: ImageView? = null
         private var title: TextView? = null
+        private var category = ""
 
         init {
             img = v.findViewById(R.id.ivSpecialistDoctor)

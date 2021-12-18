@@ -5,11 +5,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.widget.ArrayAdapter
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.example.alodokter_rakamin_android_kelompok1.R
 import com.example.alodokter_rakamin_android_kelompok1.api.ApiResponse
@@ -24,6 +26,7 @@ class RegisterFragment: Fragment() {
 
     private lateinit var viewModel: RegisterViewModel
     private lateinit var binding: FragmentRegisterBinding
+    private lateinit var navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +40,7 @@ class RegisterFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
         viewModel.setRepository(AuthRepository())
-        val navController = findNavController()
+        navController = findNavController()
         val items = resources.getStringArray(R.array.gender)
         val adapter = ArrayAdapter(requireContext(),R.layout.item_gender_register,items)
         binding.edtGender.setAdapter(adapter)
@@ -49,50 +52,62 @@ class RegisterFragment: Fragment() {
         }
         binding.loading.hide()
         binding.btnRegister.setOnClickListener {
-            viewModel.getRegister().observe(viewLifecycleOwner){
-                when(it){
-                    is ApiResponse.Success -> {
-                        binding.loading.hide()
-                        viewModel.getLogin().observe(viewLifecycleOwner) {its->
-                            when(its){
-                                is ApiResponse.Success -> {
-                                    val user = its.data
-                                    val token = user.token as String
-                                    user.let { user.user?.let { userEntity ->
-                                        SharedPreferences(requireContext()).setUser(token, true,
-                                            userEntity.id)
-                                    } }
-                                    binding.loading.hide()
-                                    navController.navigate(R.id.navigation_home)
-                                }
-                                is ApiResponse.Error -> {
-                                    binding.loading.hide()
-                                    val snackBar = Snackbar.make(binding.parentRegisterLayout, its.error, Snackbar.LENGTH_LONG)
-                                    snackBar.setBackgroundTint(ContextCompat.getColor(requireContext(),R.color.error_red))
-                                    snackBar.show()
-                                }
-                                is ApiResponse.Loading -> {
-                                    binding.loading.show()
-                                }
-                            }
-                        }
-                    }
-                    is ApiResponse.Error -> {
-                        binding.loading.hide()
-                        val snackBar = Snackbar.make(binding.parentRegisterLayout, it.error, Snackbar.LENGTH_LONG)
-                        snackBar.setBackgroundTint(ContextCompat.getColor(requireContext(),R.color.error_red))
-                        snackBar.show()
-                    }
-                    is ApiResponse.Loading -> {
-                        binding.loading.show()
-                    }
-                }
-            }
-
+            getData()
             Log.d("TEST","TEST")
         }
         binding.txtNextSignIn.setOnClickListener {
             navController.navigate(R.id.loginFragment)
+        }
+        binding.edtConfirmPassword.setOnEditorActionListener { v, actionId, event ->
+            return@setOnEditorActionListener when(actionId){
+                EditorInfo.IME_ACTION_DONE -> {
+                    getData()
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun getData(){
+        viewModel.getRegister().observe(viewLifecycleOwner){
+            when(it){
+                is ApiResponse.Success -> {
+                    binding.loading.hide()
+                    viewModel.getLogin().observe(viewLifecycleOwner) {its->
+                        when(its){
+                            is ApiResponse.Success -> {
+                                val user = its.data
+                                val token = user.token as String
+                                user.let { user.user?.let { userEntity ->
+                                    SharedPreferences(requireContext()).setUser(token, true,
+                                        userEntity.id)
+                                } }
+                                binding.loading.hide()
+                                navController.navigate(R.id.navigation_home)
+                            }
+                            is ApiResponse.Error -> {
+                                binding.loading.hide()
+                                val snackBar = Snackbar.make(binding.parentRegisterLayout, its.error, Snackbar.LENGTH_LONG)
+                                snackBar.setBackgroundTint(ContextCompat.getColor(requireContext(),R.color.error_red))
+                                snackBar.show()
+                            }
+                            is ApiResponse.Loading -> {
+                                binding.loading.show()
+                            }
+                        }
+                    }
+                }
+                is ApiResponse.Error -> {
+                    binding.loading.hide()
+                    val snackBar = Snackbar.make(binding.parentRegisterLayout, it.error, Snackbar.LENGTH_LONG)
+                    snackBar.setBackgroundTint(ContextCompat.getColor(requireContext(),R.color.error_red))
+                    snackBar.show()
+                }
+                is ApiResponse.Loading -> {
+                    binding.loading.show()
+                }
+            }
         }
     }
 
