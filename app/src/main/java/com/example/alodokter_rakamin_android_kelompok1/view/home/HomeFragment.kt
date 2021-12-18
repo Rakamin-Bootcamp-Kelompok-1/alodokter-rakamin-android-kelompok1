@@ -27,6 +27,7 @@ import com.example.alodokter_rakamin_android_kelompok1.data.repository.ArticleRe
 import com.example.alodokter_rakamin_android_kelompok1.data.repository.UserRepository
 import com.example.alodokter_rakamin_android_kelompok1.data.response.UserResponse
 import com.example.alodokter_rakamin_android_kelompok1.databinding.HomeFragmentBinding
+import com.example.alodokter_rakamin_android_kelompok1.view.article.ArticleDetailActivity
 import com.example.alodokter_rakamin_android_kelompok1.view.article.ArticleListActivity
 import com.example.alodokter_rakamin_android_kelompok1.view.profile.myprofile.MyProfileActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -138,6 +139,23 @@ class HomeFragment : Fragment() {
                     val articles = it.data
                     if (!articles.data.isNullOrEmpty()){
                         data.addAll(articles.data.filterNotNull())
+                        val article = data.first{ value ->
+                            value.main_article
+                        }
+                        data.remove(article)
+                        Glide.with(this)
+                            .load(article.image_data)
+                            .error(R.drawable.ic_gambar_artikel1)
+                            .into(binding.ivFullScreenAd)
+                        binding.tvTitleArticle.text = article.article_title
+                        binding.tvContentDesc.text = article.content_desc
+                        binding.mainlayout.setOnClickListener {
+                            val intent = Intent(requireContext(), ArticleDetailActivity::class.java)
+                            intent.putExtra(ArticleDetailActivity.TITLE, article.article_title )
+                            intent.putExtra(ArticleDetailActivity.CONTENT_DESC, article.content_desc)
+                            intent.putExtra(ArticleDetailActivity.IMAGE, article.image_data)
+                            startActivity(intent)
+                        }
                         binding.rvArtikel.show()
                         adapter.setData(data)
 
@@ -158,7 +176,7 @@ class HomeFragment : Fragment() {
             }
         }
 
-        adapter = HomeArticleAdapter(data)
+        adapter = HomeArticleAdapter()
         binding.btnSeeDoctors.setOnClickListener {
             if(SharedPreferences(requireContext()).getLoggedStatus()){
                 val navView: BottomNavigationView = activity?.findViewById(R.id.nav_view) as BottomNavigationView
@@ -170,6 +188,7 @@ class HomeFragment : Fragment() {
                 navController.navigate(R.id.loginFragment)
             }
         }
+
     }
 
 

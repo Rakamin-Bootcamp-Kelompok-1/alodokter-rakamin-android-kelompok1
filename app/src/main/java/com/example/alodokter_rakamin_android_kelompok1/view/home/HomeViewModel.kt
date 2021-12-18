@@ -12,7 +12,7 @@ class HomeViewModel : ViewModel() {
     private lateinit var repository: ArticleRepository
     private lateinit var userRepository: UserRepository
 
-    fun getAllArticles() = repository.getArticles(1, 5)
+    fun getAllArticles() = repository.getArticles(1, 10)
 
     fun getUser(token: String) = userRepository.getUser(token)
 
