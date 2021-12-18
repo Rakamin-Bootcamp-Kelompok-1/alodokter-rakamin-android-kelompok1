@@ -70,6 +70,10 @@ class MainActivity : AppCompatActivity() {
         when(navController.currentDestination?.id){
             R.id.loginFragment -> navView.selectedItemId = R.id.navigation_home
             R.id.registerFragment -> navController.navigate(R.id.loginFragment)
+            R.id.navigation_home -> {
+                moveTaskToBack(true)
+                finish()
+            }
             else -> super.onBackPressed()
         }
     }

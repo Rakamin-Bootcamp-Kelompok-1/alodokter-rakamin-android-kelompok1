@@ -13,7 +13,8 @@ class SharedPreferences(context: Context)  {
         prefsEditor.commit()
     }
 
-    fun setUser(token: String,isLogin: Boolean){
+    fun setUser(token: String,isLogin: Boolean,id: Int){
+        prefsEditor.putInt(USER_ID,id)
         prefsEditor.putString(USER_TOKEN,token)
         prefsEditor.putBoolean(IS_LOGIN_STATUS,isLogin)
         prefsEditor.commit()
@@ -25,6 +26,8 @@ class SharedPreferences(context: Context)  {
 
     fun getUserToken() : String? = prefs.getString(USER_TOKEN,"")
 
+    fun getUserId() : Int = prefs.getInt(USER_ID,0)
+
     fun setLogout(){
         prefsEditor.clear()
         setFirstTimeLaunch(false)
@@ -35,5 +38,6 @@ class SharedPreferences(context: Context)  {
         private const val IS_FIRST_TIME_LAUNCH = "IsFirstTimeLaunch"
         private const val IS_LOGIN_STATUS = "is_logging_status"
         private const val USER_TOKEN = "user_token"
+        private const val USER_ID = "user_id"
     }
 }
