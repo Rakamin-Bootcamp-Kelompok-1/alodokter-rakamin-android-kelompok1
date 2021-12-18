@@ -184,6 +184,11 @@
     <string name="out_of_5">out of 5</string>
     <string name="space_2">:</string>
     <string name="image_article">Image_Article</string>
+    <string name="gender_patient">Laki-Laki</string>
+    <string name="birthdate_patient">DD/MM/YYYY</string>
+    <string name="yearold_patient">20</string>
+    <string name="blood_patient">O</string>
+    <string name="status_patient">Keluarga</string>
 
 
 </resources>

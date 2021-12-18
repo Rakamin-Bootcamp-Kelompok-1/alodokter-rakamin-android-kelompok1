@@ -3,11 +3,11 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <FrameLayout
         android:id="@+id/mainlayout"
-        android:layout_width="103dp"
-        android:layout_height="125dp"
-        android:layout_margin="@dimen/spacing_10"
+        android:layout_width="200dp"
+        android:layout_height="240dp"
         android:foregroundGravity="bottom"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
@@ -15,55 +15,75 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <ImageView
-            android:id="@+id/ivImageArticle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="8dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/shawn_doctor" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="180dp"
+            android:layout_height="210dp"
+            android:layout_margin="@dimen/spacing_10"
+            app:cardCornerRadius="@dimen/spacing_8"
+            app:cardElevation="@dimen/spacing_8">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:alpha="1"
-            android:background="@color/translucent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvDetailTitle"
-                android:layout_width="match_parent"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:fontFamily="@font/nunito_bold"
-                android:paddingStart="@dimen/spacing_10"
-                android:text="@string/artikel"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/white"
-                android:textIsSelectable="true"
-                android:textSize="@dimen/font_18" />
-
-            <TextView
-                android:id="@+id/tvContentDesc"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_bold"
-                android:paddingStart="@dimen/spacing_10"
-                android:text="Content Description"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/white"
-                android:textIsSelectable="true"
-                android:textSize="@dimen/font_8"
-                android:maxLines="1"
-                android:ellipsize="end"
+                android:orientation="vertical">
 
-                />
+                <TextView
+                    android:id="@+id/tvDetailTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_16"
+                    android:layout_marginEnd="@dimen/spacing_16"
+                    android:maxLines="2"
+                    android:layout_marginTop="@dimen/spacing_16"
+                    android:lineSpacingExtra="2sp"
+                    android:text="@string/judul_artikel1"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_16" />
+
+                <TextView
+                    android:id="@+id/tvContentDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/spacing_16"
+                    android:layout_marginTop="@dimen/spacing_8"
+                    android:layout_marginStart="@dimen/spacing_16"
+                    android:lineSpacingExtra="2sp"
+                    android:maxLines="1"
+                    android:text="@string/isi_artikel1"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="@dimen/font_12" />
 
 
-        </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvImageArticleFullScreen"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="@dimen/spacing_10"
+                    android:layout_marginTop="@dimen/spacing_10"
+                    android:layout_marginEnd="@dimen/spacing_10"
+                    app:cardCornerRadius="@dimen/spacing_10"
+                    app:cardElevation="@dimen/spacing_10"
+                    android:layout_marginBottom="@dimen/spacing_20"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/ivImageArticle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_gambar_artikel1"
+                        android:contentDescription="@string/image_article" />
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
     </FrameLayout>
 
 
