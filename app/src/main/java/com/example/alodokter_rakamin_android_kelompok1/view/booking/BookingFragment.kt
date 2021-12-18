@@ -34,14 +34,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 
-class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
+class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener, SpecialistAdapter.onClick {
 
     private lateinit var viewModel: BookingViewModel
     private lateinit var binding: BookingFragmentBinding
     private lateinit var doctorAdapter : DoctorAdapter
     private lateinit var adapterSpecialist : SpecialistAdapter
     private val data = ArrayList<DoctorEntity>()
-    private val dataSpecialist = ArrayList<SpecialistAdapter>()
+    private var dataSpecialist = ArrayList<Specialist>()
     private lateinit var user: UserResponse
 
     override fun onCreateView(
@@ -58,11 +58,10 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
 
         init()
 
-        binding.rvSpecialist.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
-        binding.rvSpecialist.adapter = adapterSpecialist
-
         specialityData()
-
+        binding.rvSpecialist.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
+        adapterSpecialist.onClickListener = this
+        binding.rvSpecialist.adapter = adapterSpecialist
 
         val navController = findNavController()
 
@@ -180,8 +179,8 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
                 binding.loading.hide()
                 val doctors = it.data
                 viewModel.setPage(doctors.meta)
+                data.clear()
                 if (!doctors.data.isNullOrEmpty()){
-                    data.clear()
                     data.addAll(doctors.data.filterNotNull())
                     binding.rvDoctor.show()
                     binding.tvNotFound.hide()
@@ -206,20 +205,25 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
                 binding.rvDoctor.hide()
             }
         }
+
     }
 
     fun specialityData(){
-        var dataSpecialist = ArrayList<Specialist>()
         dataSpecialist.add(Specialist(R.drawable.ic_dokter_umum,"Dokter Umum"))
         dataSpecialist.add(Specialist(R.drawable.ic_dokter_anak,"Dokter Anak"))
         dataSpecialist.add(Specialist(R.drawable.ic_dokter_paru,"Dokter Paru"))
-        dataSpecialist.add(Specialist(R.drawable.ic_dokter_umum,"Dokter Mata"))
+        dataSpecialist.add(Specialist(R.drawable.ic_dokter_mata,"Dokter Mata"))
 
-        Log.v("215", dataSpecialist.toString())
 
         adapterSpecialist = SpecialistAdapter(dataSpecialist)
+    }
 
+    override fun onClick(category: String) {
 
+        viewModel.getByCategory(category = category).observe(viewLifecycleOwner){
+            doctorAdapter.resetData()
+            getData(it)
+        }
     }
 
 }

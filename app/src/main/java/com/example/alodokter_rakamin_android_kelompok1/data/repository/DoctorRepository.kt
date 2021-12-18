@@ -1,5 +1,6 @@
 package com.example.alodokter_rakamin_android_kelompok1.data.repository
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.alodokter_rakamin_android_kelompok1.api.ApiClient
 import com.example.alodokter_rakamin_android_kelompok1.api.ApiResponse
@@ -109,6 +110,7 @@ class DoctorRepository {
                 response: Response<DataResponse<DoctorEntity>>
             ) {
                 if(response.isSuccessful){
+                    Log.v("1512", response.body().toString())
                     val doctors = response.body()
                     if(doctors != null) {
                         if (doctors.data.isEmpty()) data.value = ApiResponse.Error("Doctors not found")
