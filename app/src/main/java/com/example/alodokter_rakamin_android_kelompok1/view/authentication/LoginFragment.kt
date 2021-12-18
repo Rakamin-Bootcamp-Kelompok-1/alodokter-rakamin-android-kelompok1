@@ -6,10 +6,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.example.alodokter_rakamin_android_kelompok1.R
 import com.example.alodokter_rakamin_android_kelompok1.api.ApiResponse
@@ -23,6 +25,7 @@ class LoginFragment: Fragment() {
 
     private lateinit var viewModel: LoginViewModel
     private lateinit var binding: FragmentLoginBinding
+    private lateinit var navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,7 +39,7 @@ class LoginFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         viewModel.setRepository(AuthRepository())
-        val navController = findNavController()
+        navController = findNavController()
         binding.edtEmail.doAfterTextChanged {
             viewModel.afterTextChangeEmail(it,resources.getString(R.string.not_email_address))
         }
@@ -63,30 +66,7 @@ class LoginFragment: Fragment() {
         }
         binding.loading.hide()
         binding.btnLogin.setOnClickListener {
-            viewModel.getLogin().observe(viewLifecycleOwner){
-                when(it){
-                    is ApiResponse.Success -> {
-                        binding.loading.hide()
-                        val user = it.data
-                        val token = user.token as String
-                        user.let { user.user?.let { userEntity ->
-                            SharedPreferences(requireContext()).setUser(token, true,
-                                userEntity.id)
-                        } }
-                        navController.popBackStack()
-                    }
-                    is ApiResponse.Error -> {
-                        binding.loading.hide()
-                        val snackBar = Snackbar.make(binding.parentLoginLayout, it.error, Snackbar.LENGTH_LONG)
-                        snackBar.setBackgroundTint(ContextCompat.getColor(requireContext(),R.color.error_red))
-                        snackBar.show()
-                    }
-                    is ApiResponse.Loading -> {
-                        binding.loading.show()
-                    }
-                }
-            }
-            Log.d("TEST","TEST")
+            getData()
         }
         binding.forgotPassword.setOnClickListener {
             val intent = Intent(context,ResetPasswordActivity::class.java)
@@ -95,5 +75,42 @@ class LoginFragment: Fragment() {
         binding.txtNextSignUp.setOnClickListener {
             navController.navigate(R.id.registerFragment)
         }
+
+        binding.edtPassword.setOnEditorActionListener { v, actionId, event ->
+            return@setOnEditorActionListener when(actionId){
+                EditorInfo.IME_ACTION_DONE -> {
+                    getData()
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun getData(){
+        viewModel.getLogin().observe(viewLifecycleOwner){
+            when(it){
+                is ApiResponse.Success -> {
+                    binding.loading.hide()
+                    val user = it.data
+                    val token = user.token as String
+                    user.let { user.user?.let { userEntity ->
+                        SharedPreferences(requireContext()).setUser(token, true,
+                            userEntity.id)
+                    } }
+                    navController.popBackStack()
+                }
+                is ApiResponse.Error -> {
+                    binding.loading.hide()
+                    val snackBar = Snackbar.make(binding.parentLoginLayout, it.error, Snackbar.LENGTH_LONG)
+                    snackBar.setBackgroundTint(ContextCompat.getColor(requireContext(),R.color.error_red))
+                    snackBar.show()
+                }
+                is ApiResponse.Loading -> {
+                    binding.loading.show()
+                }
+            }
+        }
+        Log.d("TEST","TEST")
     }
 }

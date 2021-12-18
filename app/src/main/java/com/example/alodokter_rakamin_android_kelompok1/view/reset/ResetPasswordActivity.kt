@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.inputmethod.EditorInfo
 import android.widget.ImageButton
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -28,6 +29,8 @@ class ResetPasswordActivity : AppCompatActivity() {
     private lateinit var toolbar : Toolbar
     private lateinit var back : ImageButton
     private lateinit var viewModel: ResetPasswordViewModel
+    private lateinit var loading: CircularProgressIndicator
+    private lateinit var layout: ConstraintLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,8 +40,8 @@ class ResetPasswordActivity : AppCompatActivity() {
         btnSubmit = findViewById(R.id.btn_submit)
         textInput = findViewById(R.id.text_input)
         textLayout = findViewById(R.id.text_input_field)
-        val loading: CircularProgressIndicator = findViewById(R.id.loading)
-        val layout: ConstraintLayout = findViewById(R.id.parentResetPasswordLayout)
+        loading = findViewById(R.id.loading)
+        layout = findViewById(R.id.parentResetPasswordLayout)
         viewModel = ViewModelProvider(this)[ResetPasswordViewModel::class.java]
         viewModel.setRepository(UserRepository())
         setToolbar()
@@ -73,28 +76,7 @@ class ResetPasswordActivity : AppCompatActivity() {
             }
         }
         btnSubmit.setOnClickListener {
-            viewModel.countDown().start()
-            viewModel.sendEmail().observe(this){
-                when(it){
-                    is ApiResponse.Success -> {
-                        loading.hide()
-                        val jsonObject = it.data
-                        val status = jsonObject.getString("status")
-                        val snackBar = Snackbar.make(layout, status, Snackbar.LENGTH_LONG)
-                        snackBar.setBackgroundTint(ContextCompat.getColor(this,R.color.main_blue))
-                        snackBar.show()
-                    }
-                    is ApiResponse.Error -> {
-                        loading.hide()
-                        val snackBar = Snackbar.make(layout, it.error, Snackbar.LENGTH_LONG)
-                        snackBar.setBackgroundTint(ContextCompat.getColor(this,R.color.error_red))
-                        snackBar.show()
-                    }
-                    is ApiResponse.Loading -> {
-                        loading.show()
-                    }
-                }
-            }
+            getData()
         }
         loading.hide()
         val btnSignUp = findViewById<MaterialButton>(R.id.btn_sign_up)
@@ -102,6 +84,40 @@ class ResetPasswordActivity : AppCompatActivity() {
             val intent = Intent(applicationContext, MainActivity::class.java)
             intent.putExtra(MainActivity.TO_LOGIN,"login")
             startActivity(intent)
+        }
+        textInput.setOnEditorActionListener { v, actionId, event ->
+            return@setOnEditorActionListener when(actionId){
+                EditorInfo.IME_ACTION_DONE -> {
+                    getData()
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun getData(){
+        viewModel.countDown().start()
+        viewModel.sendEmail().observe(this){
+            when(it){
+                is ApiResponse.Success -> {
+                    loading.hide()
+                    val jsonObject = it.data
+                    val status = jsonObject.getString("status")
+                    val snackBar = Snackbar.make(layout, status, Snackbar.LENGTH_LONG)
+                    snackBar.setBackgroundTint(ContextCompat.getColor(this,R.color.main_blue))
+                    snackBar.show()
+                }
+                is ApiResponse.Error -> {
+                    loading.hide()
+                    val snackBar = Snackbar.make(layout, it.error, Snackbar.LENGTH_LONG)
+                    snackBar.setBackgroundTint(ContextCompat.getColor(this,R.color.error_red))
+                    snackBar.show()
+                }
+                is ApiResponse.Loading -> {
+                    loading.show()
+                }
+            }
         }
     }
 

@@ -1,9 +1,8 @@
 package com.example.alodokter_rakamin_android_kelompok1.view.booking.confirm
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearSnapHelper
@@ -20,6 +19,7 @@ import com.example.alodokter_rakamin_android_kelompok1.config.show
 import com.example.alodokter_rakamin_android_kelompok1.data.entity.CalendarEntity
 import com.example.alodokter_rakamin_android_kelompok1.data.repository.PatientRepository
 import com.example.alodokter_rakamin_android_kelompok1.databinding.ActivityConfirmBookingBinding
+import com.example.alodokter_rakamin_android_kelompok1.view.booking.SuccessBookingActivity
 import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
 import java.util.*
@@ -81,6 +81,11 @@ class ConfirmBookingActivity : AppCompatActivity() {
 
         binding.ibBack.setOnClickListener {
             finish()
+        }
+
+        binding.btnConfirm.setOnClickListener {
+            val intent = Intent(this, SuccessBookingActivity::class.java)
+            startActivity(intent)
         }
 
     }

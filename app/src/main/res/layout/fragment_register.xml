@@ -205,6 +205,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/confirm_password"
                     android:inputType="textPassword"
+                    android:imeOptions="actionDone"
                     android:paddingStart="@dimen/padding_10"
                     android:paddingEnd="@dimen/padding_10" />
 

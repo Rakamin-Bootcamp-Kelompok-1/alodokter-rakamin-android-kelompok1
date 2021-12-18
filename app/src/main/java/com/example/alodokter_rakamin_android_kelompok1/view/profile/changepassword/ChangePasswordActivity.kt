@@ -2,6 +2,7 @@ package com.example.alodokter_rakamin_android_kelompok1.view.profile.changepassw
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
@@ -42,37 +43,7 @@ class ChangePasswordActivity : AppCompatActivity()  {
             binding.btSaveEdit.isEnabled = it
         }
         binding.btSaveEdit.setOnClickListener {
-            if(viewModel.checkPassword()){
-                viewModel.editPassword(this).observe(this){
-                    when(it){
-                        is ApiResponse.Success -> {
-                            binding.loading.hide()
-                            val snackBar = Snackbar.make(binding.parent, resources.getString(R.string.success_change_password), Snackbar.LENGTH_LONG)
-                            snackBar.setBackgroundTint(ContextCompat.getColor(this,R.color.error_red))
-                            snackBar.show()
-                            json = it.data
-                            binding.edtNewPassword.setText("")
-                            binding.edtOldPassword.setText("")
-                            binding.edtConfirmPassword.setText("")
-                        }
-                        is ApiResponse.Error -> {
-                            binding.loading.hide()
-                            val snackBar = Snackbar.make(binding.parent, it.error, Snackbar.LENGTH_LONG)
-                            snackBar.setBackgroundTint(ContextCompat.getColor(this,R.color.error_red))
-                            snackBar.show()
-                        }
-                        is ApiResponse.Loading -> {
-                            binding.loading.show()
-                        }
-                    }
-                }
-            }
-            else {
-                binding.loading.hide()
-                val snackBar = Snackbar.make(binding.parent, resources.getString(R.string.different_old_password), Snackbar.LENGTH_LONG)
-                snackBar.setBackgroundTint(ContextCompat.getColor(this,R.color.error_red))
-                snackBar.show()
-            }
+            getData()
         }
         supportActionBar?.hide()
         binding.ibBack.setOnClickListener {
@@ -82,6 +53,49 @@ class ChangePasswordActivity : AppCompatActivity()  {
                 startActivity(it)
                 finish()
             }
+        }
+        binding.edtConfirmPassword.setOnEditorActionListener { v, actionId, event ->
+            return@setOnEditorActionListener when(actionId){
+                EditorInfo.IME_ACTION_DONE -> {
+                    getData()
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun getData(){
+        if(viewModel.checkPassword()){
+            viewModel.editPassword(this).observe(this){
+                when(it){
+                    is ApiResponse.Success -> {
+                        binding.loading.hide()
+                        val snackBar = Snackbar.make(binding.parent, resources.getString(R.string.success_change_password), Snackbar.LENGTH_LONG)
+                        snackBar.setBackgroundTint(ContextCompat.getColor(this,R.color.main_blue))
+                        snackBar.show()
+                        json = it.data
+                        binding.edtNewPassword.setText("")
+                        binding.edtOldPassword.setText("")
+                        binding.edtConfirmPassword.setText("")
+                    }
+                    is ApiResponse.Error -> {
+                        binding.loading.hide()
+                        val snackBar = Snackbar.make(binding.parent, it.error, Snackbar.LENGTH_LONG)
+                        snackBar.setBackgroundTint(ContextCompat.getColor(this,R.color.error_red))
+                        snackBar.show()
+                    }
+                    is ApiResponse.Loading -> {
+                        binding.loading.show()
+                    }
+                }
+            }
+        }
+        else {
+            binding.loading.hide()
+            val snackBar = Snackbar.make(binding.parent, resources.getString(R.string.different_old_password), Snackbar.LENGTH_LONG)
+            snackBar.setBackgroundTint(ContextCompat.getColor(this,R.color.error_red))
+            snackBar.show()
         }
     }
 

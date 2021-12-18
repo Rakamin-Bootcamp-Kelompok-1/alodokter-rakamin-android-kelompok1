@@ -196,8 +196,13 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener, SpecialistA
                 snackbar.setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.error_red))
                 snackbar.show()
                 binding.loading.hide()
-                binding.tvNotFound.show()
-                binding.rvDoctor.hide()
+                if(doctorAdapter.itemCount > 0){
+                    binding.tvNotFound.hide()
+                    binding.rvDoctor.show()
+                } else {
+                    binding.tvNotFound.show()
+                    binding.rvDoctor.hide()
+                }
             }
             is ApiResponse.Loading -> {
                 binding.loading.show()
@@ -208,7 +213,7 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener, SpecialistA
 
     }
 
-    fun specialityData(){
+    private fun specialityData(){
         dataSpecialist.add(Specialist(R.drawable.ic_dokter_umum,"Dokter Umum"))
         dataSpecialist.add(Specialist(R.drawable.ic_dokter_anak,"Dokter Anak"))
         dataSpecialist.add(Specialist(R.drawable.ic_dokter_paru,"Dokter Paru"))
