@@ -49,4 +49,6 @@ class BookingViewModel : ViewModel() {
 
     fun searchArticles(page:Int = 1, perPage: Int = 10,query:String) = repository.searchDoctorsTitle(page,perPage,query)
 
+    fun getByCategory(page: Int = 1, perPage: Int = 10, category: String) = repository.searchDoctorsBySpeciality(page,perPage,category)
+
 }

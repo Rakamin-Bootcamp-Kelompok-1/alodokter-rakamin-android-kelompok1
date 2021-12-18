@@ -12,10 +12,13 @@ import android.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.alodokter_rakamin_android_kelompok1.R
 import com.example.alodokter_rakamin_android_kelompok1.adapter.DoctorAdapter
+import com.example.alodokter_rakamin_android_kelompok1.adapter.Specialist
+import com.example.alodokter_rakamin_android_kelompok1.adapter.SpecialistAdapter
 import com.example.alodokter_rakamin_android_kelompok1.api.ApiResponse
 import com.example.alodokter_rakamin_android_kelompok1.config.SharedPreferences
 import com.example.alodokter_rakamin_android_kelompok1.config.hide
@@ -31,12 +34,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 
-class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
+class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener, SpecialistAdapter.onClick {
 
     private lateinit var viewModel: BookingViewModel
     private lateinit var binding: BookingFragmentBinding
     private lateinit var doctorAdapter : DoctorAdapter
+    private lateinit var adapterSpecialist : SpecialistAdapter
     private val data = ArrayList<DoctorEntity>()
+    private var dataSpecialist = ArrayList<Specialist>()
     private lateinit var user: UserResponse
 
     override fun onCreateView(
@@ -52,11 +57,11 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
         viewModel = ViewModelProvider(this)[BookingViewModel::class.java]
 
         init()
-        // Adapter for Doctor
 
-
-        // Adapter for Speciality
-
+        specialityData()
+        binding.rvSpecialist.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
+        adapterSpecialist.onClickListener = this
+        binding.rvSpecialist.adapter = adapterSpecialist
 
         val navController = findNavController()
 
@@ -102,6 +107,7 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
     }
 
     private fun init(){
+        val navController = findNavController()
         val token = SharedPreferences(requireContext()).getUserToken()
         viewModel.setRepository(DoctorRepository())
         viewModel.setUserRepository(UserRepository())
@@ -130,6 +136,18 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
                         }
                     }
                     binding.toolbarProfile.tvName.text = user.user?.full_name
+                    binding.toolbarProfile.ivProfile.setOnClickListener {
+                        if(SharedPreferences(requireContext()).getLoggedStatus()){
+                            val intent = Intent(requireContext(), MyProfileActivity::class.java)
+                            val jsonString = Gson().toJson(user)
+                            intent.putExtra(MyProfileActivity.MY_PROFILE_ACTIVITY,jsonString)
+                            startActivity(intent)
+                        } else {
+                            val navView: BottomNavigationView = activity?.findViewById(R.id.nav_view) as BottomNavigationView
+                            navView.visibility = View.GONE
+                            navController.navigate(R.id.loginFragment)
+                        }
+                    }
                 }
                 is ApiResponse.Error -> {
                     val snackBar = Snackbar.make(binding.parentBookingLayout, it.error, Snackbar.LENGTH_LONG)
@@ -161,13 +179,15 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
                 binding.loading.hide()
                 val doctors = it.data
                 viewModel.setPage(doctors.meta)
+                data.clear()
                 if (!doctors.data.isNullOrEmpty()){
-                    data.clear()
                     data.addAll(doctors.data.filterNotNull())
                     binding.rvDoctor.show()
+                    binding.tvNotFound.hide()
                     doctorAdapter.setLoad()
                     doctorAdapter.setData(data)
                 } else {
+                    binding.tvNotFound.show()
                     binding.rvDoctor.hide()
                 }
             }
@@ -176,10 +196,33 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
                 snackbar.setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.error_red))
                 snackbar.show()
                 binding.loading.hide()
+                binding.tvNotFound.show()
+                binding.rvDoctor.hide()
             }
             is ApiResponse.Loading -> {
                 binding.loading.show()
+                binding.tvNotFound.hide()
+                binding.rvDoctor.hide()
             }
+        }
+
+    }
+
+    fun specialityData(){
+        dataSpecialist.add(Specialist(R.drawable.ic_dokter_umum,"Dokter Umum"))
+        dataSpecialist.add(Specialist(R.drawable.ic_dokter_anak,"Dokter Anak"))
+        dataSpecialist.add(Specialist(R.drawable.ic_dokter_paru,"Dokter Paru"))
+        dataSpecialist.add(Specialist(R.drawable.ic_dokter_mata,"Dokter Mata"))
+
+
+        adapterSpecialist = SpecialistAdapter(dataSpecialist)
+    }
+
+    override fun onClick(category: String) {
+
+        viewModel.getByCategory(category = category).observe(viewLifecycleOwner){
+            doctorAdapter.resetData()
+            getData(it)
         }
     }
 

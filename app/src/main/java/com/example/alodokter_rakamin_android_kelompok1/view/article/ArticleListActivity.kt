@@ -121,9 +121,13 @@ class ArticleListActivity : AppCompatActivity(), ArticleAdapter.OnLoadMoreListen
                 snackbar.setBackgroundTint(ContextCompat.getColor(this, R.color.error_red))
                 snackbar.show()
                 binding.loading.hide()
+                binding.tvEmpty.show()
+                binding.recyclerView.hide()
             }
             is ApiResponse.Loading -> {
                 binding.loading.show()
+                binding.recyclerView.hide()
+                binding.tvEmpty.hide()
             }
         }
     }
