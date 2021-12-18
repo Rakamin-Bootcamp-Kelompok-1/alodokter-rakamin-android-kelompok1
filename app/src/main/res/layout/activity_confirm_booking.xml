@@ -49,8 +49,8 @@
             android:id="@+id/tvDoctorName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_20"
-            android:layout_marginTop="@dimen/spacing_40"
+            android:layout_marginHorizontal="@dimen/spacing_20"
+            android:layout_marginTop="@dimen/spacing_20"
             android:fontFamily="@font/nunito_regular"
             android:text="@string/name_doctor"
             android:textColor="@color/black"
@@ -505,6 +505,7 @@
 
 
         <Button
+            android:id="@+id/btnConfirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_20"

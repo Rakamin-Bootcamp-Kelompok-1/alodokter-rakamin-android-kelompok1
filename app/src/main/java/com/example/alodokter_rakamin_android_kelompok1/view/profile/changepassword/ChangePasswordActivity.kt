@@ -72,7 +72,7 @@ class ChangePasswordActivity : AppCompatActivity()  {
                     is ApiResponse.Success -> {
                         binding.loading.hide()
                         val snackBar = Snackbar.make(binding.parent, resources.getString(R.string.success_change_password), Snackbar.LENGTH_LONG)
-                        snackBar.setBackgroundTint(ContextCompat.getColor(this,R.color.error_red))
+                        snackBar.setBackgroundTint(ContextCompat.getColor(this,R.color.main_blue))
                         snackBar.show()
                         json = it.data
                         binding.edtNewPassword.setText("")

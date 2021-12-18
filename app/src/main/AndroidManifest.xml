@@ -60,6 +60,9 @@
             android:name=".view.booking.details.DetailsDoctorActivity"
             android:exported="true" />
         <activity
+            android:name=".view.booking.SuccessBookingActivity"
+            android:exported="true" />
+        <activity
             android:name=".view.article.ArticleDetailActivity"
             android:exported="true"
             android:parentActivityName=".view.article.ArticleListActivity" />
