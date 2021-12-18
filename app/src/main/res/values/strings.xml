@@ -8,7 +8,7 @@
     <string name="splash_desc">Your Personal Health Care</string>
 
     <!-- login text -->
-    <string name="title_login">Welcome</string>
+    <string name="title_login">Welcome to \nMedikuy</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
     <string name="sign_in">Sign In</string>

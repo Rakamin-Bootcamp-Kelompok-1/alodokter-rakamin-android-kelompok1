@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object{
         const val TO_LOGIN = "go_login"
+        const val NOT_LOGIN = "not_login"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +37,10 @@ class MainActivity : AppCompatActivity() {
                             navView.visibility = View.GONE
                             type = "not_login"
                             navController.navigate(R.id.loginFragment)
+                        }
+                        "history" -> {
+                            navView.visibility = View.VISIBLE
+                            navController.navigate(R.id.navigation_history)
                         }
                         else -> {
                             navView.visibility = View.VISIBLE

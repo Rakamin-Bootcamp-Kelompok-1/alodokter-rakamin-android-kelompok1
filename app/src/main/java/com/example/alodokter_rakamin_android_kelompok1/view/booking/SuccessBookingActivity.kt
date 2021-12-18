@@ -14,14 +14,16 @@ class SuccessBookingActivity : AppCompatActivity() {
 
         btnHistory.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra(MainActivity.TO_LOGIN, "login")
+            intent.putExtra(MainActivity.TO_LOGIN, "history")
             startActivity(intent)
+            finish()
         }
 
         btnHome.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra(MainActivity.TO_LOGIN, "login")
+            intent.putExtra(MainActivity.NOT_LOGIN, "login")
             startActivity(intent)
+            finish()
         }
     }
 }
