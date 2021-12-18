@@ -76,6 +76,11 @@ dependencies {
     //bcrypt
     implementation group: 'at.favre.lib', name: 'bcrypt', version: '0.9.0'
 
+    // circle & image rounded
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    //Ken Burns view - for ken burns effect
+    implementation 'com.flaviofaria:kenburnsview:1.0.7'
 
 }

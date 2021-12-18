@@ -53,6 +53,10 @@ class DetailsDoctorActivity : AppCompatActivity() {
         binding.btnBooking.setOnClickListener {
             init(name, image_url, rating, location, speciality,price)
         }
+
+        binding.ibBack.setOnClickListener {
+            finish()
+        }
     }
 
 

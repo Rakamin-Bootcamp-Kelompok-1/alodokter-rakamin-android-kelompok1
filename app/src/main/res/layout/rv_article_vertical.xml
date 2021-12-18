@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginVertical="18dp"
+    android:layout_marginVertical="@dimen/spacing_16"
     android:layout_marginStart="@dimen/spacing_10"
     android:layout_marginEnd="@dimen/spacing_10"
+    app:cardCornerRadius="@dimen/spacing_10"
     android:background="@drawable/shape_article">
 
     <LinearLayout
@@ -42,21 +43,21 @@
                 android:fontFamily="@font/nunito_bold"
                 android:lineSpacingExtra="6sp"
                 android:text="@string/judul_artikel1"
-                android:textColor="#161616"
-                android:textSize="18sp" />
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_18" />
 
             <TextView
                 android:id="@+id/tvIsiShortArtikel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/spacing_8"
                 android:fontFamily="@font/poppins_regular"
-                android:lineSpacingExtra="7sp"
-                android:text="@string/judul_artikel1"
-                android:textColor="#4f4f4f"
-                android:maxLines="20"
+                android:lineSpacingExtra="@dimen/spacing_8"
+                android:text="@string/isi_artikel1"
+                android:maxLines="2"
+                android:textColor="@color/gray_dark"
                 android:layout_marginBottom="@dimen/spacing_10"
-                android:textSize="13sp" />
+                android:textSize="@dimen/font_12" />
 
         </LinearLayout>
 

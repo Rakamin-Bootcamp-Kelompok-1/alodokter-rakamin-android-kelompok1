@@ -8,26 +8,26 @@
 
     <ImageButton
         android:id="@+id/btnBack"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_20"
+        android:contentDescription="@string/img_arrow_back"
         android:src="@drawable/ic_action_back"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="@dimen/spacing_20"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvChangePatient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/btnBack"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/ganti_pasien"
-        android:fontFamily="@font/nunito_bold"
-        android:textColor="@color/black"
         android:layout_margin="@dimen/spacing_30"
+        android:fontFamily="@font/nunito_bold"
+        android:text="@string/ganti_pasien"
+        android:textColor="@color/black"
         android:textSize="@dimen/font_18"
-        />
+        app:layout_constraintStart_toEndOf="@+id/btnBack"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPatient"
@@ -44,14 +44,11 @@
         android:id="@+id/fabAddPatient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_margin="@dimen/spacing_20"
         android:backgroundTint="@color/main_blue"
+        android:contentDescription="@string/btn_add_pasien"
         android:src="@drawable/ic_plus"
-
-
-
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

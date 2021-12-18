@@ -58,20 +58,7 @@ class HomeFragment : Fragment() {
         init()
         binding.rvArtikel.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
         binding.rvArtikel.adapter = adapter
-        navController = findNavController()
 
-        binding.toolbarProfile.ivProfile.setOnClickListener {
-            if(SharedPreferences(requireContext()).getLoggedStatus()){
-                val intent = Intent(requireContext(), MyProfileActivity::class.java)
-                val jsonString = Gson().toJson(user)
-                intent.putExtra(MyProfileActivity.MY_PROFILE_ACTIVITY,jsonString)
-                startActivity(intent)
-            } else {
-                val navView: BottomNavigationView = activity?.findViewById(R.id.nav_view) as BottomNavigationView
-                navView.visibility = View.GONE
-                navController.navigate(R.id.loginFragment)
-            }
-        }
         binding.tvAllArticles.setOnClickListener {
             val intent = Intent(context, ArticleListActivity::class.java)
             startActivity(intent)
@@ -94,12 +81,14 @@ class HomeFragment : Fragment() {
     }
 
     private fun init(){
+        navController = findNavController()
         val token = SharedPreferences(requireContext()).getUserToken()
         viewModel.setRepository(ArticleRepository())
         viewModel.setUserRepository(UserRepository())
         viewModel.getUser(token as String).observe(viewLifecycleOwner){
             when(it){
                 is ApiResponse.Success -> {
+
                     binding.loading.hide()
                     user = it.data
                     Log.d("1422",user.toString())
@@ -119,6 +108,18 @@ class HomeFragment : Fragment() {
                         }
                     }
                     binding.toolbarProfile.tvName.text = user.user?.full_name
+                    binding.toolbarProfile.ivProfile.setOnClickListener {
+                        if(SharedPreferences(requireContext()).getLoggedStatus()){
+                            val intent = Intent(requireContext(), MyProfileActivity::class.java)
+                            val jsonString = Gson().toJson(user)
+                            intent.putExtra(MyProfileActivity.MY_PROFILE_ACTIVITY,jsonString)
+                            startActivity(intent)
+                        } else {
+                            val navView: BottomNavigationView = activity?.findViewById(R.id.nav_view) as BottomNavigationView
+                            navView.visibility = View.GONE
+                            navController.navigate(R.id.loginFragment)
+                        }
+                    }
                 }
                 is ApiResponse.Error -> {
                     val snackBar = Snackbar.make(binding.parentHomeLayout, it.error, Snackbar.LENGTH_LONG)

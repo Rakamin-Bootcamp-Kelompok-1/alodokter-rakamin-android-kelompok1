@@ -11,10 +11,10 @@
         android:id="@+id/Toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/white">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -33,62 +33,65 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/my_profile"
-        android:textSize="18sp"
         android:textColor="@color/black"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/Toolbar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/Toolbar"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvProfil"
         android:layout_width="match_parent"
         android:layout_height="121dp"
-        app:layout_constraintTop_toBottomOf="@id/Toolbar"
-        app:layout_constraintStart_toStartOf="parent"
+        android:elevation="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:elevation="8dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Toolbar">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <ImageView
                 android:id="@+id/ivProfilePhoto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_profile_picture"
                 android:layout_marginStart="35dp"
+                android:src="@drawable/ic_profile_picture"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/tvProfileName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/profil1"
-                app:layout_constraintStart_toEndOf="@id/ivProfilePhoto"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="18dp"
                 android:layout_marginStart="14dp"
-                android:textSize="15sp"/>
+                android:layout_marginBottom="18dp"
+                android:text="@string/profil1"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivProfilePhoto"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginBottom="12dp"
                 android:text="@string/nohp_profil1"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/ivProfilePhoto"
-                app:layout_constraintTop_toTopOf="@id/tvProfileName"
-                android:layout_marginStart="14dp"
-                android:layout_marginBottom="12dp"
-                />
+                app:layout_constraintTop_toTopOf="@id/tvProfileName" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
@@ -97,56 +100,57 @@
         android:id="@+id/cvAccount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/cvProfil"
         android:layout_marginStart="17dp"
-        android:layout_marginEnd="17dp"
         android:layout_marginTop="13dp"
+        android:layout_marginEnd="17dp"
+        android:elevation="10dp"
         app:cardCornerRadius="6dp"
-        android:elevation="10dp">
+        app:layout_constraintTop_toBottomOf="@id/cvProfil">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/shape_fillable_form">
+
             <TextView
                 android:id="@+id/tvAccount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="7dp"
                 android:text="@string/account"
                 android:textSize="15sp"
-                android:padding="7dp"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/btEditProfile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_profil_icon"
-                android:drawableEnd="@drawable/ic_point_right"
-                android:text="@string/edit_profile"
-                android:textAlignment="textStart"
                 android:background="@color/white"
+                android:text="@string/edit_profile"
+                android:layout_marginTop="@dimen/spacing_10"
                 android:textAllCaps="false"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvAccount"
                 android:textSize="21sp"
-                android:paddingVertical="4dp"/>
+                app:drawableEndCompat="@drawable/ic_point_right"
+                app:drawableStartCompat="@drawable/ic_profil_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAccount" />
 
             <Button
                 android:id="@+id/btChangePassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:drawableStart="@drawable/ic_password_icon"
                 android:drawableEnd="@drawable/ic_point_right"
+                android:paddingVertical="4dp"
                 android:text="@string/change_password"
                 android:textAlignment="textStart"
-                android:background="@color/white"
                 android:textAllCaps="false"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btEditProfile"
                 android:textSize="21sp"
-                android:paddingVertical="4dp"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btEditProfile" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -156,57 +160,59 @@
         android:id="@+id/cvMedikuyApp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/cvAccount"
         android:layout_marginStart="17dp"
-        android:layout_marginEnd="17dp"
         android:layout_marginTop="13dp"
+        android:layout_marginEnd="17dp"
+        android:elevation="10dp"
         app:cardCornerRadius="6dp"
-        android:elevation="10dp">
+        app:layout_constraintTop_toBottomOf="@id/cvAccount">
+
         <androidx.constraintlayout.widget.ConstraintLayout
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/shape_fillable_form">
+
             <TextView
                 android:id="@+id/tvMediKuy_App"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="7dp"
                 android:text="@string/medikuy_app"
                 android:textSize="15sp"
-                android:padding="7dp"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/btAboutUs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:drawableStart="@drawable/ic_about_us_icon"
                 android:drawableEnd="@drawable/ic_point_right"
+                android:paddingVertical="4dp"
                 android:text="@string/about_us"
                 android:textAlignment="textStart"
-                android:background="@color/white"
                 android:textAllCaps="false"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvMediKuy_App"
                 android:textSize="21sp"
-                android:paddingVertical="4dp"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvMediKuy_App" />
 
             <Button
                 android:id="@+id/btContactUs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:drawableStart="@drawable/ic_contact_us_icon"
                 android:drawableEnd="@drawable/ic_point_right"
+                android:paddingVertical="4dp"
                 android:text="@string/contact_us"
                 android:textAlignment="textStart"
-                android:background="@color/white"
                 android:textAllCaps="false"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btAboutUs"
                 android:textSize="21sp"
-                android:paddingVertical="4dp"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btAboutUs" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -215,23 +221,20 @@
         android:id="@+id/btSignOut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableRight="@drawable/ic_sign_out"
-        android:text="@string/sign_out"
-        android:textAlignment="textStart"
-        android:background="@drawable/shape_fillable_form"
-        android:textAllCaps="false"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cvMedikuyApp"
-        android:textSize="21sp"
-        android:paddingVertical="4dp"
-        android:elevation="10dp"
         android:layout_marginHorizontal="17dp"
         android:layout_marginTop="30dp"
-        android:paddingStart="10dp"/>
-
-
-
+        android:background="@drawable/shape_fillable_form"
+        android:drawableRight="@drawable/ic_sign_out"
+        android:elevation="10dp"
+        android:paddingVertical="4dp"
+        android:paddingStart="10dp"
+        android:text="@string/sign_out"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvMedikuyApp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
