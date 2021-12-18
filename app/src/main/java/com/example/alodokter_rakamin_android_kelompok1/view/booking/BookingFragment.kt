@@ -12,10 +12,13 @@ import android.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.alodokter_rakamin_android_kelompok1.R
 import com.example.alodokter_rakamin_android_kelompok1.adapter.DoctorAdapter
+import com.example.alodokter_rakamin_android_kelompok1.adapter.Specialist
+import com.example.alodokter_rakamin_android_kelompok1.adapter.SpecialistAdapter
 import com.example.alodokter_rakamin_android_kelompok1.api.ApiResponse
 import com.example.alodokter_rakamin_android_kelompok1.config.SharedPreferences
 import com.example.alodokter_rakamin_android_kelompok1.config.hide
@@ -36,7 +39,9 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
     private lateinit var viewModel: BookingViewModel
     private lateinit var binding: BookingFragmentBinding
     private lateinit var doctorAdapter : DoctorAdapter
+    private lateinit var adapterSpecialist : SpecialistAdapter
     private val data = ArrayList<DoctorEntity>()
+    private val dataSpecialist = ArrayList<SpecialistAdapter>()
     private lateinit var user: UserResponse
 
     override fun onCreateView(
@@ -52,10 +57,11 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
         viewModel = ViewModelProvider(this)[BookingViewModel::class.java]
 
         init()
-        // Adapter for Doctor
 
+        binding.rvSpecialist.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
+        binding.rvSpecialist.adapter = adapterSpecialist
 
-        // Adapter for Speciality
+        specialityData()
 
 
         val navController = findNavController()
@@ -181,6 +187,20 @@ class BookingFragment : Fragment(),DoctorAdapter.OnLoadMoreListener {
                 binding.loading.show()
             }
         }
+    }
+
+    fun specialityData(){
+        var dataSpecialist = ArrayList<Specialist>()
+        dataSpecialist.add(Specialist(R.drawable.ic_dokter_umum,"Dokter Umum"))
+        dataSpecialist.add(Specialist(R.drawable.ic_dokter_anak,"Dokter Anak"))
+        dataSpecialist.add(Specialist(R.drawable.ic_dokter_paru,"Dokter Paru"))
+        dataSpecialist.add(Specialist(R.drawable.ic_dokter_umum,"Dokter Mata"))
+
+        Log.v("215", dataSpecialist.toString())
+
+        adapterSpecialist = SpecialistAdapter(dataSpecialist)
+
+
     }
 
 }
