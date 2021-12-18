@@ -69,7 +69,10 @@ class LoginFragment: Fragment() {
                         binding.loading.hide()
                         val user = it.data
                         val token = user.token as String
-                        user.let { SharedPreferences(requireContext()).setUser(token, true) }
+                        user.let { user.user?.let { userEntity ->
+                            SharedPreferences(requireContext()).setUser(token, true,
+                                userEntity.id)
+                        } }
                         navController.popBackStack()
                     }
                     is ApiResponse.Error -> {

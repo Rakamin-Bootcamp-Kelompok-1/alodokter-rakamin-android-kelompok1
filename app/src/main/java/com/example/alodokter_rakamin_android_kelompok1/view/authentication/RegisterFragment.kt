@@ -53,10 +53,29 @@ class RegisterFragment: Fragment() {
                 when(it){
                     is ApiResponse.Success -> {
                         binding.loading.hide()
-                        val user = it.data
-                        val token = user.token as String
-                        user.let { SharedPreferences(requireContext()).setUser(token, true) }
-                        navController.navigate(R.id.navigation_home)
+                        viewModel.getLogin().observe(viewLifecycleOwner) {its->
+                            when(its){
+                                is ApiResponse.Success -> {
+                                    val user = its.data
+                                    val token = user.token as String
+                                    user.let { user.user?.let { userEntity ->
+                                        SharedPreferences(requireContext()).setUser(token, true,
+                                            userEntity.id)
+                                    } }
+                                    binding.loading.hide()
+                                    navController.navigate(R.id.navigation_home)
+                                }
+                                is ApiResponse.Error -> {
+                                    binding.loading.hide()
+                                    val snackBar = Snackbar.make(binding.parentRegisterLayout, its.error, Snackbar.LENGTH_LONG)
+                                    snackBar.setBackgroundTint(ContextCompat.getColor(requireContext(),R.color.error_red))
+                                    snackBar.show()
+                                }
+                                is ApiResponse.Loading -> {
+                                    binding.loading.show()
+                                }
+                            }
+                        }
                     }
                     is ApiResponse.Error -> {
                         binding.loading.hide()
