@@ -14,8 +14,10 @@ import com.example.alodokter_rakamin_android_kelompok1.R
 import com.example.alodokter_rakamin_android_kelompok1.data.entity.ArticleEntity
 import com.example.alodokter_rakamin_android_kelompok1.view.article.ArticleDetailActivity
 
-class HomeArticleAdapter (private val data: ArrayList<ArticleEntity>):
+class HomeArticleAdapter ():
     RecyclerView.Adapter<HomeArticleAdapter.HomeArticleViewHolder>() {
+
+    private val data: ArrayList<ArticleEntity> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = HomeArticleViewHolder (
         LayoutInflater.from(parent.context).inflate(R.layout.item_home_article,
@@ -26,7 +28,6 @@ class HomeArticleAdapter (private val data: ArrayList<ArticleEntity>):
 
     override fun onBindViewHolder(holder: HomeArticleViewHolder, position: Int) {
         holder.bind(data[position])
-//        holder.view.setOnClickListener { listener.onClick( result ) }
     }
 
     fun setData(value: ArrayList<ArticleEntity>){
@@ -45,6 +46,7 @@ class HomeArticleAdapter (private val data: ArrayList<ArticleEntity>):
             img = v.findViewById(R.id.ivImageArticle)
             title = v.findViewById(R.id.tvDetailTitle)
             isi = v.findViewById(R.id.tvContentDesc)
+            v.setOnClickListener(this)
         }
 
         fun bind(data: ArticleEntity){
