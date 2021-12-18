@@ -10,9 +10,9 @@ import kotlinx.android.synthetic.main.onboard_page.view.*
 
 class OnBoardingActivity : AppCompatActivity(), OnBoardPager.OnBoardListener {
     private val onBoardPages = listOf(
-        OnBoardData( R.string.title_onboardfirst_1, R.string.title_onboardfirst_2, R.drawable.ic_onboard_1),
-        OnBoardData(R.string.title_onboardsecond_1, R.string.title_onboardsecond_2, R.drawable.ic_onboard_2),
-        OnBoardData(R.string.title_onboardthird_1, R.string.title_onboardthird_1, R.drawable.ic_onboard_3)
+        OnBoardData( R.string.title_onboardfirst_2, R.string.title_onboardfirst_1, R.drawable.ic_onboard_1),
+        OnBoardData(R.string.title_onboardsecond_2, R.string.title_onboardsecond_1, R.drawable.ic_onboard_2),
+        OnBoardData(R.string.title_onboardthird_2, R.string.title_onboardthird_1, R.drawable.ic_onboard_3)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

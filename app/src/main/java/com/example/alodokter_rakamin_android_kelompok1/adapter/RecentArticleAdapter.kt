@@ -1,5 +1,7 @@
 package com.example.alodokter_rakamin_android_kelompok1.adapter
 
+import android.app.Activity
+import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.alodokter_rakamin_android_kelompok1.R
 import com.example.alodokter_rakamin_android_kelompok1.data.entity.ArticleEntity
+import com.example.alodokter_rakamin_android_kelompok1.view.article.ArticleDetailActivity
 
 class RecentArticleAdapter:
     RecyclerView.Adapter<RecentArticleAdapter.RecentArticleViewHolder>() {
@@ -32,14 +35,17 @@ class RecentArticleAdapter:
         notifyDataSetChanged()
     }
 
-    inner class RecentArticleViewHolder(v: View): RecyclerView.ViewHolder(v){
+    inner class RecentArticleViewHolder(v: View): RecyclerView.ViewHolder(v), View.OnClickListener{
+
 
         private var img: ImageView? = null
         private var contentDesc :TextView? = null
+        private lateinit var result: ArticleEntity
 
         init {
             img = v.findViewById(R.id.ivRecentPost)
             contentDesc = v.findViewById(R.id.tvRecentPost)
+            v.setOnClickListener(this)
         }
 
         fun bind(data: ArticleEntity){
@@ -53,8 +59,17 @@ class RecentArticleAdapter:
                 img?.setImageResource(R.drawable.ic_gambar_artikel2)
             }
             contentDesc?.text = data.article_title
+            result = data
         }
 
+        override fun onClick(v: View?) {
+            val intent = Intent(itemView.context, ArticleDetailActivity::class.java)
+            intent.putExtra(ArticleDetailActivity.TITLE, result.article_title )
+            intent.putExtra(ArticleDetailActivity.CONTENT_DESC, result.content_desc)
+            intent.putExtra(ArticleDetailActivity.IMAGE, result.image_data)
+            itemView.context.startActivity(intent)
+            (itemView.context as Activity).finish()
+        }
 
     }
 }
