@@ -2,7 +2,6 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -30,17 +29,19 @@
                     android:src="@drawable/ic_pointleft"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="@string/img_arrow_back" />
 
                 <TextView
                     android:id="@+id/tvAboutUs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/about_us"
-                    android:textSize="21dp"
+                    android:textSize="@dimen/font_20"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:paddingStart="30dp"
+                    android:paddingStart="@dimen/padding_30"
+                    android:paddingEnd="@dimen/padding_30"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/ibBack"
@@ -56,14 +57,15 @@
             android:src="@drawable/ic_about_us_img"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/Toolbar"/>
+            app:layout_constraintTop_toBottomOf="@id/Toolbar"
+            android:contentDescription="@string/img_about" />
 
         <TextView
             android:id="@+id/tvDeskripsiFotoAboutUs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:textSize="8dp"
+            android:textSize="@dimen/font_12"
             android:text="@string/deskripsi_foto_about_us"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -74,7 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/judul_about_us"
-            android:textSize="20dp"
+            android:textSize="@dimen/font_20"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDeskripsiFotoAboutUs"

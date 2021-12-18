@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_20"
-            android:contentDescription="Back Button"
+            android:contentDescription="@string/img_arrow_back"
             android:src="@drawable/ic_action_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +40,8 @@
             android:layout_margin="@dimen/spacing_20"
             android:src="@drawable/shawn_doctor"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ibBack" />
+            app:layout_constraintTop_toBottomOf="@+id/ibBack"
+            android:contentDescription="@string/img_doctor" />
 
         <TextView
             android:id="@+id/tvDoctorName"
@@ -49,7 +50,7 @@
             android:layout_marginStart="@dimen/spacing_20"
             android:layout_marginTop="@dimen/spacing_40"
             android:fontFamily="@font/nunito_regular"
-            android:text="Dr. Shaun Murphy"
+            android:text="@string/name_doctor"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/ivDoctor"
@@ -73,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_10"
             android:layout_marginTop="@dimen/spacing_10"
-            android:text="-"
+            android:text="@string/space"
             app:layout_constraintStart_toEndOf="@+id/tvSpecialist"
             app:layout_constraintTop_toBottomOf="@+id/tvDoctorName" />
 
@@ -84,7 +85,7 @@
             android:layout_marginStart="@dimen/spacing_10"
             android:layout_marginTop="@dimen/spacing_10"
             android:fontFamily="@font/nunito_regular"
-            android:text="Location"
+            android:text="@string/location_doctor"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/strip"
             app:layout_constraintTop_toBottomOf="@+id/tvDoctorName" />
@@ -108,7 +109,7 @@
             android:layout_marginStart="@dimen/spacing_5"
             android:layout_marginTop="@dimen/spacing_10"
             android:fontFamily="@font/nunito_medium"
-            android:text="250.000"
+            android:text="@string/price_doctor"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@id/cvRupiah"
             app:layout_constraintTop_toBottomOf="@id/tvSpecialist"
@@ -133,7 +134,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_10"
             android:fontFamily="@font/nunito_medium"
-            android:text="4"
+            android:text="@string/rate_doctor"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@id/cvStar"
             app:layout_constraintTop_toBottomOf="@+id/tvRupiah" />
@@ -144,7 +145,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_10"
             android:fontFamily="@font/nunito_medium"
-            android:text="out of 5"
+            android:text="@string/out_of_5"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/tvRating"
             app:layout_constraintTop_toBottomOf="@+id/tvRupiah"
@@ -166,14 +167,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:fontFamily="@font/nunito_regular"
                 android:text="@string/booking_untuk" />
 
-            <Button
+            <TextView
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textAllCaps="false"
                 android:text="@string/ganti_pasien"
                 android:textSize="@dimen/font_10" />
 
@@ -208,7 +212,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="4.3"
                     android:fontFamily="@font/nunito_medium"
-                    android:text=":" />
+                    android:text="@string/space_2" />
 
                 <TextView
                     android:id="@+id/tvName"
@@ -216,7 +220,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:fontFamily="@font/nunito_medium"
-                    android:text="John doe" />
+                    android:text="@string/pasien_name" />
 
             </LinearLayout>
 

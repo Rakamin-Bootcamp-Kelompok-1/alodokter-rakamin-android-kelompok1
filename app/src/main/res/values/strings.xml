@@ -99,7 +99,7 @@
     <!--profile-->
     <string name="my_profile">My Profile</string>
     <string name="profil1">Russi Hersiano</string>
-    <string name="nohp_profil1">0812-7545-3367</string>
+    <string name="nohp_profil1">0812–7545–3367</string>
     <string name="account">Account</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="change_password">Change Password</string>
@@ -143,7 +143,7 @@
     <string name="hidup_sehat">Hidup Sehat</string>
     <string name="recent_post">Recent Posts</string>
     <string name="see_all">See All</string>
-    <string name="isi_artikel_horizontal_view">Tidak Ada yang Namanya Diabetes Kering atau Diabetes...</string>
+    <string name="isi_artikel_horizontal_view">Tidak Ada yang Namanya Diabetes Kering atau Diabetes…</string>
 
     <string name="judul_artikel1">4 Manfaat Daun Sambiloto untuk Kulit yang Sayang Dilewatkan</string>
     <string name="isi_short_artikel1">Tak hanya baik untuk kesehatan tubuh, manfaat daun sambiloto untuk kesehatan kulit pun begitu beragam. Berbagai kandungan nutrisi di dalamnya dipercaya baik....</string>
@@ -155,11 +155,35 @@
     Daun sambiloto (Andrographis paniculata) adalah salah satu tanaman obat tradisional yang banyak dibudidayakan di berbagai negara Asia, termasuk Indonesia. Daun ini dipercaya dapat mengatasi berbagai masalah kesehatan, seperti gangguan fungsi hati, penyakit jantung, alergi, hingga infeksi.\n\n
     Beberapa studi mengungkapkan bahwa daun sambiloto kaya akan antioksidan, seperti andrographolide, flavonoid, terpenoid, tannin, dan saponin. Selain itu, tanaman ini juga diketahui bersifat antiradang, antikanker, antibakteri, dan antivirus.\n\n
     Dengan beragam nutrisinya tersebut, daun sambiloto diketahui dapat menurunkan risiko terkena masalah kulit. Inilah mengapa Anda bisa memanfaatkan daun sambiloto untuk menjaga kesehatan kulit. \n\n</string>
+
+    <!-- patient -->
     <string name="tambah_patient">Tambah Patient</string>
     <string name="laki_laki">Laki-laki</string>
     <string name="perempuan">Perempuan</string>
     <string name="daftar">Daftar</string>
+    <string name="pasien_name">John doe</string>
+
+    <!-- forgot password -->
     <string name="old_password">Old Password</string>
     <string name="new_password">New Password</string>
+
     <string name="data_not_found">Data Not Found</string>
+
+    <!-- content button & image description -->
+    <string name="img_arrow_back">Image Arrow Back</string>
+    <string name="img_about">Image About Us</string>
+    <string name="btn_add_pasien">Button Add Pasient</string>
+
+    <!-- doctor -->
+    <string name="img_doctor">Image Doctor</string>
+    <string name="name_doctor">Dr. Shaun Murphy</string>
+    <string name="space">-</string>
+    <string name="location_doctor">Location</string>
+    <string name="price_doctor">250.000</string>
+    <string name="rate_doctor">4</string>
+    <string name="out_of_5">out of 5</string>
+    <string name="space_2">:</string>
+    <string name="image_article">Image_Article</string>
+
+
 </resources>

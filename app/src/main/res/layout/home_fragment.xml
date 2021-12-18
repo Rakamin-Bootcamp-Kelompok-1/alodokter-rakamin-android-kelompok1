@@ -8,7 +8,6 @@
     tools:context=".view.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -21,13 +20,13 @@
 
         <SearchView
             android:id="@+id/svArtikel"
-            android:layout_marginHorizontal="@dimen/spacing_20"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:queryHint="Search Article"
-            android:iconifiedByDefault="false"
+            android:layout_marginHorizontal="@dimen/spacing_20"
             android:background="@drawable/ic_search_bg"
+            android:iconifiedByDefault="false"
             android:queryBackground="@android:color/transparent"
+            android:queryHint="Search Article"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar_profile" />
@@ -35,55 +34,88 @@
         <FrameLayout
             android:id="@+id/mainlayout"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_margin="@dimen/spacing_20"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/spacing_15"
             android:foregroundGravity="bottom"
-            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/svArtikel">
 
-            <ImageView
-                android:id="@+id/ivFullScreenAd"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/spacing_8"
-                android:scaleType="fitXY" />
 
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:background="@color/translucent"
-                android:orientation="vertical">
+                android:layout_marginStart="@dimen/spacing_10"
+                android:layout_marginTop="@dimen/spacing_10"
+                android:layout_marginEnd="@dimen/spacing_10"
+                android:layout_marginBottom="@dimen/spacing_20"
+                app:cardCornerRadius="@dimen/spacing_10"
+                app:cardElevation="@dimen/spacing_10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/tvTitleArticle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:fontFamily="@font/nunito_bold"
-                    android:paddingLeft="10dip"
-                    android:text="@string/artikel"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/white"
-                    android:textIsSelectable="true"
-                    android:textSize="@dimen/font_20" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvImageArticleFullScreen"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="@dimen/spacing_10"
+                        android:layout_marginTop="@dimen/spacing_10"
+                        android:layout_marginEnd="@dimen/spacing_10"
+                        app:cardCornerRadius="@dimen/spacing_10"
+                        app:cardElevation="@dimen/spacing_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/tvContentDesc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:fontFamily="@font/nunito_bold"
-                    android:paddingLeft="10dip"
-                    android:text="@string/content_description"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/white"
-                    android:textIsSelectable="true"
-                    android:textSize="8sp" />
-            </LinearLayout>
+                        <ImageView
+                            android:id="@+id/ivFullScreenAd"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_gambar_artikel1"
+                            android:contentDescription="@string/image_article" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/tvTitleArticle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_10"
+                        android:fontFamily="@font/nunito_bold"
+                        android:paddingStart="@dimen/padding_15"
+                        android:paddingEnd="@dimen/padding_15"
+                        android:text="@string/judul_artikel1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_20"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cvImageArticleFullScreen" />
+
+                    <TextView
+                        android:id="@+id/tvContentDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_10"
+                        android:maxLines="1"
+                        android:paddingStart="@dimen/padding_15"
+                        android:paddingEnd="@dimen/padding_15"
+                        android:paddingBottom="@dimen/padding_10"
+                        android:text="@string/isi_artikel1"
+                        android:textSize="@dimen/font_16"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvTitleArticle" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
         </FrameLayout>
 
         <TextView
@@ -132,8 +164,8 @@
             android:layout_margin="@dimen/spacing_20"
             android:elevation="@dimen/spacing_5"
             app:cardCornerRadius="@dimen/spacing_10"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvAllArticles">
 
@@ -163,9 +195,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:textAllCaps="false"
                         android:fontFamily="@font/nunito_bold"
-                        android:text="@string/see_doctor" />
+                        android:text="@string/see_doctor"
+                        android:textAllCaps="false" />
                 </LinearLayout>
 
                 <ImageView
@@ -185,9 +217,9 @@
             android:id="@+id/loading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_20"
             android:layout_marginTop="@dimen/spacing_20"
             android:indeterminate="true"
-            android:layout_margin="@dimen/spacing_20"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvArtikelTerkini" />
