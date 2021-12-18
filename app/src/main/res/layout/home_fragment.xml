@@ -76,9 +76,9 @@
                             android:id="@+id/ivFullScreenAd"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:contentDescription="@string/image_article"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/ic_gambar_artikel1"
-                            android:contentDescription="@string/image_article" />
+                            android:src="@drawable/ic_gambar_artikel1" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -122,9 +122,11 @@
             android:id="@+id/tvArtikelTerkini"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/spacing_20"
+            android:layout_marginStart="@dimen/spacing_25"
+            android:layout_marginEnd="@dimen/spacing_25"
+            android:layout_marginTop="@dimen/spacing_10"
             android:fontFamily="@font/nunito_bold"
-            android:text="Artikel Kesehatan Terkini untuk Anda"
+            android:text="@string/title_notfunction_article"
             android:textColor="@color/black"
             android:textSize="@dimen/font_18"
             app:layout_constraintEnd_toEndOf="parent"
@@ -148,7 +150,9 @@
             android:id="@+id/tvAllArticles"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/spacing_20"
+            android:layout_marginStart="@dimen/spacing_25"
+            android:layout_marginEnd="@dimen/spacing_25"
+            android:layout_marginTop="@dimen/spacing_10"
             android:fontFamily="@font/nunito_bold"
             android:text="@string/lihat_semua_artikel"
             android:textColor="@color/main_blue"
@@ -185,16 +189,17 @@
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nunito_bold"
-                        android:gravity="center"
+                        android:layout_margin="@dimen/spacing_10"
                         android:text="@string/consult_to_doctor_anywhere_anytime"
                         android:textColor="@color/black"
                         android:textSize="@dimen/font_20" />
 
                     <Button
                         android:id="@+id/btnSeeDoctors"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
+                        android:layout_margin="@dimen/spacing_10"
                         android:fontFamily="@font/nunito_bold"
                         android:text="@string/see_doctor"
                         android:textAllCaps="false" />
