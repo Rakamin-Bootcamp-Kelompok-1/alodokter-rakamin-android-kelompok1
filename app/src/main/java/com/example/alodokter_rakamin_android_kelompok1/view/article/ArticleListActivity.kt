@@ -1,8 +1,6 @@
 package com.example.alodokter_rakamin_android_kelompok1.view.article
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
@@ -18,16 +16,18 @@ import com.example.alodokter_rakamin_android_kelompok1.data.repository.ArticleRe
 import com.example.alodokter_rakamin_android_kelompok1.data.response.DataResponse
 import com.example.alodokter_rakamin_android_kelompok1.databinding.ActivityArticelListBinding
 import com.google.android.material.snackbar.Snackbar
-import java.util.*
 import kotlin.collections.ArrayList
 
 class ArticleListActivity : AppCompatActivity(), ArticleAdapter.OnLoadMoreListener{
 
-    lateinit var adapter: ArticleAdapter
+    companion object{
+        const val QUERY_STRING = "query_string"
+    }
+
+    private lateinit var adapter: ArticleAdapter
     private lateinit var viewModel: ArticleViewModel
     private lateinit var binding: ActivityArticelListBinding
     private val data = ArrayList<ArticleEntity>()
-    private val dataSearch = ArrayList<ArticleEntity>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,28 +35,28 @@ class ArticleListActivity : AppCompatActivity(), ArticleAdapter.OnLoadMoreListen
         setContentView(binding.root)
         viewModel = ViewModelProvider(this)[ArticleViewModel::class.java]
 
-
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(searchArticle: String?): Boolean {
                 data.clear()
                 val searchText = searchArticle!!
                 if (searchText.isNotEmpty()){
-                    dataSearch.forEach {
-                        if (it.article_title.contains(searchText)){
-                            data.add(it)
-                        }
+                    viewModel.resetData()
+                    adapter.resetData()
+                    viewModel.searchArticles(query = searchText).observe(this@ArticleListActivity){
+                        getData(it)
                     }
-                    binding.recyclerView.adapter?.notifyDataSetChanged()
-
-                } else {
-                    data.clear()
-                    data.addAll(dataSearch)
-                    binding.recyclerView.adapter?.notifyDataSetChanged()
                 }
                 return false
             }
 
             override fun onQueryTextChange(searchArticle: String?): Boolean {
+                if(searchArticle.isNullOrEmpty()) {
+                    viewModel.resetData()
+                    adapter.resetData()
+                    viewModel.getAllArticles().observe(this@ArticleListActivity) {
+                        getData(it)
+                    }
+                }
                 return false
             }
         })
@@ -67,8 +67,15 @@ class ArticleListActivity : AppCompatActivity(), ArticleAdapter.OnLoadMoreListen
 
     private fun init() {
         viewModel.setRepository(ArticleRepository())
-        viewModel.getAllArticles().observe(this){
-            getData(it)
+        val stringQuery = intent.getStringExtra(QUERY_STRING)
+        if(stringQuery != null){
+            viewModel.searchArticles(query = stringQuery).observe(this){
+                getData(it)
+            }
+        } else {
+            viewModel.getAllArticles().observe(this){
+                getData(it)
+            }
         }
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = ArticleAdapter(binding.recyclerView)
@@ -85,7 +92,6 @@ class ArticleListActivity : AppCompatActivity(), ArticleAdapter.OnLoadMoreListen
     }
 
     override fun onLoadMore() {
-        Log.d("42069","HALOBANG")
         viewModel.loadNewArticles().observe(this){
             getData(it)
         }
@@ -96,13 +102,10 @@ class ArticleListActivity : AppCompatActivity(), ArticleAdapter.OnLoadMoreListen
             is ApiResponse.Success -> {
                 binding.loading.hide()
                 val articles = it.data
-                Log.d("42069", articles.data.count().toString())
-                Log.d("42069", articles.meta.toString())
                 viewModel.setPage(articles.meta)
                 if (!articles.data.isNullOrEmpty()) {
                     data.clear()
                     data.addAll(articles.data.filterNotNull())
-                    Log.d("42069", data.count().toString())
                     binding.tvEmpty.hide()
                     binding.recyclerView.show()
                     adapter.setLoad()

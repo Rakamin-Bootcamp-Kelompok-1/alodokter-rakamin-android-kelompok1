@@ -6,7 +6,7 @@ data class ArticleEntity(
 
     @SerializedName("id") val id : Int,
     @SerializedName("article_category") val article_category : String,
-    @SerializedName("image_data") val image_data : String,
+    @SerializedName("image_data") val image_data : String?,
     @SerializedName("article_title") val article_title : String,
     @SerializedName("content_desc") val content_desc : String,
     @SerializedName("main_article") val main_article : Boolean,

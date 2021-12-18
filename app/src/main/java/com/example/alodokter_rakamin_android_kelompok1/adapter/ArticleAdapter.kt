@@ -1,6 +1,5 @@
 package com.example.alodokter_rakamin_android_kelompok1.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,11 +21,7 @@ class ArticleAdapter (recyclerView: RecyclerView): RecyclerView.Adapter<ArticleV
                     super.onScrolled(recyclerView, dx, dy)
                     val totalItemCount = linearLayoutManager.itemCount
                     val lastVisible = linearLayoutManager.findLastVisibleItemPosition()
-                    Log.d("420699",totalItemCount.toString())
-                    Log.d("420699",lastVisible.toString())
-                    Log.d("420699",loading.toString())
                     if(!loading && totalItemCount - 1 <= lastVisible && lastVisible > data.size - 2){
-                        Log.d("420699",data.size.toString())
                         onLoadMoreListener.onLoadMore()
                         loading = true
                     }
@@ -51,10 +46,7 @@ class ArticleAdapter (recyclerView: RecyclerView): RecyclerView.Adapter<ArticleV
     }
 
     fun setData(value: ArrayList<ArticleEntity>){
-        Log.d("420690",data.size.toString())
         data.addAll(value)
-        Log.d("420690",value.size.toString())
-        Log.d("420690",data.size.toString())
         notifyDataSetChanged()
     }
 

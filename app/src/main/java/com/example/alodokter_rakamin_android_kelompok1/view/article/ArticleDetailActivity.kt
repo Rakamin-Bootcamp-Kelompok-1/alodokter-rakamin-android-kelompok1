@@ -54,6 +54,10 @@ class ArticleDetailActivity : AppCompatActivity(){
         binding.rvRecentPost.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         binding.rvRecentPost.adapter = adapter
 
+        binding.btnSeeAll.setOnClickListener {
+            finish()
+        }
+
         supportActionBar?.hide()
         ibBack.setOnClickListener {
             finish()
@@ -66,7 +70,7 @@ class ArticleDetailActivity : AppCompatActivity(){
             when(it){
                 is ApiResponse.Success -> {
                     val articles = it.data
-                    if (articles != null){
+                    if (!articles.data.isNullOrEmpty()){
                         data.addAll(articles.data.filterNotNull())
                         binding.rvRecentPost.show()
                         adapter.setData(data)

@@ -1,7 +1,5 @@
 package com.example.alodokter_rakamin_android_kelompok1.view.article
 
-import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.alodokter_rakamin_android_kelompok1.api.ApiResponse
@@ -17,8 +15,6 @@ class ArticleViewModel : ViewModel() {
 
     fun getAllArticles(page:Int = 1, perPage: Int = 10) = repository.getArticles(page, perPage)
 
-    fun getAllArticles() = repository.getArticles(1, 60)
-
     fun setRepository(articleRepository: ArticleRepository){
         repository = articleRepository
     }
@@ -28,8 +24,6 @@ class ArticleViewModel : ViewModel() {
     }
 
     fun loadNewArticles() : MutableLiveData<ApiResponse<DataResponse<ArticleEntity>>>{
-        Log.d("420699",page.toString())
-        Log.d("420699",totalPage.toString())
         return if(totalPage > page){
             page++
             getAllArticles(page)
@@ -39,6 +33,13 @@ class ArticleViewModel : ViewModel() {
             data
         }
     }
+
+    fun resetData(){
+        page = 1
+        totalPage = 1
+    }
+
+    fun searchArticles(page:Int = 1, perPage: Int = 10,query:String) = repository.searchArticlesTitle(page,perPage,query)
 
     fun getRecentArticle() = repository.getArticles(1, 3)
 

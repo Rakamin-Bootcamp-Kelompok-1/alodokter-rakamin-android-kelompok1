@@ -66,7 +66,7 @@ interface ApiService {
         @Path("id") id: Int
     ) : Call<ArticleEntity>//mungkin tidak dipakai
 
-    @POST("articles/search")
+    @POST("article/search")
     fun searchArticleTitle(
         @Query("page") page: Int,
         @Query("per_page") perPage: Int,
@@ -91,14 +91,14 @@ interface ApiService {
         @Path("id") id: Int
     ): Call<DoctorEntity>//mungkin tidak dipakai
 
-    @POST("doctor/search")
+    @POST("doctors/search")
     fun searchDoctorsTitle(
         @Query("page") page: Int,
         @Query("per_page") perPage: Int,
         @Body requestBody: RequestBody
     ): Call<DataResponse<DoctorEntity>>
 
-    @POST("doctor/category")
+    @POST("doctors/category")
     fun getDoctorsByCategory(
         @Query("page") page: Int,
         @Query("per_page") perPage: Int,
