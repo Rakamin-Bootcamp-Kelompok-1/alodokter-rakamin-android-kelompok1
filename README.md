@@ -36,15 +36,16 @@
 </details>
 
 ## About The Project
-<span align="center">
- <hr>
- <p>
-    <img align="left" src="images/OnBoard.png" alt="Medikuy Apps SS" width="275" height="500" >
-    <img align="center" src="images/SplashScreen.png" alt="Medikuy Apps SS" width="275" height="500">
-    <img align="right" src="images/Home.png" alt="Medikuy Apps SS" width="275" height="500">
- </p>
- <p align="center">Medikuy Screenshot</p>
-</span>
+<table align="center">
+  <tr>
+    <td align="center" colspan="3">Medikuy Screenshot</td>
+  </tr>
+  <tr>
+    <td><img src="images/OnBoard.png" alt="Medikuy Apps SS" width="275" height="500"></td>
+    <td><img src="images/SplashScreen.png" alt="Medikuy Apps SS" width="275" height="500"></td>
+    <td><img src="images/Home.png" alt="Medikuy Apps SS" width="275" height="500"></td>
+  </tr>
+</table>
 <p align="justify">
   &emsp;&emsp;&emsp;&emsp;Medikuy merupakan portofolio aplikasi yang dibuat untuk menyelesaikan bootcamp Android Developer yang diselenggarakan oleh Rakamin dan Alodokter. 
   Aplikasi ini dapat membaca artikel kesehatan, dan membuat janji dengan dokter(on progress).
