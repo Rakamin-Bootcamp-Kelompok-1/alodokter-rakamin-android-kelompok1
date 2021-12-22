@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
                         }
                         "history" -> {
                             navView.visibility = View.VISIBLE
+                            type = "not_login"
                             navController.navigate(R.id.navigation_history)
                         }
                         else -> {
